@@ -30,9 +30,12 @@ public class TurretController : MonoBehaviour
 		}
 
 		bullet.transform.position = _shootCanon.position;
-		bullet.transform.rotation = _shootCanon.rotation;
 		bullet.gameObject.SetActive(true);
-
+		// Look at the bullet at the cursor, rotation on Z only
+		Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+		diff.Normalize();
+		float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+		bullet.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
 		bullet.Rigidbody2D.AddForce(direction * _speed, _forceMode2D);
 	}
 
