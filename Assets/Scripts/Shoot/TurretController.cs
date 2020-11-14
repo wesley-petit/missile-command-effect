@@ -6,15 +6,17 @@ public class TurretController : MonoBehaviour
 {
 	[SerializeField, Range(0f, 10000f)] private float _speed = 10000f;
 	[SerializeField] private Bullet _canonBall = null;
-	[SerializeField] private Transform _shootCanon = null;
 	[SerializeField] private ForceMode2D _forceMode2D = ForceMode2D.Impulse;
 
 	private Queue<Bullet> _availableProjectile = new Queue<Bullet>();   // Pool system
 
 	/// Shoot a new bullet
 	/// or take a one in the pool system
-	public void Shoot(Vector2 direction)
+	public void Shoot(Transform parent, Vector2 direction)
 	{
+		if (!parent)
+			return;
+
 		Bullet bullet;
 
 		// If a bullet is in the pool System
@@ -25,12 +27,11 @@ public class TurretController : MonoBehaviour
 		// Create a new bullet
 		else
 		{
-			bullet = Instantiate(_canonBall, _shootCanon);
+			bullet = Instantiate(_canonBall);
 			bullet.Turret = this;
 		}
 
-		bullet.transform.position = _shootCanon.position;
-		bullet.transform.rotation = _shootCanon.rotation;
+		bullet.SetParent(parent);
 		bullet.gameObject.SetActive(true);
 
 		bullet.Rigidbody2D.AddForce(direction * _speed, _forceMode2D);

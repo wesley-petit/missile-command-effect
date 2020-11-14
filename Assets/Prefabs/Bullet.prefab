@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb2D: {fileID: 709269621217747504}
   _offScreen: 700
+  _heading: {fileID: 709269621217747532}
 --- !u!1 &709269621456045769
 GameObject:
   m_ObjectHideFlags: 0
