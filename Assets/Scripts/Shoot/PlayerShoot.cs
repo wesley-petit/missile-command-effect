@@ -1,31 +1,19 @@
 ﻿using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
+public class PlayerShoot : CharacterShoot
 {
-	[SerializeField] private TurretController _turret = null;
-	[SerializeField] private Transform[] _shootCanons				// Shoot Canon / Origin of shoot, in the same order as the inputs (left to right)
-		= new Transform[0];
 	[SerializeField] private Transform _cursor = null;
 
 	private InputController _inputs = new InputController();
-	private bool[] _canShoot = new bool[2];							// Fill with inputs
+	private bool[] _canShoot = new bool[2];                         // Fill with inputs
 
+	#region Unity Methods
 	// Verification array
-	private void Start()
+	protected override void Start()
 	{
+		base.Start();
+
 #if UNITY_EDITOR
-		if (_shootCanons.Length <= 0)
-		{
-			Debug.LogError($"Shoot Canon are undefined in {gameObject.name}.");
-			return;
-		}
-
-		if (!_turret)
-		{
-			Debug.LogError($"Turret is undefined in {gameObject.name}.");
-			return;
-		}
-
 		if (_canShoot.Length < _shootCanons.Length)
 		{
 			Debug.LogWarning($"They are more turret than associate Inputs.");
@@ -39,7 +27,9 @@ public class PlayerShoot : MonoBehaviour
 
 	// Use of a rigidbody
 	private void FixedUpdate() => ShootTurret();
+	#endregion
 
+	#region Private Methods
 	private void TakeInputs()
 	{
 		_canShoot[0] = VerifyInput(_canShoot[0], _inputs.LeftShoot);
@@ -50,19 +40,17 @@ public class PlayerShoot : MonoBehaviour
 	/// Else read input
 	private bool VerifyInput(bool inputStock, bool newInput) => inputStock ? inputStock : newInput;
 
-	private void ShootTurret()
+	protected override void ShootTurret()
 	{
 		for (int i = 0; i < _shootCanons.Length; i++)
 		{
 			if (_canShoot.Length <= i) { break; }
 
 			if (_canShoot[i])
-			{
-				Vector2 direction = _cursor.position - _shootCanons[i].transform.position;
-				_turret.Shoot(_shootCanons[i], direction.normalized);
-			}
+				_turret.Shoot(_shootCanons[i], ShootDirection(_cursor, _shootCanons[i]));
 
 			_canShoot[i] = false;
 		}
 	}
+	#endregion
 }

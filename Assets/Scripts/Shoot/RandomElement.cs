@@ -1,0 +1,30 @@
+﻿using UnityEngine;
+
+// Choose a random element in a array
+// Avoid infinite loop and to have the same value twice in a row
+public class RandomElement<T>
+{
+	private const int MAX_RANDOM_ITERATION = 3;                     // Max number to iterate in a list to avoid a infinite loop
+
+	private int _currentIndex = 0;
+
+	public RandomElement(int currentIndex = 0) => _currentIndex = currentIndex;
+
+	public T Choose(T[] elements)
+	{
+		int i;
+		int y = 0;
+
+		do
+		{
+			i = Random.Range(0, elements.Length);
+			y++;
+		}
+		// To obtain a different target that the current and to avoid infinite loop
+		while (i == _currentIndex && y < MAX_RANDOM_ITERATION);
+
+		_currentIndex = i;
+
+		return elements[_currentIndex];
+	}
+}
