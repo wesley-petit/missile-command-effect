@@ -19,12 +19,16 @@ public class Bullet : MonoBehaviour
 		}
 	}
 
-	// Hit
+	// Hit an object
 	private void OnCollisionEnter2D(Collision2D col)
 	{
+		var collidable = col.gameObject.GetComponent<ICollidable>();
+		if (collidable == null) return;
+
+		collidable.Hit();
 	}
 
-	public void InitializeTransform(Transform parent, Quaternion rotationToDirection)
+	#region Private Methods
 	{
 		_heading.parent = parent;
 		_heading.position = parent.position;
@@ -44,4 +48,5 @@ public class Bullet : MonoBehaviour
 		_rb2D.velocity = Vector2.zero;
 		_rb2D.angularVelocity = 0f;
 	}
+	#endregion
 }
