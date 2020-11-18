@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
 
 	public TurretController Turret { get; set; }
 	public Rigidbody2D Rigidbody2D => _rb2D;
-	public Transform Heading => _heading;
 
 	private bool IsOffScreen => _offScreen < transform.position.magnitude;
 
@@ -25,11 +24,11 @@ public class Bullet : MonoBehaviour
 	{
 	}
 
-	public void SetParent(Transform parent)
+	public void InitializeTransform(Transform parent, Quaternion rotationToDirection)
 	{
 		_heading.parent = parent;
 		_heading.position = parent.position;
-		_heading.rotation = parent.rotation;
+		_heading.rotation = rotationToDirection;
 	}
 
 	// OffScreen or Hit

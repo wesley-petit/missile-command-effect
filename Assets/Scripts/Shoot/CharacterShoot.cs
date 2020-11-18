@@ -25,5 +25,4 @@ public abstract class CharacterShoot : MonoBehaviour
 	}
 
 	protected abstract void ShootTurret();
-	protected Vector2 ShootDirection(Transform target, Transform shootCanon) => (target.position - shootCanon.position).normalized;
 }

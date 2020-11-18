@@ -12,7 +12,7 @@ public class TurretController : MonoBehaviour
 
 	/// Shoot a new bullet
 	/// or take a one in the pool system
-	public void Shoot(Transform parent, Vector2 direction)
+	public void Shoot(Transform parent, Vector3 canonPosition, Vector3 targetPosition)
 	{
 		if (!parent)
 			return;
@@ -31,7 +31,10 @@ public class TurretController : MonoBehaviour
 			bullet.Turret = this;
 		}
 
-		bullet.SetParent(parent);
+		// Look at the bullet at the cursor, rotation on Z only
+		Vector3 direction = (targetPosition - canonPosition).normalized;
+		float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+		bullet.InitializeTransform(parent, Quaternion.Euler(0f, 0f, rotZ - 90));
 		bullet.gameObject.SetActive(true);
 
 		bullet.Rigidbody2D.AddForce(direction * _speed, _forceMode2D);

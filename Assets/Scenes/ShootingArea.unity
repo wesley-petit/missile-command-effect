@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b46c747cf81a04b8eb6ead042de902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _childrenName: PlayerShootCanon
+  _childrenName: Turret
 --- !u!1001 &909712365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -621,6 +621,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 909712365}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1055602782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1670275031550361715, guid: aaad371baab75404dafe648b9f1f9e7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1670275032481868011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1055602783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055602782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce2a930aa189194b886877798b6d681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamera: {fileID: 519420031}
 --- !u!1001 &1083699497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -877,6 +896,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 709269621217747533, guid: 099013e79705f9e48b22c6b0c8aa7a74,
         type: 3}
+    - target: {fileID: 7090143678613858644, guid: 6579697aa7a9cb64387bb07276be4d24,
+        type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6579697aa7a9cb64387bb07276be4d24, type: 3}
 --- !u!4 &1444999068 stripped
@@ -982,7 +1006,7 @@ PrefabInstance:
     - target: {fileID: 8402140284423732743, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
       propertyPath: m_Name
-      value: PlayerShootCanon_1
+      value: Turret_1
       objectReference: {fileID: 0}
     - target: {fileID: 8402140284423732742, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
@@ -1039,6 +1063,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8402140284423732741, guid: a9ac71b11f92cf24696b59ddba36a7cc,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerShootCanon_1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ac71b11f92cf24696b59ddba36a7cc, type: 3}
 --- !u!4 &1670918850 stripped
@@ -1057,7 +1086,12 @@ PrefabInstance:
     - target: {fileID: 8402140284423732743, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
       propertyPath: m_Name
-      value: PlayerShootCanon_0
+      value: Turret_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402140284423732743, guid: a9ac71b11f92cf24696b59ddba36a7cc,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret_0
       objectReference: {fileID: 0}
     - target: {fileID: 8402140284423732742, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
@@ -1220,6 +1254,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670275032135131404, guid: aaad371baab75404dafe648b9f1f9e7c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaad371baab75404dafe648b9f1f9e7c, type: 3}
@@ -1543,5 +1582,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7090143678613858644, guid: 6579697aa7a9cb64387bb07276be4d24,
+        type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6579697aa7a9cb64387bb07276be4d24, type: 3}

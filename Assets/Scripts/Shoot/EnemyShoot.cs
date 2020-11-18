@@ -36,6 +36,6 @@ public class EnemyShoot : CharacterShoot
 	{
 		Transform target = _targetRandom.Choose(_targets.ToArray());
 		Transform canon = _canonRandom.Choose(_shootCanons);
-		_turret.Shoot(canon, ShootDirection(target, canon));	
+		_turret.Shoot(canon, canon.position, target.position);	
 	}
 }

@@ -47,7 +47,7 @@ public class PlayerShoot : CharacterShoot
 			if (_canShoot.Length <= i) { break; }
 
 			if (_canShoot[i])
-				_turret.Shoot(_shootCanons[i], ShootDirection(_cursor, _shootCanons[i]));
+				_turret.Shoot(_shootCanons[i], _shootCanons[i].position, _cursor.position);
 
 			_canShoot[i] = false;
 		}
