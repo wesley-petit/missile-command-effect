@@ -3,7 +3,8 @@
 public abstract class CharacterShoot : MonoBehaviour
 {
 	[SerializeField] protected TurretController _turret = null;
-	[SerializeField] protected Transform[] _shootCanons				// Shoot Canon / Shoot Origin, in the same order (left to right) as the inputs
+	[SerializeField]
+	protected Transform[] _shootCanons								// Shoot Canon / Shoot Origin, in the same order (left to right) as the inputs
 		= new Transform[0];
 
 	// Verification Array

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
- 
+
 public class EnemyShoot : CharacterShoot
 {
-	[SerializeField] private List<Transform> _targets				// Target can be turret or building
+	[SerializeField]
+	private List<Transform> _targets								// Target can be turret or building
 		= new List<Transform>();
 
 	private RandomElement<Transform> _targetRandom                  // Choose random Target 
@@ -24,8 +25,8 @@ public class EnemyShoot : CharacterShoot
 		}
 #endif
 	}
- 
-    private void Update()
+
+	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 			ShootTurret();
@@ -36,6 +37,6 @@ public class EnemyShoot : CharacterShoot
 	{
 		Transform target = _targetRandom.Choose(_targets.ToArray());
 		Transform canon = _canonRandom.Choose(_shootCanons);
-		_turret.Shoot(canon, canon.position, target.position);	
+		_turret.Shoot(canon, canon.position, target.position);
 	}
 }

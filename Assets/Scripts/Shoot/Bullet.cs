@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
 	[SerializeField] private Rigidbody2D _rb2D = null;
 	[SerializeField] private float _offScreen = 700;                    // Add to pool in a certain offset
-	[SerializeField] private Transform _heading = null;					// GFX to change rotation
+	[SerializeField] private Transform _heading = null;                 // GFX to change rotation
 
 	public TurretController Turret { get; set; }
 	public Rigidbody2D Rigidbody2D => _rb2D;
@@ -28,13 +28,14 @@ public class Bullet : MonoBehaviour
 		collidable.Hit();
 	}
 
-	#region Private Methods
+	public void InitializeTransform(Transform parent, Quaternion rotationToDirection)
 	{
 		_heading.parent = parent;
 		_heading.position = parent.position;
 		_heading.rotation = rotationToDirection;
 	}
 
+	#region Private Methods
 	// OffScreen or Hit
 	private void AddToPool()
 	{
