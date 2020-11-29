@@ -1513,6 +1513,16 @@ PrefabInstance:
       propertyPath: _cursor
       value: 
       objectReference: {fileID: 1217046681}
+    - target: {fileID: 3606943203718844239, guid: 5e0e4662a5e27be478d26f5265d9d3d1,
+        type: 3}
+      propertyPath: _playerCanons.Array.data[0]._canon
+      value: 
+      objectReference: {fileID: 1791734325}
+    - target: {fileID: 3606943203718844239, guid: 5e0e4662a5e27be478d26f5265d9d3d1,
+        type: 3}
+      propertyPath: _playerCanons.Array.data[1]._canon
+      value: 
+      objectReference: {fileID: 1670918850}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e0e4662a5e27be478d26f5265d9d3d1, type: 3}
 --- !u!1001 &7090143677624771333
