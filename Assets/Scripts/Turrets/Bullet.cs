@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
 	[SerializeField] private Rigidbody2D _rb2D = null;
 	[SerializeField] private float _offScreen = 700;                    // Add to pool in a certain offset
 	[SerializeField] private Transform _heading = null;                 // GFX to change rotation
+	[SerializeField] private Explosion _explosionPrefab = null;      // Explosion
 
 	public TurretController Turret { get; set; }
 	public Rigidbody2D Rigidbody2D => _rb2D;
@@ -42,6 +43,8 @@ public class Bullet : MonoBehaviour
 		Turret.AddBullet(this);
 		ResetPhysics();
 		gameObject.SetActive(false);
+
+		Instantiate(_explosionPrefab, transform.position, transform.rotation);
 	}
 
 	private void ResetPhysics()

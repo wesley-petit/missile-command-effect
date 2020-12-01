@@ -13,14 +13,14 @@ public class EnemyShoot : CharacterShoot
 	[SerializeField] private AudioSource _audios = null;            // Music tracks
 	[SerializeField] private int _BPM = 40;
 
-	private bool CanShoot => _timeToShoot < _time;
+	private bool CanShoot => _shootTime < _time;
 	private float GetTime => _audios.time;                          // Synchronize shoot with musics tracks
 
-	private float _timeToShoot = 0f;                                // BPM in seconds
+	private float _shootTime = 0f;                                // BPM in seconds
 	private float _previousAudioTime = 0f;
 	private float _delta = 0f;                                      // Difference with previous and actual audio time
 	private float _time = 0f;
-	private float[,] _speedToTargets = new float[0, 0];             // Speed Canons to targets
+	private float[,] _speedToReachTargets = new float[0, 0];             // Speed Canons to targets
 
 	private RandomElement _targetRandom = new RandomElement();      // Choose a random Target 
 	private RandomElement _canonRandom = new RandomElement();       // Choose a random Canon 
@@ -45,7 +45,7 @@ public class EnemyShoot : CharacterShoot
 		}
 
 		ResetTimeToShoot();
-		_time = _timeToShoot;
+		_time = _shootTime;
 
 		SetSpeedToTargets();
 
@@ -60,7 +60,7 @@ public class EnemyShoot : CharacterShoot
 		if (CanShoot)
 		{
 			// It will always have a little value in rest
-			_time -= _timeToShoot;
+			_time -= _shootTime;
 
 			ShootTurret();
 			PrepareNextShoot();
@@ -72,21 +72,21 @@ public class EnemyShoot : CharacterShoot
 
 	#region Time
 	// BPM dependant, BPM changes => TimeToShoot changes
-	private void ResetTimeToShoot() => _timeToShoot = 60f / _BPM;
+	private void ResetTimeToShoot() => _shootTime = 60f / _BPM;
 
 	// Set speed bullet with the distance between canon and target
 	private void SetSpeedToTargets()
 	{
-		_speedToTargets = new float[_canons.Length, _targets.Count];
+		_speedToReachTargets = new float[_canons.Length, _targets.Count];
 		float distance;
-		float time = _timeToShoot * COUNT_TO_REACH_TARGET;
+		float time = _shootTime * COUNT_TO_REACH_TARGET;
 
 		for (int i = 0; i < _canons.Length; i++)
 		{
 			for (int y = 0; y < _targets.Count; y++)
 			{
 				distance = Vector2.Distance(_canons[i].position, _targets[y].position);
-				_speedToTargets[i, y] = distance / time;
+				_speedToReachTargets[i, y] = distance / time;
 			}
 		}
 	}
@@ -102,7 +102,7 @@ public class EnemyShoot : CharacterShoot
 		_currentCanon = _canons[iCanon];
 		_currentTarget = _targets[iTarget];
 
-		_turret.Speed = _speedToTargets[iCanon, iTarget];
+		_turret.Speed = _speedToReachTargets[iCanon, iTarget];
 	}
 
 	protected override void ShootTurret() => _turret.Shoot(_currentCanon, _currentCanon.position, _currentTarget.position);
