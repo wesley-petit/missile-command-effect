@@ -154,6 +154,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -166,6 +167,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -5346,7 +5348,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &749680832
 GameObject:
@@ -6297,8 +6299,13 @@ PrefabInstance:
     - target: {fileID: 5918964283114411048, guid: ecd68ac2dd203f8459e09e3056fcfee2,
         type: 3}
       propertyPath: _BPM
-      value: 82
+      value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 5918964283114411048, guid: ecd68ac2dd203f8459e09e3056fcfee2,
+        type: 3}
+      propertyPath: _audios
+      value: 
+      objectReference: {fileID: 731766513}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecd68ac2dd203f8459e09e3056fcfee2, type: 3}
 --- !u!1001 &3606943204758569514

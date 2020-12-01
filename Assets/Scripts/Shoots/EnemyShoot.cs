@@ -20,6 +20,8 @@ public class EnemyShoot : CharacterShoot
 	private float _delta = 0f;                                      // Difference with previous and actual audio time
 	private float _time = 0f;
 
+	private float debugPrev= 0f;
+
 	private RandomElement<Transform> _targetRandom                  // Choose random Target 
 		= new RandomElement<Transform>();
 	private RandomElement<Transform> _canonRandom                   // Choose random Canon 
@@ -53,11 +55,13 @@ public class EnemyShoot : CharacterShoot
 	{
 		_delta = GetTime - _previousAudioTime;
 		_time += _delta;
+		Debug.Log($"Delta : {_delta}");
 
 		if (CanShoot)
 		{
 			// It will always have a little value in rest
 			_time -= _timeToShoot;
+
 			ShootTurret();
 			PrepareNextShoot();
 		}
@@ -78,5 +82,5 @@ public class EnemyShoot : CharacterShoot
 	#endregion
 
 	// BPM dependant, BPM changes => TimeToShoot changes
-	private void ResetTimeToShoot() => _timeToShoot = _BPM / 60;
+	private void ResetTimeToShoot() => _timeToShoot = 60f / _BPM;
 }
