@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, ICollidable
 {
 	[SerializeField] private Rigidbody2D _rb2D = null;
 	[SerializeField] private float _offScreen = 700;                    // Add to pool in a certain offset
@@ -26,6 +26,9 @@ public class Bullet : MonoBehaviour
 		var collidable = col.gameObject.GetComponent<ICollidable>();
 		if (collidable == null) return;
 		collidable.Hit();
+	}
+	public void Hit()
+	{
 		this.AddToPool();
 	}
 	public void InitializeTransform(Transform parent, Quaternion rotationToDirection)
