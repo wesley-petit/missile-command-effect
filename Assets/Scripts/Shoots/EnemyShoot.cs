@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+// ShootWithRythm
 public class EnemyShoot : CharacterShoot
 {
+	private const int COUNT_TO_REACH_TARGET = 8;                    // Time for a missile to reach his target
+
 	[SerializeField]
-	private List<Transform> _targets                                // Target can be turret or building
-		= new List<Transform>();
+	private List<Transform> _targets = new List<Transform>();       // Target can be a player turret or a building
 	[SerializeField]
-	protected Transform[] _shootCanons                              // Shoot Canon / Shoot Origin, in the same order (left to right) as the inputs
-		= new Transform[0];
-	[SerializeField] private AudioSource _audios = null;            // Music source
-	[SerializeField] private int _BPM = 160;
+	protected Transform[] _canons = new Transform[0];               // Canon / Origin, in the same order (left to right)
+	[SerializeField] private AudioSource _audios = null;            // Music tracks
+	[SerializeField] private int _BPM = 40;
 
 	private bool CanShoot => _timeToShoot < _time;
 	private float GetTime => _audios.time;                          // Synchronize shoot with musics tracks
@@ -19,24 +20,21 @@ public class EnemyShoot : CharacterShoot
 	private float _previousAudioTime = 0f;
 	private float _delta = 0f;                                      // Difference with previous and actual audio time
 	private float _time = 0f;
+	private float[,] _speedToTargets = new float[0, 0];             // Speed Canons to targets
 
-	private float debugPrev= 0f;
-
-	private RandomElement<Transform> _targetRandom                  // Choose random Target 
-		= new RandomElement<Transform>();
-	private RandomElement<Transform> _canonRandom                   // Choose random Canon 
-		= new RandomElement<Transform>();
-	private Transform _target = null;
-	private Transform _canon = null;
+	private RandomElement _targetRandom = new RandomElement();      // Choose a random Target 
+	private RandomElement _canonRandom = new RandomElement();       // Choose a random Canon 
+	private Transform _currentTarget = null;
+	private Transform _currentCanon = null;
 
 	#region Unity Methods
 	protected override void Start()
 	{
 		base.Start();
 
-		if (_shootCanons.Length <= 0)
+		if (_canons.Length <= 0)
 		{
-			Debug.LogError($"Shoot Canon are undefined in {gameObject.name}.");
+			Debug.LogError($"Canons are undefined in {gameObject.name}.");
 			return;
 		}
 
@@ -48,6 +46,9 @@ public class EnemyShoot : CharacterShoot
 
 		ResetTimeToShoot();
 		_time = _timeToShoot;
+
+		SetSpeedToTargets();
+
 		PrepareNextShoot();
 	}
 
@@ -55,7 +56,6 @@ public class EnemyShoot : CharacterShoot
 	{
 		_delta = GetTime - _previousAudioTime;
 		_time += _delta;
-		Debug.Log($"Delta : {_delta}");
 
 		if (CanShoot)
 		{
@@ -70,17 +70,41 @@ public class EnemyShoot : CharacterShoot
 	}
 	#endregion
 
+	#region Time
+	// BPM dependant, BPM changes => TimeToShoot changes
+	private void ResetTimeToShoot() => _timeToShoot = 60f / _BPM;
+
+	// Set speed bullet with the distance between canon and target
+	private void SetSpeedToTargets()
+	{
+		_speedToTargets = new float[_canons.Length, _targets.Count];
+		float distance;
+		float time = _timeToShoot * COUNT_TO_REACH_TARGET;
+
+		for (int i = 0; i < _canons.Length; i++)
+		{
+			for (int y = 0; y < _targets.Count; y++)
+			{
+				distance = Vector2.Distance(_canons[i].position, _targets[y].position);
+				_speedToTargets[i, y] = distance / time;
+			}
+		}
+	}
+	#endregion
+
 	#region Prepare and Shoot
 	// Prepare the next Shoot
 	private void PrepareNextShoot()
 	{
-		_target = _targetRandom.Choose(_targets.ToArray());
-		_canon = _canonRandom.Choose(_shootCanons);
+		int iCanon = _canonRandom.Choose(_canons.Length);
+		int iTarget = _targetRandom.Choose(_targets.Count);
+
+		_currentCanon = _canons[iCanon];
+		_currentTarget = _targets[iTarget];
+
+		_turret.Speed = _speedToTargets[iCanon, iTarget];
 	}
 
-	protected override void ShootTurret() => _turret.Shoot(_canon, _canon.position, _target.position);
+	protected override void ShootTurret() => _turret.Shoot(_currentCanon, _currentCanon.position, _currentTarget.position);
 	#endregion
-
-	// BPM dependant, BPM changes => TimeToShoot changes
-	private void ResetTimeToShoot() => _timeToShoot = 60f / _BPM;
 }

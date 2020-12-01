@@ -10,6 +10,12 @@ public class TurretController : MonoBehaviour
 
 	private Queue<Bullet> _availableProjectile = new Queue<Bullet>();   // Pool system
 
+	public float Speed
+	{
+		get => _speed;
+		set => _speed = value;
+	}
+
 	/// Shoot a new bullet
 	/// or take a one in the pool system
 	public void Shoot(Transform parent, Vector3 canonPosition, Vector3 targetPosition)
