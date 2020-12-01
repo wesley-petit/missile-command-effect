@@ -22,8 +22,8 @@ public class EnemyShoot : CharacterShoot
 	private float _time = 0f;
 	private float[,] _speedToReachTargets = new float[0, 0];             // Speed Canons to targets
 
-	private RandomElement _targetRandom = new RandomElement();      // Choose a random Target 
-	private RandomElement _canonRandom = new RandomElement();       // Choose a random Canon 
+	private RandomElement _targetRandom = new RandomElement();      // Choose a random Target
+	private RandomElement _canonRandom = new RandomElement();       // Choose a random Canon
 	private Transform _currentTarget = null;
 	private Transform _currentCanon = null;
 

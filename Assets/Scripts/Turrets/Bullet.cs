@@ -25,10 +25,9 @@ public class Bullet : MonoBehaviour
 	{
 		var collidable = col.gameObject.GetComponent<ICollidable>();
 		if (collidable == null) return;
-
 		collidable.Hit();
+		this.AddToPool();
 	}
-
 	public void InitializeTransform(Transform parent, Quaternion rotationToDirection)
 	{
 		_heading.parent = parent;
