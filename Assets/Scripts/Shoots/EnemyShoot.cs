@@ -16,11 +16,11 @@ public class EnemyShoot : CharacterShoot
 	private bool CanShoot => _shootTime < _time;
 	private float GetTime => _audios.time;                          // Synchronize shoot with musics tracks
 
-	private float _shootTime = 0f;                                // BPM in seconds
+	private float _shootTime = 0f;									// BPM in seconds
 	private float _previousAudioTime = 0f;
 	private float _delta = 0f;                                      // Difference with previous and actual audio time
 	private float _time = 0f;
-	private float[,] _speedToReachTargets = new float[0, 0];             // Speed Canons to targets
+	private float[,] _speedToReachTargets = new float[0, 0];		// Speed Canons to targets
 
 	private RandomElement _targetRandom = new RandomElement();      // Choose a random Target
 	private RandomElement _canonRandom = new RandomElement();       // Choose a random Canon

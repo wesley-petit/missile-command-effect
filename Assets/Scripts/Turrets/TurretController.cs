@@ -16,11 +16,16 @@ public class TurretController : MonoBehaviour
 		set => _speed = value;
 	}
 
+	public bool IsPlayTime { get; set; }								// If we are in a play or score time
+
 	/// Shoot a new bullet
 	/// or take a one in the pool system
 	public void Shoot(Transform parent, Vector3 canonPosition, Vector3 targetPosition)
 	{
 		if (!parent)
+			return;
+
+		if (!IsPlayTime)
 			return;
 
 		Bullet bullet;
@@ -46,6 +51,7 @@ public class TurretController : MonoBehaviour
 		bullet.Rigidbody2D.AddForce(direction * _speed, _forceMode2D);
 	}
 
+	// Add bullet in the pool system
 	public void AddBullet(Bullet bullet)
 	{
 		if (!bullet)
