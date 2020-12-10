@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5423b016e288bd9468cf33660e01f63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 400
-  _canonBall: {fileID: 709269621217747533, guid: a85eeb77afb7faa42ac01f1c07db7409,
+  _speed: 1200
+  _canonBall: {fileID: 3898009314607239987, guid: 3aed698f16843f84fb16302b32faa5c5,
     type: 3}
   _forceMode2D: 1

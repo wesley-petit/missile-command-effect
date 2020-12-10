@@ -15,12 +15,4 @@ public class Explosion : MonoBehaviour
 
 		_selfDestruct.DestroyTime = _animator.GetCurrentAnimatorClipInfo(0).Length;
 	}
-
-	private void OnTriggerEnter2D(Collider2D col)
-	{
-		var collidable = col.gameObject.GetComponent<ICollidable>();
-		if (collidable == null) return;
-
-		collidable.Hit();
-	}
 }

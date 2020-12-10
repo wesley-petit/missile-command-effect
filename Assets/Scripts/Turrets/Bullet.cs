@@ -20,17 +20,8 @@ public class Bullet : MonoBehaviour, ICollidable
 		}
 	}
 
-	// Hit an object
-	private void OnCollisionEnter2D(Collision2D col)
-	{
-		var collidable = col.gameObject.GetComponent<ICollidable>();
-		if (collidable == null) return;
-		collidable.Hit();
-	}
-	public void Hit()
-	{
-		this.AddToPool();
-	}
+	public void Hit() => AddToPool();
+
 	public void InitializeTransform(Transform parent, Quaternion rotationToDirection)
 	{
 		_heading.parent = parent;
@@ -42,10 +33,10 @@ public class Bullet : MonoBehaviour, ICollidable
 	// OffScreen or Hit
 	private void AddToPool()
 	{
-		Turret.AddBullet(this);
 		ResetPhysics();
 		gameObject.SetActive(false);
 
+		Turret.AddBullet(this);
 		Instantiate(_explosionPrefab, transform.position, transform.rotation);
 	}
 

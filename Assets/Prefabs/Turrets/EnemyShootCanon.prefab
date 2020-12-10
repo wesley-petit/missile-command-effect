@@ -22,15 +22,30 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.5471698
       objectReference: {fileID: 0}
+    - target: {fileID: 8402140284132548521, guid: a9ac71b11f92cf24696b59ddba36a7cc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402140284132548521, guid: a9ac71b11f92cf24696b59ddba36a7cc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402140284132548522, guid: a9ac71b11f92cf24696b59ddba36a7cc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8402140284423732742, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -320
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8402140284423732742, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -256
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8402140284423732742, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
@@ -50,12 +65,12 @@ PrefabInstance:
     - target: {fileID: 8402140284423732742, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8402140284423732742, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8402140284423732742, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
@@ -75,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 8402140284423732742, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8402140284423732743, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}

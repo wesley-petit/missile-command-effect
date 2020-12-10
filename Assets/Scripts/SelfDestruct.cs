@@ -2,7 +2,7 @@
 
 public class SelfDestruct : MonoBehaviour
 {
-	[SerializeField] private float _destroyTime = 1f;
+	[SerializeField] private float _destroyTime = 0.5f;
 
 	public float DestroyTime
 	{

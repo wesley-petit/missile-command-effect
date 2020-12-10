@@ -4,7 +4,7 @@ using UnityEngine;
 // Manage a pool system
 public class TurretController : MonoBehaviour
 {
-	[SerializeField, Range(0f, 10000f)] private float _speed = 10000f;
+	[SerializeField, Range(0f, 100f)] private float _speed = 10000f;
 	[SerializeField] private Bullet _canonBall = null;
 	[SerializeField] private ForceMode2D _forceMode2D = ForceMode2D.Impulse;
 
@@ -16,16 +16,11 @@ public class TurretController : MonoBehaviour
 		set => _speed = value;
 	}
 
-	public bool IsPlayTime { get; set; }								// If we are in a play or score time
-
 	/// Shoot a new bullet
 	/// or take a one in the pool system
 	public void Shoot(Transform parent, Vector3 canonPosition, Vector3 targetPosition)
 	{
 		if (!parent)
-			return;
-
-		if (!IsPlayTime)
 			return;
 
 		Bullet bullet;

@@ -4,9 +4,8 @@ public class RoundSystem : MonoBehaviour
 {
 	[SerializeField] private int _maxPlayTime = 70;
 	[SerializeField] private int _maxScoreTime = 10;
-	[SerializeField]
-	private TurretController[] _turrets = new TurretController[0];  // To stop turrets in a score time / Not the shoot to keep it synchronize
-	[SerializeField] private PlayerShoot _playerShoot = null;        // Player shoot to reset ammos
+	[SerializeField] private EnemyShoot _enemyShoot = null;         // Stop turrets in a score time
+	[SerializeField] private PlayerShoot _playerShoot = null;       // Player shoot to reset ammos
 
 	private Timer _timer = new Timer();
 	private bool _play = true;
@@ -14,8 +13,20 @@ public class RoundSystem : MonoBehaviour
 	#region Unity Methods
 	private void Start()
 	{
+		if (!_enemyShoot)
+		{
+			Debug.LogError("Enemy Shoot is undefined");
+			return;
+		}
+
+		if (!_playerShoot)
+		{
+			Debug.LogError("Player Shoot is undefined");
+			return;
+		}
+
 		_timer.MaxTime = _maxPlayTime;
-		SetTurretState(true);
+		SetEnemyState(true);
 	}
 
 	private void OnEnable() => _timer.Register(Switch);
@@ -33,26 +44,24 @@ public class RoundSystem : MonoBehaviour
 
 		if (_play)
 		{
-			Debug.Log("Play");
 			_timer.MaxTime = _maxPlayTime;
-			SetTurretState(true);
+			SetEnemyState(true);
 			_playerShoot?.ResetAmmos();
 		}
 		else
 		{
-			Debug.Log("Stop");
 			_timer.MaxTime = _maxScoreTime;
-			SetTurretState(false);
+			SetEnemyState(false);
 		}
 	}
 
-	// Enable or disable all turrets
-	private void SetTurretState(bool shootState)
+	// Enable or disable enemy
+	private void SetEnemyState(bool shootState)
 	{
-		foreach (var turret in _turrets)
-		{
-			turret.IsPlayTime = shootState;
-		}
+		if (!_enemyShoot)
+			return;
+
+		_enemyShoot.IsInPlayTime = shootState;
 	}
 	#endregion
 }

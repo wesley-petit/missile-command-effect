@@ -10,16 +10,10 @@ public class EnemyShoot : CharacterShoot
     private List<Transform> _targets = new List<Transform>();       // Target can be a player turret or a building
     [SerializeField]
     protected Transform[] _canons = new Transform[0];               // Canon / Origin, in the same order (left to right)
-    [SerializeField] private AudioSource _audios = null;            // Music tracks
-    [SerializeField] private int _BPM = 40;
+    [SerializeField] private AudioSync _audioSync = null;           // Audio sync to shoot in music pace
 
-    private bool CanShoot => _shootTime < _time;
-    private float GetTime => _audios.time;                          // Synchronize shoot with musics tracks
-
-    private float _shootTime = 0f;                                  // BPM in seconds
-    private float _previousAudioTime = 0f;
-    private float _delta = 0f;                                      // Difference with previous and actual audio time
-    private float _time = 0f;
+    public bool IsInPlayTime { get; set; }                          // If we are in a play or score time
+    
     private float[,] _speedToReachTargets = new float[0, 0];        // Speed Canons to targets
 
     private RandomElement _targetRandom = new RandomElement();      // Choose a random Target
@@ -44,43 +38,33 @@ public class EnemyShoot : CharacterShoot
             return;
         }
 
-        ResetTimeToShoot();
-        _time = _shootTime;
+        if (!_audioSync)
+        {
+            Debug.LogError($"Audio Sync is undefined in {gameObject.name}.");
+            return;
+        }
 
         SetSpeedToTargets();
-
         PrepareNextShoot();
     }
 
     private void Update()
     {
-        _delta = GetTime - _previousAudioTime;
-        _time += _delta;
-
-        if (CanShoot)
-        {
-            Debug.Log($"{_time} {_shootTime}");
-            // It will always have a little value in rest
-            _time -= _shootTime;
-
-            ShootTurret();
-            PrepareNextShoot();
-        }
-
-        _previousAudioTime = GetTime;
+        if (_audioSync.IsInPace && IsInPlayTime)
+		{
+			ShootTurret();
+			PrepareNextShoot();
+		}
     }
     #endregion
 
     #region Time
-    // BPM dependant, BPM changes => TimeToShoot changes
-    private void ResetTimeToShoot() => _shootTime = 60f / _BPM;
-
     // Set speed bullet with the distance between canon and target
     private void SetSpeedToTargets()
     {
         _speedToReachTargets = new float[_canons.Length, _targets.Count];
         float distance;
-        float time = _shootTime * COUNT_TO_REACH_TARGET;
+        float time = _audioSync.ShootTime * COUNT_TO_REACH_TARGET;
 
         for (int i = 0; i < _canons.Length; i++)
         {
