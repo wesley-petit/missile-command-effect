@@ -13,7 +13,7 @@ public class PlayerShoot : CharacterShoot
 	protected override void Start()
 	{
 		base.Start();
-		ResetAmmos();
+		ResetCanon();
 	}
 
 	// Take last inputs
@@ -23,11 +23,12 @@ public class PlayerShoot : CharacterShoot
 	private void FixedUpdate() => ShootTurret();
 	#endregion
 
-	public void ResetAmmos()
+	public void ResetCanon()
 	{
 		for (int i = 0; i < _playerCanons.Length; i++)
 		{
 			_playerCanons[i].Ammos = _maxAmmo;
+			_playerCanons[i].GetCanon.Show();
 		}
 	}
 
@@ -50,7 +51,7 @@ public class PlayerShoot : CharacterShoot
 
 			if (currentCanon.CanShoot)
 			{
-				_turret.Shoot(currentCanon.GetCanon, currentCanon.GetPosition, _cursor.position);
+				_turret.Shoot(currentCanon.GetTransform, currentCanon.GetPosition, _cursor.position);
 				currentCanon.ReduceAmmos();
 			}
 

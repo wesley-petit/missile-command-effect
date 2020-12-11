@@ -46,7 +46,7 @@ public class RoundSystem : MonoBehaviour
 		{
 			_timer.MaxTime = _maxPlayTime;
 			SetEnemyState(true);
-			_playerShoot?.ResetAmmos();
+			_playerShoot?.ResetCanon();
 		}
 		else
 		{
