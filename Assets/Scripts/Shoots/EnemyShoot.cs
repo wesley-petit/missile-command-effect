@@ -98,7 +98,7 @@ public class EnemyShoot : CharacterShoot
 	{
 		if (_currentCanon && _currentTarget)
 		{
-			_turret.Shoot(_currentCanon, _currentCanon.position, _currentTarget.position);
+			_turret.Shoot(_currentCanon.position, _currentTarget.position);
 		}
 	}
 	#endregion

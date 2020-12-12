@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040025341496035374}
   - component: {fileID: 5918964283114411048}
+  - component: {fileID: 5675719893644954188}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -43,6 +44,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c314c3c2512354b9c3fc31718fa116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turret: {fileID: 0}
-  _shootCanons: []
-  _targets: []
+  _turret: {fileID: 5675719893644954188}
+  _targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _canons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _audioSync: {fileID: 0}
+--- !u!114 &5675719893644954188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363258147903481246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5423b016e288bd9468cf33660e01f63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1200
+  _canonBall: {fileID: 3898009314607239987, guid: 3aed698f16843f84fb16302b32faa5c5,
+    type: 3}
+  _forceMode2D: 1

@@ -6,6 +6,7 @@ public class TurretController : MonoBehaviour
 {
 	[SerializeField, Range(0f, 100f)] private float _speed = 10000f;
 	[SerializeField] private Bullet _canonBall = null;
+	[SerializeField] private Transform _bulletContainer = null;								// Stock all bullet shoot by this turret
 	[SerializeField] private ForceMode2D _forceMode2D = ForceMode2D.Impulse;
 
 	private Queue<Bullet> _availableProjectile = new Queue<Bullet>();   // Pool system
@@ -18,9 +19,9 @@ public class TurretController : MonoBehaviour
 
 	/// Shoot a new bullet
 	/// or take a one in the pool system
-	public void Shoot(Transform parent, Vector3 canonPosition, Vector3 targetPosition)
+	public void Shoot(Vector3 canonPosition, Vector3 targetPosition)
 	{
-		if (!parent)
+		if (!_bulletContainer)
 			return;
 
 		Bullet bullet;
@@ -40,7 +41,7 @@ public class TurretController : MonoBehaviour
 		// Look at the bullet at the cursor, rotation on Z only
 		Vector3 direction = (targetPosition - canonPosition).normalized;
 		float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		bullet.InitializeTransform(parent, Quaternion.Euler(0f, 0f, rotZ - 90));
+		bullet.InitializeTransform(_bulletContainer, canonPosition, Quaternion.Euler(0f, 0f, rotZ - 90));
 		bullet.gameObject.SetActive(true);
 
 		bullet.Rigidbody2D.AddForce(direction * _speed, _forceMode2D);

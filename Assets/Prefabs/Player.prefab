@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3606943203718844236}
+  - component: {fileID: 6559889681286644998}
   - component: {fileID: 3606943203718844239}
+  - component: {fileID: 2393379511861385174}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -31,6 +33,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6559889681286644998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3606943203718844238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6deaa2a2e3aa554a82d393686b3a173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3606943203718844239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,5 +58,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turret: {fileID: 0}
-  _shootCanons: []
   _cursor: {fileID: 0}
+  _playerCanons:
+  - _canon: {fileID: 0}
+  - _canon: {fileID: 0}
+  _maxAmmo: 10
+--- !u!114 &2393379511861385174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3606943203718844238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5423b016e288bd9468cf33660e01f63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _canonBall: {fileID: 3296523100916863112, guid: f29de77ed93790648844aefd6b2c4b69,
+    type: 3}
+  _forceMode2D: 1

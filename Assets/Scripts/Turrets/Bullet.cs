@@ -3,9 +3,9 @@
 public class Bullet : MonoBehaviour, ICollidable
 {
 	[SerializeField] private Rigidbody2D _rb2D = null;
-	[SerializeField] private float _offScreen = 700;                    // Add to pool in a certain offset
+	[SerializeField] private float _offScreen = 30f;                    // Add to pool in a certain offset
 	[SerializeField] private Transform _heading = null;                 // GFX to change rotation
-	[SerializeField] private Explosion _explosionPrefab = null;      // Explosion
+	[SerializeField] private Explosion _explosionPrefab = null;			// Explosion
 
 	public TurretController Turret { get; set; }
 	public Rigidbody2D Rigidbody2D => _rb2D;
@@ -22,10 +22,10 @@ public class Bullet : MonoBehaviour, ICollidable
 
 	public void Hit() => AddToPool();
 
-	public void InitializeTransform(Transform parent, Quaternion rotationToDirection)
+	public void InitializeTransform(Transform parent, Vector3 canonPosition, Quaternion rotationToDirection)
 	{
 		_heading.parent = parent;
-		_heading.position = parent.position;
+		_heading.position = canonPosition;
 		_heading.rotation = rotationToDirection;
 	}
 

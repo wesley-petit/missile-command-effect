@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 2813014832076329013, guid: c7ce480cda8fe4d43be18c025c723f43,
         type: 3}
       propertyPath: m_Name
-      value: Bullet (1)
+      value: EnemyBullet
       objectReference: {fileID: 0}
     - target: {fileID: 2813014832076329013, guid: c7ce480cda8fe4d43be18c025c723f43,
         type: 3}

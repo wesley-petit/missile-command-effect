@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb2D: {fileID: 2813014832076329035}
-  _offScreen: 700
+  _offScreen: 30
   _heading: {fileID: 2813014832076329015}
   _explosionPrefab: {fileID: -4878594493138735516, guid: cf9ddc5df50acd04b9231c939a262a96,
     type: 3}
