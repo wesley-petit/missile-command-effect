@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(InputController))]
+[RequireComponent(typeof(InputHandler))]
 public class PlayerShoot : CharacterShoot
 {
 	[SerializeField] private Transform _cursor = null;
 	[SerializeField] private PlayerCanon[] _playerCanons = new PlayerCanon[2];
 	[SerializeField] private int _maxAmmo = 4;
 
-	private InputController _inputs = null;
+	private InputHandler _inputs = null;
 
 	#region Unity Methods
 	// Verification array
@@ -15,7 +15,7 @@ public class PlayerShoot : CharacterShoot
 	{
 		base.Start();
 		ResetCanon();
-		_inputs = GetComponent<InputController>();
+		_inputs = GetComponent<InputHandler>();
 	}
 
 	// Take last inputs

@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee56e3ce1ae1ce4a83ec303baaec8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turret: {fileID: 0}
+  _turret: {fileID: 2393379511861385174}
   _cursor: {fileID: 0}
   _playerCanons:
   - _canon: {fileID: 0}
@@ -78,4 +78,5 @@ MonoBehaviour:
   _speed: 10
   _canonBall: {fileID: 3296523100916863112, guid: f29de77ed93790648844aefd6b2c4b69,
     type: 3}
+  _bulletContainer: {fileID: 3606943203718844236}
   _forceMode2D: 1
