@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _clamp: {x: 6, y: 4.25}
+  _posZ: 0
 --- !u!1 &1670275032135131406
 GameObject:
   m_ObjectHideFlags: 0

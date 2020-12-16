@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525665076628878526}
   m_Layer: 0
-  m_Name: PlayerAndEnemyShoot
+  m_Name: Shoots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,11 +100,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cursor
-      objectReference: {fileID: 0}
-    - target: {fileID: 3046416360246512178, guid: aaad371baab75404dafe648b9f1f9e7c,
-        type: 3}
-      propertyPath: _test
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaad371baab75404dafe648b9f1f9e7c, type: 3}

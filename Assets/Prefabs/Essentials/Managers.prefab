@@ -253,6 +253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2725057551999915055, guid: 13e42202897cd1d4b99cbcabab19008f,
         type: 3}
+      propertyPath: _scoreBuildings.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725057551999915055, guid: 13e42202897cd1d4b99cbcabab19008f,
+        type: 3}
       propertyPath: _scoreBuildings.Array.data[0]._collidableBuilding
       value: 
       objectReference: {fileID: 0}

@@ -5,8 +5,8 @@ public class RoundSystem : MonoBehaviour
 {
 	public static RoundSystem Instance { get; private set; }
 
-	[SerializeField] private int _maxPlayTime = 70;
-	[SerializeField] private int _maxScoreTime = 10;
+	[SerializeField] private int _maxPlayTime = 20;
+	[SerializeField] private int _maxScoreTime = 7;
 
 	public bool IsInPlay { get => _play; }
 

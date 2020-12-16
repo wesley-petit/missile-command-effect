@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7212795600164027240}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57fc32f58823c21409434f062aa4ad13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxPlayTime: 15
-  _maxScoreTime: 5
+  _maxPlayTime: 20
+  _maxScoreTime: 7
