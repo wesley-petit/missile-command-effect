@@ -28,28 +28,33 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "LeftHand",
+                    "type": "Button",
+                    "id": "f5f8371a-9cba-4f73-be53-90884bab151f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RightHand",
+                    "type": "Button",
+                    "id": "adbf374e-c559-4838-97e9-bf79ff9b9dbb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "255fde58-5115-42aa-9c74-3bee2cbcd6d0",
-                    "path": "<XRController>{RightHand}/primaryButton",
+                    "id": "a3394ca5-b4fe-4c30-b6d5-467023c83c4d",
+                    "path": "<XRController>{RightHand}/gripButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
                     "action": "LeftShoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e147d572-acf2-4e44-8b11-eb30f20eb857",
-                    "path": "<XRController>{LeftHand}/primaryButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "RightShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -105,6 +110,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "LeftShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95ba40fc-a11a-482d-8efb-fc46a8a26383",
+                    "path": "<XRController>{LeftHand}/gripButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "RightShoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -312,8 +328,52 @@
                     "path": "<XRController>/primary2DAxis",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "XR",
                     "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8118ab59-0c50-426a-b3a6-23be2715e53e",
+                    "path": "<XRController>{LeftHand}/gripButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "LeftHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "13d8b7de-d3ff-484a-87da-04b747d7d5db",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "LeftHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "58e4b168-671f-4c99-b41a-f317f6d7046b",
+                    "path": "<XRController>{RightHand}/gripButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "RightHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01f65782-eaf9-474a-97a2-f78450025021",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "RightHand",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

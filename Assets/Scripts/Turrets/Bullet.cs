@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour, ICollidable
 	[SerializeField] private Rigidbody2D _rb2D = null;
 	[SerializeField] private float _offScreen = 30f;                    // Add to pool in a certain offset
 	[SerializeField] private Transform _heading = null;                 // GFX to change rotation
-	[SerializeField] private Explosion _explosionPrefab = null;			// Explosion
+	[SerializeField] private Explosion _explosionPrefab = null;         // Explosion
 
 	public TurretController Turret { get; set; }
 	public Rigidbody2D Rigidbody2D => _rb2D;
@@ -20,7 +20,11 @@ public class Bullet : MonoBehaviour, ICollidable
 		}
 	}
 
-	public void Hit() => AddToPool();
+	public void Hit()
+	{
+		AddToPool();
+		Instantiate(_explosionPrefab, transform.position, transform.rotation);
+	}
 
 	public void InitializeTransform(Transform parent, Vector3 canonPosition, Quaternion rotationToDirection)
 	{
@@ -29,21 +33,17 @@ public class Bullet : MonoBehaviour, ICollidable
 		_heading.rotation = rotationToDirection;
 	}
 
-	#region Private Methods
+	public void ResetPhysics()
+	{
+		_rb2D.velocity = Vector2.zero;
+		_rb2D.angularVelocity = 0f;
+	}
+
 	// OffScreen or Hit
 	private void AddToPool()
 	{
 		ResetPhysics();
 		gameObject.SetActive(false);
-
 		Turret.AddBullet(this);
-		Instantiate(_explosionPrefab, transform.position, transform.rotation);
 	}
-
-	private void ResetPhysics()
-	{
-		_rb2D.velocity = Vector2.zero;
-		_rb2D.angularVelocity = 0f;
-	}
-	#endregion
 }

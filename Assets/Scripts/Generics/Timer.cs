@@ -1,29 +1,27 @@
-﻿using System;
-using UnityEngine;
-
-[Serializable]
+﻿// Create a generic timer common in most cases
+[System.Serializable]
 public class Timer
 {
-	public float MaxTime { get; set; }								// Max Time to launch a event
+	public float MaxTime { get; set; }                              // Max Time to launch a event
 
-	private Action OnTimerEnd;										// Event To Call
+	private System.Action OnTimerEnd;                               // Event To Call
 	private float _time = 0f;
 
 	public void UpdateTimer()
 	{
-		_time += Time.deltaTime;
+		_time += UnityEngine.Time.deltaTime;
 
 		if (MaxTime < _time)
 		{
 			_time -= MaxTime;
-			TimerEnd();	
+			TimerEnd();
 		}
 	}
 
 	#region Callbacks
-	public void Register(Action toAdd) => OnTimerEnd += toAdd;
+	public void Register(System.Action toAdd) => OnTimerEnd += toAdd;
 
-	public void Unregister(Action toRemove) => OnTimerEnd -= toRemove;
+	public void Unregister(System.Action toRemove) => OnTimerEnd -= toRemove;
 
 	private void TimerEnd() => OnTimerEnd?.Invoke();
 	#endregion

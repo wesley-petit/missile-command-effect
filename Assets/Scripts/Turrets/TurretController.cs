@@ -1,20 +1,25 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+// Shoot a bullet
 // Manage a pool system
 public class TurretController : MonoBehaviour
 {
-	[SerializeField, Range(0f, 100f)] private float _speed = 10000f;
+	[SerializeField, Range(0f, 50f)] private float _speed = 10f;
 	[SerializeField] private Bullet _canonBall = null;
-	[SerializeField] private Transform _bulletContainer = null;								// Stock all bullet shoot by this turret
+	[SerializeField] private Transform _bulletContainer = null;                             // Stock all bullet shoot by this turret
 	[SerializeField] private ForceMode2D _forceMode2D = ForceMode2D.Impulse;
 
-	private Queue<Bullet> _availableProjectile = new Queue<Bullet>();   // Pool system
+	private Queue<Bullet> _availableProjectile = new Queue<Bullet>();                       // Pool system
 
 	public float Speed
 	{
 		get => _speed;
-		set => _speed = value;
+		set
+		{
+			if (_speed <= 0) { return; }
+			_speed = value;
+		}
 	}
 
 	/// Shoot a new bullet
@@ -44,6 +49,8 @@ public class TurretController : MonoBehaviour
 		bullet.InitializeTransform(_bulletContainer, canonPosition, Quaternion.Euler(0f, 0f, rotZ - 90));
 		bullet.gameObject.SetActive(true);
 
+		// Reset physics
+		bullet.ResetPhysics();
 		bullet.Rigidbody2D.AddForce(direction * _speed, _forceMode2D);
 	}
 

@@ -5,7 +5,7 @@ public class Explosion : MonoBehaviour
 	[SerializeField] private SelfDestruct _selfDestruct = null;
 	[SerializeField] private Animator _animator = null;
 
-	private void Start()
+	private void Awake()
 	{
 		if (!_animator)
 			return;

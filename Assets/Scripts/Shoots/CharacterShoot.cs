@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// Basic shoot shared with every character
 public abstract class CharacterShoot : MonoBehaviour
 {
 	[SerializeField] protected TurretController _turret = null;

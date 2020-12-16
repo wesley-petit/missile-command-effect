@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionReference: {fileID: 0}
   _playerInputs: {fileID: 0}
+  _uiRebinding: {fileID: 6349053524106556705}
   OnUpdateRebindingState:
     m_PersistentCalls:
       m_Calls:

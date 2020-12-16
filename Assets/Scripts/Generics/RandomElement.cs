@@ -12,6 +12,7 @@ public class RandomElement
 
 	public RandomElement(int currentIndex = 0) => _currentIndex = currentIndex;
 
+	// Get an element int the list
 	public T Choose<T>(T[] elements)
 	{
 		int i;
@@ -30,6 +31,7 @@ public class RandomElement
 		return elements[_currentIndex];
 	}
 
+	// Get the index
 	public int Choose(int sizeElements)
 	{
 		int i;

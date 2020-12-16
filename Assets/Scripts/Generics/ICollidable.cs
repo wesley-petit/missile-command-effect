@@ -1,5 +1,2 @@
-﻿// Interface to a collidable itel
-public interface ICollidable
-{
-	void Hit();
-}
+﻿// Interface to a collidable item
+public interface ICollidable { void Hit(); }

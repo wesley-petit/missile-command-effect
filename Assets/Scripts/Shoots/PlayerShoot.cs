@@ -18,6 +18,9 @@ public class PlayerShoot : CharacterShoot
 		_inputs = GetComponent<InputHandler>();
 	}
 
+	private void OnEnable() => RoundSystem.OnPlayRound += ResetCanon;
+	private void OnDisable() => RoundSystem.OnPlayRound -= ResetCanon;
+
 	// Take last inputs
 	private void Update() => TakeInputs();
 
@@ -25,7 +28,8 @@ public class PlayerShoot : CharacterShoot
 	private void FixedUpdate() => ShootTurret();
 	#endregion
 
-	public void ResetCanon()
+	#region Private Methods
+	private void ResetCanon()
 	{
 		for (int i = 0; i < _playerCanons.Length; i++)
 		{
@@ -34,7 +38,6 @@ public class PlayerShoot : CharacterShoot
 		}
 	}
 
-	#region Private Methods
 	private void TakeInputs()
 	{
 		_playerCanons[0].Input = VerifyInput(_playerCanons[0].Input, _inputs.LeftShoot);

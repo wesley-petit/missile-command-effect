@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Interface between player input and script that use it
 public class InputHandler : MonoBehaviour
 {
 	public bool LeftShoot { get; private set; }
