@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 // Move cursor for controller player
 [RequireComponent(typeof(InputHandler))]
@@ -21,7 +22,11 @@ public class CursorMovement : MonoBehaviour
 		_cursorPosition = transform.position;
 	}
 
-	private void Update() => Move(_inputs.Movement);
+	private void Update()
+	{
+		//Move(_inputs.Movement);
+		XRMove(_inputs.XRMovement);
+	}
 
 	private void Move(Vector2 movement)
 	{
@@ -38,4 +43,5 @@ public class CursorMovement : MonoBehaviour
 
 		transform.position = _cursorPosition;
 	}
+	private void XRMove(Vector2 position) => transform.position = position;
 }
