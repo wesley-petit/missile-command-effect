@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private ScoreBuilding[] _scoreBuildings =                       // Buildings which add a score
 		new ScoreBuilding[0];
-	[SerializeField] private ScoreManager _scoreManager = null;     // Add and update building modifier when a building is destroy
+
+	private ScoreManager Score => ScoreManager.Instance;
 
 	#region Unity Methods
 	// Register and unregister to callbacks
@@ -37,12 +38,6 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 
-		if (!_scoreManager)
-		{
-			Debug.LogError($"Score Manager is undefined in {name}.");
-			return;
-		}
-
 		StartManagers();
 	}
 	#endregion
@@ -65,8 +60,7 @@ public class GameManager : MonoBehaviour
 
 		GameStateManager.SetGameState(intactBuilding);
 		// Add the correct score for each building
-		if (_scoreManager)
-			_scoreManager.BuildingModifier = currentScore;
+		Score.BuildingModifier = currentScore;
 	}
 
 	// Refresh Manager if a buildings has been destroyed
@@ -83,7 +77,6 @@ public class GameManager : MonoBehaviour
 
 			currentScore += oneScoreBuilding.Score;
 		}
-		if (_scoreManager)
-			_scoreManager.BuildingModifier = currentScore;
+		Score.BuildingModifier = currentScore;
 	}
 }

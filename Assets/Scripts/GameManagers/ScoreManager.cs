@@ -37,7 +37,6 @@ public class ScoreManager : MonoBehaviour
 	private int _currentScore = 0;
 	private int _buildingModifier = 0;
 	private int _bulletModifier = 0;
-	private AudioSync _audioSync = null;                            // Increase the score in a strong time
 
 	private void Awake()
 	{
@@ -56,15 +55,14 @@ public class ScoreManager : MonoBehaviour
 			Debug.LogError($"Round System is undefined in {name}.");
 			return;
 		}
-
-		_audioSync = AudioSync.Instance;
 	}
 
 	private void Update()
 	{
-		if (!_audioSync || !_roundSystem) { return; }
+		if (!_roundSystem) { return; }
 
-		if (_audioSync.IsInStrongTime && _roundSystem.IsInPlay)
+		// Increase the score in a strong and play time
+		if (AudioSync.Instance.IsInStrongTime && _roundSystem.IsInPlay)
 		{
 			IncreaseScore();
 		}
