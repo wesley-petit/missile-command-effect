@@ -19,20 +19,40 @@ public class TurretController : MonoBehaviour
 			_speed = value;
 		}
 	}
-	public Quaternion RotationToDirection { get; private set; }                             // Bullet Direction
 
 	private Queue<Bullet> _availableProjectile = new Queue<Bullet>();                       // Pool system
-	private Vector2 _direction = Vector2.zero;
 
 	/// Shoot a new bullet
 	/// or take a one in the pool system
-	public void Shoot(Vector3 canonPosition, Vector3 targetPosition)
+	public void Shoot(Vector3 canonPosition, Vector3 targetPosition, PlayerCanon canon = null)
 	{
 		if (!_bulletContainer)
 			return;
 
-		Bullet bullet;
+		Bullet bullet = GetBullet();
 
+		CalculateShoot(canonPosition, targetPosition, out Vector2 direction, out float shootAngle, out Quaternion rotation);
+		canon?.RotateTurret(shootAngle);
+
+		InitializeBullet(canonPosition, bullet, rotation);
+
+		FinalShoot(bullet, direction);
+	}
+
+	// Add bullet in the pool system
+	public void AddBullet(Bullet bullet)
+	{
+		if (!bullet)
+			return;
+
+		_availableProjectile.Enqueue(bullet);
+	}
+
+	#region Shoot Step
+	// Get a bullet or a pool system
+	private Bullet GetBullet()
+	{
+		Bullet bullet;
 		// If a bullet is in the pool System
 		if (0 < _availableProjectile.Count)
 		{
@@ -45,29 +65,29 @@ public class TurretController : MonoBehaviour
 			bullet.Turret = this;
 		}
 
-		RotationToDirection = CalculateRotation(canonPosition, targetPosition);
-		bullet.InitializeTransform(_bulletContainer, canonPosition, RotationToDirection);
-		bullet.gameObject.SetActive(true);
-
-		// Reset physics
-		bullet.ResetPhysics();
-		bullet.Rigidbody2D.AddForce(_direction * _speed, _forceMode2D);
+		return bullet;
 	}
 
-	private Quaternion CalculateRotation(Vector3 canonPosition, Vector3 targetPosition)
+	// Return direction, shoot angle and rotation between a canon and his target
+	private void CalculateShoot(Vector3 canonPosition, Vector3 targetPosition, out Vector2 direction, out float shootAngle, out Quaternion rotation)
 	{
 		// Look at the bullet at the cursor, rotation on Z only
-		_direction = (targetPosition - canonPosition).normalized;
-		float rotZ = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
-		return Quaternion.Euler(0f, 0f, rotZ - 90);
+		direction = (targetPosition - canonPosition).normalized;
+		shootAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+		rotation = Quaternion.Euler(0f, 0f, shootAngle - 90);
 	}
 
-	// Add bullet in the pool system
-	public void AddBullet(Bullet bullet)
+	private void InitializeBullet(Vector3 canonPosition, Bullet bullet, Quaternion rotation)
 	{
-		if (!bullet)
-			return;
-
-		_availableProjectile.Enqueue(bullet);
+		bullet.InitializeTransform(_bulletContainer, canonPosition, rotation);
+		bullet.gameObject.SetActive(true);
 	}
+
+	private void FinalShoot(Bullet bullet, Vector2 direction)
+	{
+		// Reset physics
+		bullet.ResetPhysics();
+		bullet.Rigidbody2D.AddForce(direction * _speed, _forceMode2D);
+	}
+	#endregion
 }

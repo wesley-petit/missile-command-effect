@@ -26,6 +26,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5925833899732410310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319416036020980213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e35b164ea688c40bc2145a32d8a674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _building: {fileID: 8333348034449529196}
+  _canon: {fileID: 2275364399223622241}
+  _turretHeading: {fileID: 4353597437227537927}
 --- !u!114 &7398558536454229424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,6 +65,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c2dc35db17db1418e4c397d7a8fe5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4684017728406253866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2275364399223622241}
+  m_Layer: 0
+  m_Name: Canon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2275364399223622241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684017728406253866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0256, y: -0.0047, z: 0.0186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4353597437227537927}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2533685411413147122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +179,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 879a00a47c3778042b9e49545bb6cd5c, type: 3}
+--- !u!4 &4353597437227537927 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6970902927088997387, guid: 879a00a47c3778042b9e49545bb6cd5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2533685411413147122}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2533685412101322738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,7 +270,7 @@ PrefabInstance:
     - target: {fileID: 8402140284423732743, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}
       propertyPath: m_Name
-      value: PlayerShootCanon_0
+      value: PlayerShootCanon
       objectReference: {fileID: 0}
     - target: {fileID: 8402140284423732743, guid: a9ac71b11f92cf24696b59ddba36a7cc,
         type: 3}

@@ -1,20 +1,26 @@
 ﻿using UnityEngine;
 
-// Struct for each player canon with a selected inputs
-[System.Serializable]
-public struct PlayerCanon
+public class PlayerCanon : MonoBehaviour
 {
-	[SerializeField] private CollidableBuilding _canon;
-	[SerializeField] private Transform _turretHeading;				// Change turret heading in the bullet direction 
+	[SerializeField] private CollidableBuilding _building = null;
+	[SerializeField] private Transform _canon = null;               // Canon origin
+	[SerializeField] private Transform _turretHeading = null;       // Change turret heading in the bullet direction
+	[SerializeField] private float _addToYAngle = 90f;              // Rotation to angle
 
+	private Vector3 _startRotation = new Vector3(-22f, 0f, 90f);
+
+	#region Public fields
 	public bool Input { get; set; }                                 // Fill with inputs
 	public int Ammos { get; set; }
 
-	public CollidableBuilding GetCanon => _canon;
-	public Transform GetTransform => _canon.transform;
-	public Transform GetHeading => _turretHeading;
-	public Vector3 GetPosition => _canon.transform.position;
-	public bool CanShoot => Input && 0 < Ammos && _canon.IsIntact; // Canon hiding or not
+	public CollidableBuilding GetBuilding => _building;
+	public Vector3 GetPosition => _canon.position;
+	public bool CanShoot => Input && 0 < Ammos && _building.IsIntact; // Canon hiding or not
+	#endregion
+
+	private void Start() => _startRotation = _turretHeading.rotation.eulerAngles;
 
 	public void ReduceAmmos() => Ammos--;
+
+	public void RotateTurret(float angle) => _turretHeading.rotation = Quaternion.Euler(_startRotation.x, _addToYAngle - angle, _startRotation.z);
 }

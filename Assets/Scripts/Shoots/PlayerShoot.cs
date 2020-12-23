@@ -35,7 +35,7 @@ public class PlayerShoot : CharacterShoot
 		for (int i = 0; i < _playerCanons.Length; i++)
 		{
 			_playerCanons[i].Ammos = _maxAmmo;
-			_playerCanons[i].GetCanon.Show();
+			_playerCanons[i].GetBuilding.Show();
 		}
 	}
 
@@ -57,12 +57,11 @@ public class PlayerShoot : CharacterShoot
 
 			if (currentCanon.CanShoot)
 			{
-				_turret.Shoot(currentCanon.GetPosition, _cursor.position);
+				_turret.Shoot(currentCanon.GetPosition, _cursor.position, currentCanon);
 				currentCanon.ReduceAmmos();
 			}
 
 			currentCanon.Input = false;
-			_playerCanons[i] = currentCanon;
 		}
 	}
 	#endregion
