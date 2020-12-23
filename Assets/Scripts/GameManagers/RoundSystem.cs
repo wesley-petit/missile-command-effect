@@ -3,8 +3,6 @@
 // Change round between play or score
 public class RoundSystem : MonoBehaviour
 {
-	public static RoundSystem Instance { get; private set; }
-
 	[SerializeField] private int _maxPlayTime = 20;
 	[SerializeField] private int _maxScoreTime = 7;
 
@@ -17,17 +15,7 @@ public class RoundSystem : MonoBehaviour
 	private bool _play = true;
 
 	#region Unity Methods
-	private void Awake()
-	{
-		if (Instance != null)
-		{
-			Debug.LogError($"Two singletons of the same types {typeof(RoundSystem)}.");
-			Destroy(this);
-		}
-		Instance = this;
-
-		UseMaxPlayTime();
-	}
+	private void Awake() => UseMaxPlayTime();
 
 	private void OnEnable() => _timer.Register(Switch);
 

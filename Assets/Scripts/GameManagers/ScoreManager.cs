@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 
 	[SerializeField] private int _bulletScoreToCombos = 30;         // Bullet score to add an score combos
 	[SerializeField] private IntEvent OnIncreaseScore = null;       // Callbacks for the UI
+	[SerializeField] private RoundSystem _roundSystem = null;       // Increase score only on a play round
 
 	#region Fields
 	public int BuildingModifier
@@ -37,7 +38,6 @@ public class ScoreManager : MonoBehaviour
 	private int _buildingModifier = 0;
 	private int _bulletModifier = 0;
 	private AudioSync _audioSync = null;                            // Increase the score in a strong time
-	private RoundSystem _roundSystem = null;                        // Increase score only on a play round
 
 	private void Awake()
 	{
@@ -51,12 +51,19 @@ public class ScoreManager : MonoBehaviour
 
 	private void Start()
 	{
+		if (!_roundSystem)
+		{
+			Debug.LogError($"Round System is undefined in {name}.");
+			return;
+		}
+
 		_audioSync = AudioSync.Instance;
-		_roundSystem = RoundSystem.Instance;
 	}
 
 	private void Update()
 	{
+		if (!_audioSync || !_roundSystem) { return; }
+
 		if (_audioSync.IsInStrongTime && _roundSystem.IsInPlay)
 		{
 			IncreaseScore();

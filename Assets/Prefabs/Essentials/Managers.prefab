@@ -101,6 +101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioSync
       objectReference: {fileID: 0}
+    - target: {fileID: 8815031026248746998, guid: d6a22c546ecbbc544934231289fda11d,
+        type: 3}
+      propertyPath: _BPM
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6a22c546ecbbc544934231289fda11d, type: 3}
 --- !u!4 &6370195777378865360 stripped
@@ -109,6 +114,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2464088350450439968}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6370195777378865366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8815031026248746998, guid: d6a22c546ecbbc544934231289fda11d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2464088350450439968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a0b46accfe03946a976d62fbbbab6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4359348294770542012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,6 +201,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4359348294770542012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6370195778300165931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7212795600164027031, guid: 63af327ded2979b42b72e11b0d168507,
+    type: 3}
+  m_PrefabInstance: {fileID: 4359348294770542012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57fc32f58823c21409434f062aa4ad13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9058465259742682008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -276,6 +305,11 @@ PrefabInstance:
       propertyPath: _scoreBuildings.Array.data[3]._collidableBuilding
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2725057551999915055, guid: 13e42202897cd1d4b99cbcabab19008f,
+        type: 3}
+      propertyPath: _scoreManager
+      value: 
+      objectReference: {fileID: 6370195778436240313}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e42202897cd1d4b99cbcabab19008f, type: 3}
 --- !u!4 &6370195777748111280 stripped
@@ -351,6 +385,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2741041636483478475, guid: a1334af037786f64b8f4f7a46a283e62,
+        type: 3}
+      propertyPath: _roundSystem
+      value: 
+      objectReference: {fileID: 6370195778300165931}
+    - target: {fileID: 2741041636483478475, guid: a1334af037786f64b8f4f7a46a283e62,
+        type: 3}
+      propertyPath: _audioSync
+      value: 
+      objectReference: {fileID: 6370195777378865366}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1334af037786f64b8f4f7a46a283e62, type: 3}
 --- !u!4 &6370195778436240314 stripped
@@ -359,3 +403,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9110036129708875890}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6370195778436240313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2741041636483478475, guid: a1334af037786f64b8f4f7a46a283e62,
+    type: 3}
+  m_PrefabInstance: {fileID: 9110036129708875890}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ecc991ebf74544da70e166e0e9e44e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -10,6 +10,7 @@ public class EnemyShoot : CharacterShoot
 	[SerializeField]
 	private Transform[] _canons = new Transform[0];                 // Canon / Origin, in the same order (left to right)
 	[SerializeField] private int _musicTimeToReachTarget = 8;       // Time for a missile to reach his target
+	[SerializeField] private RoundSystem _roundSystem = null;       // If we are in a play or score time
 
 	private float[,] _speedToReachTargets = new float[0, 0];        // Speed Canons to targets
 
@@ -18,7 +19,6 @@ public class EnemyShoot : CharacterShoot
 	private Transform _currentTarget = null;
 	private Transform _currentCanon = null;
 	private AudioSync _audioSync = null;
-	private RoundSystem _roundSystem = null;						// If we are in a play or score time
 
 	#region Unity Methods
 	protected override void Start()
@@ -27,25 +27,31 @@ public class EnemyShoot : CharacterShoot
 
 		if (_canons.Length <= 0)
 		{
-			Debug.LogError($"Canons are undefined in {gameObject.name}.");
+			Debug.LogError($"Canons are undefined in {name}.");
 			return;
 		}
 
 		if (_targets.Count <= 0)
 		{
-			Debug.LogError($"Targets are undefined in {gameObject.name}.");
+			Debug.LogError($"Targets are undefined in {name}.");
 			return;
 		}
 
-		SetSpeedToTargets();
-		PrepareNextShoot();
+		if (!_roundSystem)
+		{
+			Debug.LogError($"Round System is undefined in {name}.");
+			return;
+		}
 
 		_audioSync = AudioSync.Instance;
-		_roundSystem = RoundSystem.Instance;
+		SetSpeedToTargets();
+		PrepareNextShoot();
 	}
 
 	private void Update()
 	{
+		if (!_audioSync || !_roundSystem) { return; }
+
 		if (_audioSync.IsInPace && _roundSystem.IsInPlay)
 		{
 			ShootTurret();
@@ -61,7 +67,7 @@ public class EnemyShoot : CharacterShoot
 		_speedToReachTargets = new float[_canons.Length, _targets.Count];
 		float distance;
 		// Audio sync to shoot in music pace
-		float time = AudioSync.Instance.ShootTime * _musicTimeToReachTarget;
+		float time = _audioSync.ShootTime * _musicTimeToReachTarget;
 
 		for (int i = 0; i < _canons.Length; i++)
 		{

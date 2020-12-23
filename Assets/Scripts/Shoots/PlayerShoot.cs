@@ -4,7 +4,8 @@
 public class PlayerShoot : CharacterShoot
 {
 	[SerializeField] private Transform _cursor = null;
-	[SerializeField] private PlayerCanon[] _playerCanons = new PlayerCanon[2];
+	[SerializeField]
+	private PlayerCanon[] _playerCanons = new PlayerCanon[2];
 	[SerializeField] private int _maxAmmo = 4;
 
 	private InputHandler _inputs = null;

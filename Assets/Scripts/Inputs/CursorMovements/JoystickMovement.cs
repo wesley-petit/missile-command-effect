@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
-// Move cursor for controller player
-[RequireComponent(typeof(InputHandler))]
-public class CursorMovement : MonoBehaviour
+// Movement with Joystick / Keyboard
+public class JoystickMovement : CursorMovement
 {
 	[SerializeField] private float _speed = 5f;
 	[SerializeField]
-	private Vector2 _clamp = new Vector2(7.5f, 5.5f);               // Clamp to block off screen
+	private Vector2 _clamp = new Vector2(6f, 4.25f);                // Clamp to block off screen
 	[SerializeField] private float _posZ = 0f;                      // To hide the cursor in other instance
 
-	private InputHandler _inputs = null;
 	private Vector2 _cursorPosition = Vector2.zero;
 
-	private void Start()
+	public void Awake() => _movementType = MovementType.JOYSTICK;
+
+	public override void InitMovement()
 	{
 		_inputs = GetComponent<InputHandler>();
 		transform.position = new Vector3(transform.position.x,
@@ -22,19 +21,12 @@ public class CursorMovement : MonoBehaviour
 		_cursorPosition = transform.position;
 	}
 
-	private void Update()
+	public override void UpdateMovement()
 	{
-		//Move(_inputs.Movement);
-		XRMove(_inputs.XRMovement);
-	}
-
-	private void Move(Vector2 movement)
-	{
-		if (movement == Vector2.zero)
+		if (_inputs.Movement == Vector2.zero)
 			return;
 
-		movement *= _speed * Time.deltaTime;
-
+		Vector2 movement = _inputs.Movement * _speed * Time.deltaTime;
 		_cursorPosition += new Vector2(movement.x, movement.y);
 
 		// Clamp value
@@ -43,5 +35,4 @@ public class CursorMovement : MonoBehaviour
 
 		transform.position = _cursorPosition;
 	}
-	private void XRMove(Vector2 position) => transform.position = position;
 }
