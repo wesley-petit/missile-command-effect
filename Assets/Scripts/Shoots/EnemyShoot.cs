@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // Enemy shoot in music rythm
 public class EnemyShoot : CharacterShoot
@@ -13,7 +14,6 @@ public class EnemyShoot : CharacterShoot
 	[SerializeField] private RoundSystem _roundSystem = null;       // If we are in a play or score time
 
 	private float[,] _speedToReachTargets = new float[0, 0];        // Speed Canons to targets
-
 	private readonly RandomElement _targetRandom = new RandomElement();      // Choose a random Target
 	private readonly RandomElement _canonRandom = new RandomElement();       // Choose a random Canon
 	private Transform _currentTarget = null;
@@ -66,6 +66,8 @@ public class EnemyShoot : CharacterShoot
 		float distance;
 		// Audio sync to shoot in music pace
 		float time = AudioSync.Instance.ShootTime * _musicTimeToReachTarget;
+		// Give the delay for a bullet to hit a target
+		_roundSystem.CalculateMaxTime(time);
 
 		for (int i = 0; i < _canons.Length; i++)
 		{

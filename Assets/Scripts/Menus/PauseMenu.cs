@@ -9,7 +9,7 @@ public class PauseMenu : MainMenu
 
 	public bool IsPause { get; private set; }                       // If we are on play or not
 
-	private float _normalTime = 60.0f;                              // Reset time in a normal way
+	private float _normalTime = 1f;									// Reset time in a normal way
 	private Controls _controls = null;
 
 	private void Awake()
@@ -54,20 +54,34 @@ public class PauseMenu : MainMenu
 	{
 		if (!IsPause && !GameState.EndGame)
 		{
-			DisplayOrHideMenu(true, 0.0f);
-			AudioSync.Instance.Pause();
-			ChangeInputMaps(InputMaps.UI);
+			Pause();
 		}
 		else
 		{
 			Resume();
-			AudioSync.Instance.Play();
-			ChangeInputMaps(InputMaps.PLAYER);
 		}
 	}
 
+	private void Pause()
+	{
+		AudioSync.Instance.Pause();
+		DisplayOrHideMenu(true, 0.0f);
+		ChangeInputMaps(InputMaps.UI);
+	}
+
 	// Use by ui to resume the game
-	public void Resume() => DisplayOrHideMenu(false, _normalTime);
+	public void Resume()
+	{
+		AudioSync.Instance.Play();
+		DisplayOrHideMenu(false, _normalTime);
+		ChangeInputMaps(InputMaps.PLAYER);
+	}
+
+	public override void ReturnToMainMenu()
+	{
+		Time.timeScale = _normalTime;
+		base.ReturnToMainMenu();
+	}
 
 	// Stop time and display menu
 	// Reset time and hide menu

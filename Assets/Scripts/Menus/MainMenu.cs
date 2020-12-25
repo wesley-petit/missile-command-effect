@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
 
 	public void Settings() => ChangeScene(_settings);
 
-	public void ReturnToMainMenu() => ChangeScene(_mainMenu);
+	public virtual void ReturnToMainMenu() => ChangeScene(_mainMenu);
 
 	public void ChangeScene(SceneIndexes playScene) => SceneManager.LoadScene((int)playScene);
 
