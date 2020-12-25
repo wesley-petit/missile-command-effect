@@ -6,7 +6,6 @@ using UnityEngine;
 public class ChangeMaterialProperties : MonoBehaviour
 {
 	private Material _objectMaterial = null;
-	private Color _originalEmissionColor = new Color();
 
 	private void Awake() => _objectMaterial = GetComponent<MeshRenderer>().materials[0];
 

@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "da0b45a1-a83a-4870-b1e1-9611d78c1394",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -374,6 +382,39 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "RightHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b218de5-24aa-4059-bb76-b71549f2276b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard_Mouse",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "70337f12-455f-40b3-b16a-94039b2fd89e",
+                    "path": "*/{Menu}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41ad77a2-b441-475b-a92d-e3d4c6e177bf",
+                    "path": "*/{MenuButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

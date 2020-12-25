@@ -278,12 +278,12 @@ PrefabInstance:
     - target: {fileID: 2725057551999915049, guid: 13e42202897cd1d4b99cbcabab19008f,
         type: 3}
       propertyPath: m_Name
-      value: GameManager
+      value: LevelManager
       objectReference: {fileID: 0}
     - target: {fileID: 2725057551999915055, guid: 13e42202897cd1d4b99cbcabab19008f,
         type: 3}
       propertyPath: _scoreBuildings.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2725057551999915055, guid: 13e42202897cd1d4b99cbcabab19008f,
         type: 3}
@@ -310,6 +310,26 @@ PrefabInstance:
       propertyPath: _scoreManager
       value: 
       objectReference: {fileID: 6370195778436240313}
+    - target: {fileID: 2725057551999915055, guid: 13e42202897cd1d4b99cbcabab19008f,
+        type: 3}
+      propertyPath: _scoreBuildings.Array.data[0]._score
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725057551999915055, guid: 13e42202897cd1d4b99cbcabab19008f,
+        type: 3}
+      propertyPath: _scoreBuildings.Array.data[1]._score
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725057551999915055, guid: 13e42202897cd1d4b99cbcabab19008f,
+        type: 3}
+      propertyPath: _scoreBuildings.Array.data[2]._score
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725057551999915055, guid: 13e42202897cd1d4b99cbcabab19008f,
+        type: 3}
+      propertyPath: _scoreBuildings.Array.data[3]._score
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e42202897cd1d4b99cbcabab19008f, type: 3}
 --- !u!4 &6370195777748111280 stripped

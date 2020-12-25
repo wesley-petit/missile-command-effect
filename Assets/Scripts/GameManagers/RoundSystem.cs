@@ -11,7 +11,7 @@ public class RoundSystem : MonoBehaviour
 	public static System.Action OnPlayRound = null;                        // Callbacks to invoke a play round
 	public static System.Action OnScoreRound = null;                       // Callbacks to invoke a score round
 
-	private Timer _timer = new Timer();
+	private readonly Timer _timer = new Timer();
 	private bool _play = true;
 
 	#region Unity Methods
@@ -21,7 +21,18 @@ public class RoundSystem : MonoBehaviour
 
 	private void OnDisable() => _timer.Unregister(Switch);
 
-	private void Update() => _timer.UpdateTimer();
+	private void Update()
+	{
+		if (!GameState.EndGame)
+		{
+			_timer.UpdateTimer();
+		}
+		// Switch to score round for the end of the game
+		else if (_play)
+		{
+			Switch();
+		}
+	}
 	#endregion
 
 	#region Private Methods

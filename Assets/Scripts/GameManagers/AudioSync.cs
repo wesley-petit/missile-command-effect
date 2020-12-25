@@ -7,7 +7,7 @@ public class AudioSync : MonoBehaviour
 
 	[SerializeField] private AudioSource _audios = null;            // Music tracks
 	[SerializeField] private int _BPM = 80;
-	[SerializeField] private const int _strongTime = 4;                              // Time 4 is a strong time
+	[SerializeField] private const int _strongTime = 4;             // Time 4 is a strong time
 
 	#region Fields
 	public float ShootTime { get; private set; }                    // BPM in seconds
@@ -32,10 +32,10 @@ public class AudioSync : MonoBehaviour
 			Debug.LogError($"Two singletons of the same types {typeof(AudioSync)}.");
 			Destroy(this);
 		}
-		Instance = this;
-	}
 
-	private void Start() => ResetTimeToShoot();
+		Instance = this;
+		ResetTimeToShoot();
+	}
 
 	private void Update()
 	{
@@ -46,7 +46,7 @@ public class AudioSync : MonoBehaviour
 
 		if (MusicEnd)
 		{
-			GameStateManager.Win();
+			GameState.Win();
 		}
 
 		if (NextPace)
@@ -63,6 +63,9 @@ public class AudioSync : MonoBehaviour
 		_previousAudioTime = GetTime;
 	}
 	#endregion
+
+	public void Play() => _audios.Play();
+	public void Pause() => _audios.Pause();
 
 	// BPM dependant, BPM changes => ShootTime changes
 	private void ResetTimeToShoot() => ShootTime = 60f / _BPM;

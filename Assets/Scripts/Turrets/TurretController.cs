@@ -20,7 +20,7 @@ public class TurretController : MonoBehaviour
 		}
 	}
 
-	private Queue<Bullet> _availableProjectile = new Queue<Bullet>();                       // Pool system
+	private readonly Queue<Bullet> _availableProjectile = new Queue<Bullet>();                       // Pool system
 
 	/// Shoot a new bullet
 	/// or take a one in the pool system
@@ -32,7 +32,9 @@ public class TurretController : MonoBehaviour
 		Bullet bullet = GetBullet();
 
 		CalculateShoot(canonPosition, targetPosition, out Vector2 direction, out float shootAngle, out Quaternion rotation);
-		canon?.RotateTurret(shootAngle);
+
+		if (canon)
+			canon.RotateTurret(shootAngle);
 
 		InitializeBullet(canonPosition, bullet, rotation);
 

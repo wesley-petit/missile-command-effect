@@ -45,7 +45,7 @@ public class Rebinding : MonoBehaviour
 
 		OnUpdateRebindingState?.Invoke(true);
 
-		_playerInputs.SwitchCurrentActionMap(InputMapsConst.UI);
+		_playerInputs.SwitchCurrentActionMap(InputMaps.UI);
 
 		// Wait for input
 		rebindingOperation = _actionReference.action.PerformInteractiveRebinding()
@@ -62,7 +62,7 @@ public class Rebinding : MonoBehaviour
 		rebindingOperation.Dispose();
 		rebindingOperation = null;
 
-		_playerInputs.SwitchCurrentActionMap(InputMapsConst.PLAYER);
+		_playerInputs.SwitchCurrentActionMap(InputMaps.PLAYER);
 
 		OnUpdateRebindingState?.Invoke(false);
 	}

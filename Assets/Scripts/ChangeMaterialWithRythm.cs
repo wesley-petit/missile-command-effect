@@ -53,7 +53,7 @@ public class ChangeMaterialWithRythm : MonoBehaviour
 		int colorIndex = _colorMotifs[_index];
 		if (_colors.Length <= colorIndex) { colorIndex = 0; }
 
-		_changeMaterial?.ChangeColor(_colors[colorIndex]);
+		_changeMaterial.ChangeColor(_colors[colorIndex]);
 
 		// Give an emissive color in a strong time
 		if (strongTime)

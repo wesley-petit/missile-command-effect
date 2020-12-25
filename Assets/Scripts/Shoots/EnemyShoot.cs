@@ -14,11 +14,10 @@ public class EnemyShoot : CharacterShoot
 
 	private float[,] _speedToReachTargets = new float[0, 0];        // Speed Canons to targets
 
-	private RandomElement _targetRandom = new RandomElement();      // Choose a random Target
-	private RandomElement _canonRandom = new RandomElement();       // Choose a random Canon
+	private readonly RandomElement _targetRandom = new RandomElement();      // Choose a random Target
+	private readonly RandomElement _canonRandom = new RandomElement();       // Choose a random Canon
 	private Transform _currentTarget = null;
 	private Transform _currentCanon = null;
-	private AudioSync _audioSync = null;
 
 	#region Unity Methods
 	protected override void Start()
@@ -43,16 +42,15 @@ public class EnemyShoot : CharacterShoot
 			return;
 		}
 
-		_audioSync = AudioSync.Instance;
 		SetSpeedToTargets();
 		PrepareNextShoot();
 	}
 
 	private void Update()
 	{
-		if (!_audioSync || !_roundSystem) { return; }
+		if (!_roundSystem) { return; }
 
-		if (_audioSync.IsInPace && _roundSystem.IsInPlay)
+		if (AudioSync.Instance.IsInPace && _roundSystem.IsInPlay)
 		{
 			ShootTurret();
 			PrepareNextShoot();
@@ -67,7 +65,7 @@ public class EnemyShoot : CharacterShoot
 		_speedToReachTargets = new float[_canons.Length, _targets.Count];
 		float distance;
 		// Audio sync to shoot in music pace
-		float time = _audioSync.ShootTime * _musicTimeToReachTarget;
+		float time = AudioSync.Instance.ShootTime * _musicTimeToReachTarget;
 
 		for (int i = 0; i < _canons.Length; i++)
 		{

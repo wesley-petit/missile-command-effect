@@ -16,7 +16,7 @@ public class Cursor : MonoBehaviour
 		[SerializeField] private GameObject _reticle;
 
 		public MovementType GetMovementType => _movementType;
-		public void Hide() => _reticle?.SetActive(false);
+		public void Hide() => _reticle.SetActive(false);
 	}
 
 	private void Start()
@@ -58,5 +58,5 @@ public class Cursor : MonoBehaviour
 		}
 	}
 
-	private void Update() => _movementSelected?.UpdateMovement();
+	private void Update() => _movementSelected.UpdateMovement();
 }
