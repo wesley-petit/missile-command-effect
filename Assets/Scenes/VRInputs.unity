@@ -523,6 +523,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 525665076142095809, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
         type: 3}
+      propertyPath: _cursor
+      value: 
+      objectReference: {fileID: 4363954311065676937}
+    - target: {fileID: 525665076142095809, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
+        type: 3}
       propertyPath: _playerCanons.Array.data[0]
       value: 
       objectReference: {fileID: 1986922617}
@@ -531,11 +536,6 @@ PrefabInstance:
       propertyPath: _playerCanons.Array.data[1]
       value: 
       objectReference: {fileID: 1175494846}
-    - target: {fileID: 525665076142095809, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: _cursor
-      value: 
-      objectReference: {fileID: 4363954311065676937}
     - target: {fileID: 525665076628878525, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
         type: 3}
       propertyPath: m_Name
@@ -598,49 +598,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
         type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1247579517}
-    - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
-      value: da0b45a1-a83a-4870-b1e1-9611d78c1394
-      objectReference: {fileID: 0}
-    - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
-      value: Player/Menu[/Keyboard/escape]
-      objectReference: {fileID: 0}
-    - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: m_DefaultActionMap
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4363954311065676938}
-    - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetMovement
-      objectReference: {fileID: 0}
     - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -648,34 +608,14 @@ PrefabInstance:
       objectReference: {fileID: 4363954311065676938}
     - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
         type: 3}
-      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetLeftHand
-      objectReference: {fileID: 0}
-    - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4363954311065676938}
     - target: {fileID: 525665077938544787, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
         type: 3}
-      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetRightHand
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611917490019094983, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: _leftRay
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 501302966}
-    - target: {fileID: 3611917490019094983, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: _rightRay
-      value: 
-      objectReference: {fileID: 830493016}
-    - target: {fileID: 4189051724732797565, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: _reticles.Array.data[1]._reticle
-      value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1247579517}
     - target: {fileID: 7947884438258169736, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
         type: 3}
       propertyPath: _leftRay
@@ -816,16 +756,6 @@ PrefabInstance:
       propertyPath: _roundSystem
       value: 
       objectReference: {fileID: 992913129}
-    - target: {fileID: 8293626206556553848, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: _musicTimeToReachTarget
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8293626206556553848, guid: d6115788b6bfb5e42a31f9ab241b9cc0,
-        type: 3}
-      propertyPath: _debugText
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6115788b6bfb5e42a31f9ab241b9cc0, type: 3}
 --- !u!114 &525665077182345381 stripped
@@ -921,11 +851,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3829089118834880238, guid: d26955c72c208de4ba79e5a123788d5c,
-        type: 3}
-      propertyPath: _typeSelected
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4363954310801855010, guid: d26955c72c208de4ba79e5a123788d5c,
         type: 3}
       propertyPath: m_Name
@@ -1137,11 +1062,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6370195777378865366, guid: 9717e2fe33b846f45ba003261ca1da09,
-        type: 3}
-      propertyPath: _BPM
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 6370195777748111287, guid: 9717e2fe33b846f45ba003261ca1da09,
         type: 3}
       propertyPath: _scoreBuildings.Array.data[0]._collidableBuilding
@@ -1164,8 +1084,8 @@ PrefabInstance:
       objectReference: {fileID: 681662162}
     - target: {fileID: 6370195778300165931, guid: 9717e2fe33b846f45ba003261ca1da09,
         type: 3}
-      propertyPath: _maxScoreTime
-      value: 5
+      propertyPath: _maxRoundNumber
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9088805168225854575, guid: 9717e2fe33b846f45ba003261ca1da09,
         type: 3}
@@ -1196,11 +1116,6 @@ PrefabInstance:
       propertyPath: _playerInputs
       value: 
       objectReference: {fileID: 525665077182345381}
-    - target: {fileID: 7870555612820901233, guid: 663bd1706b52e1142adc7bd1148a323b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7870555613530627106, guid: 663bd1706b52e1142adc7bd1148a323b,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -115,6 +115,11 @@ PrefabInstance:
       propertyPath: _canons.Array.size
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 5918964283114411048, guid: ecd68ac2dd203f8459e09e3056fcfee2,
+        type: 3}
+      propertyPath: _musicTimeToReachTarget
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecd68ac2dd203f8459e09e3056fcfee2, type: 3}
 --- !u!4 &3409904663160970878 stripped

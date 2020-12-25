@@ -5,6 +5,7 @@ public class RoundSystem : MonoBehaviour
 {
 	[SerializeField] private float _maxPlayTime = 20f;
 	[SerializeField] private float _maxScoreTime = 5f;
+	[SerializeField] private uint _maxRoundNumber = 2;
 
 	public bool IsInPlay { get; private set; }
 	public float MaxLastShootTime
@@ -15,15 +16,16 @@ public class RoundSystem : MonoBehaviour
 			if (value <= 0f) { return; }
 			_maxLastShootTime = value;
 		}
-	}
+	}                                       // Real Time for a missile to reach a target
 	public float MaxScoreTime => _maxScoreTime;
 
-	public static System.Action OnPlayRound = null;                        // Callbacks to invoke a play round
-	public static System.Action OnScoreRound = null;                       // Callbacks to invoke a score round
+	public static System.Action OnPlayRound = null;                         // Callbacks to invoke a play round
+	public static System.Action OnScoreRound = null;                        // Callbacks to invoke a score round
 
 	private readonly Timer _timer = new Timer();
 	private float _maxLastShootTime = 0;
 	private RoundPhase _currentPhase = RoundPhase.PLAY;
+	private uint _currentRound = 0;
 
 	private enum RoundPhase { PLAY, LAST_SHOOT, SCORE }
 
@@ -84,7 +86,14 @@ public class RoundSystem : MonoBehaviour
 				break;
 
 			case RoundPhase.SCORE:
+				if (_maxRoundNumber < _currentRound)
+				{
+					GameState.Win();
+					break;
+				}
+
 				ChangePhase(RoundPhase.PLAY, _maxPlayTime);
+				_currentRound++;
 				OnPlayRound?.Invoke();
 				break;
 

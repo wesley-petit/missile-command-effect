@@ -16,7 +16,6 @@ public class AudioSync : MonoBehaviour
 
 	private bool NextPace => ShootTime < _time;
 	private float GetTime => _audios.time;                          // Synchronize shoot with musics tracks
-	private bool MusicEnd => _delta < 0;                            // Music loop so delta will be negative
 	#endregion
 
 	private float _previousAudioTime = 0f;
@@ -43,11 +42,6 @@ public class AudioSync : MonoBehaviour
 		// a better synchronization
 		_delta = GetTime - _previousAudioTime;
 		_time += _delta;
-
-		if (MusicEnd)
-		{
-			GameState.Win();
-		}
 
 		if (NextPace)
 		{
