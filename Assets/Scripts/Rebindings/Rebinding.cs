@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Script created by DapperDino
+// Script created in most part by DapperDino
 // Rebind an input in a selected action
 public class Rebinding : MonoBehaviour
 {
 	[Header("Inputs references")]
-	[SerializeField] private InputActionReference _actionReference = null;          // Input to rebind
-	[SerializeField] private PlayerInput _playerInputs = null;                      // Action to switch between Player and UI inputs
+	[SerializeField]
+	private InputActionReference _actionReference = null;           // Input to rebind
+	[SerializeField]
+	private PlayerInput _playerInputs = null;                       // Action to switch between Player and UI inputs
 
 	[Header("Callbacks")]
-	[SerializeField] private BoolEvent OnUpdateRebindingState = null;               // Toggle UI for waiting inputs
+	[SerializeField]
+	private BoolEvent OnUpdateRebindingState = null;                // Toggle UI for waiting inputs
 	[SerializeField] private StringEvent OnUpdateNameAction = null;
 	[SerializeField] private StringEvent OnUpdateBinding = null;
 

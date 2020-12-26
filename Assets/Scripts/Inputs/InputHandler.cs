@@ -48,6 +48,7 @@ public class InputHandler : MonoBehaviour
 	}
 	#endregion
 
+	// Reset inputs for the next read input => it's easier for player input
 	private void ResetInputs()
 	{
 		LeftShoot = false;

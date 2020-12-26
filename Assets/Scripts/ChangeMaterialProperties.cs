@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 // Change material and emissive
 public class ChangeMaterialProperties : MonoBehaviour

@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MainMenu
 {
 	[SerializeField] private GameObject _containerPauseMenu = null; // Pause menu to display or hide
-	[SerializeField] private PlayerInput _playerInputs = null;
+	[SerializeField] private PlayerInput _playerInputs = null;      // Block inputs
 
 	public bool IsPause { get; private set; }                       // If we are on play or not
 
-	private float _normalTime = 1f;									// Reset time in a normal way
+	private float _normalTime = 1f;                                 // Reset time in a normal way
 	private Controls _controls = null;
 
 	private void Awake()
@@ -36,6 +36,7 @@ public class PauseMenu : MainMenu
 		_controls.Player.Menu.performed += cxt => TogglePause();
 	}
 
+	#region Callbacks
 	private void OnEnable()
 	{
 		_controls?.Enable();
@@ -49,9 +50,11 @@ public class PauseMenu : MainMenu
 		GameState.OnWinEvent -= ChangeToUIMaps;
 		GameState.OnLoseEvent -= ChangeToUIMaps;
 	}
+	#endregion
 
 	private void TogglePause()
 	{
+		// End game avoid to display pause menu in another win / lose screen
 		if (!IsPause && !GameState.EndGame)
 		{
 			Pause();

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 
+// Broken class
 public class FPSViewer : MonoBehaviour
 {
 	private const float WAIT_TIME = 1f;

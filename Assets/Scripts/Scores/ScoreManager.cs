@@ -5,12 +5,11 @@ public class ScoreManager : MonoBehaviour
 {
 	public static ScoreManager Instance { get; private set; }
 
-	[SerializeField] private int _bulletScoreToCombos = 30;         // Bullet score to add an score combos
+	[SerializeField] private ushort _bulletScoreToCombos = 30;      // Bullet score to add an score combos
 	[SerializeField] private IntEvent OnIncreaseScore = null;       // Callbacks for the UI
-	[SerializeField] private RoundSystem _roundSystem = null;       // Increase score only on a play round
 
 	#region Fields
-	public int BuildingModifier
+	public ushort BuildingModifier
 	{
 		get => _buildingModifier;
 		set
@@ -19,8 +18,8 @@ public class ScoreManager : MonoBehaviour
 
 			_buildingModifier = value;
 		}
-	}                                  // Score to add in each iteration when a building is intact
-	public int BulletModifier
+	}                               // Score to add in each iteration when a building is intact
+	public ushort BulletModifier
 	{
 		get => _bulletModifier;
 		set
@@ -29,14 +28,16 @@ public class ScoreManager : MonoBehaviour
 
 			_bulletModifier = value;
 		}
-	}                                   // Score to add in each iteration when a enemy bullet was destroyed
+	}                                 // Score to add in each iteration when a enemy bullet was destroyed
 
 	private bool HasACombos => _bulletScoreToCombos < _bulletModifier;
 	#endregion
 
-	private int _currentScore = 0;
-	private int _buildingModifier = 0;
-	private int _bulletModifier = 0;
+	private ushort _currentScore = 0;
+	private ushort _buildingModifier = 0;
+	private ushort _bulletModifier = 0;
+	private AudioSync _audioSync = null;
+	private RoundSystem _roundSystem = null;
 
 	private void Awake()
 	{
@@ -50,19 +51,14 @@ public class ScoreManager : MonoBehaviour
 
 	private void Start()
 	{
-		if (!_roundSystem)
-		{
-			Debug.LogError($"Round System is undefined in {name}.");
-			return;
-		}
+		_audioSync = AudioSync.Instance;
+		_roundSystem = RoundSystem.Instance;
 	}
 
 	private void Update()
 	{
-		if (!_roundSystem) { return; }
-
-		// Increase the score in a strong and play time
-		if (AudioSync.Instance.IsInStrongTime && _roundSystem.IsInPlay)
+		// Increase the score in a strong time and in a play round
+		if (_audioSync.IsInStrongTime && _roundSystem.IsInPlay)
 		{
 			IncreaseScore();
 		}
@@ -75,7 +71,7 @@ public class ScoreManager : MonoBehaviour
 		// Combos
 		if (HasACombos)
 		{
-			int combosMultiplier = _bulletModifier / _bulletScoreToCombos;
+			ushort combosMultiplier = (ushort)(_bulletModifier / _bulletScoreToCombos);
 			_bulletModifier *= combosMultiplier;
 		}
 

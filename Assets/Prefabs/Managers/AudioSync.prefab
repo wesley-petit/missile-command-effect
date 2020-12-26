@@ -140,5 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a0b46accfe03946a976d62fbbbab6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audios: {fileID: 8815031026248746999}
-  _BPM: 80
+  _BPM: 40
+  _strongTime: 4

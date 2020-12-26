@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-// Utilise le nom d'un gameObject pour définir celui des enfants
+// Change children name with parent name
 public class SetChildrenName : MonoBehaviour
 {
 	[SerializeField] private string _childrenName = "";
@@ -12,7 +12,7 @@ public class SetChildrenName : MonoBehaviour
 	{
 		Transform parent = transform;
 
-		if (_childrenName.CompareTo("") == 0)
+		if (string.IsNullOrEmpty(_childrenName))
 			_childrenName = parent.name;
 
 		for (int i = 0; i < transform.childCount; i++)

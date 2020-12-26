@@ -3,9 +3,11 @@
 // Change round between play or score
 public class RoundSystem : MonoBehaviour
 {
-	[SerializeField] private float _maxPlayTime = 20f;
-	[SerializeField] private float _maxScoreTime = 5f;
-	[SerializeField] private uint _maxRoundNumber = 2;
+	public static RoundSystem Instance { get; private set; }
+
+	[SerializeField] private float _maxPlayTime = 20f;              // Real time where the ennemy can shoot
+	[SerializeField] private float _maxScoreTime = 5f;              // Real time where we display the score / let the player
+	[SerializeField] private ushort _maxRoundNumber = 2;            // Max round to win
 
 	public bool IsInPlay { get; private set; }
 	public float MaxLastShootTime
@@ -16,12 +18,11 @@ public class RoundSystem : MonoBehaviour
 			if (value <= 0f) { return; }
 			_maxLastShootTime = value;
 		}
-	}                                       // Real Time for a missile to reach a target
+	}                               // Real Time for a missile to reach a target
 	public float MaxScoreTime => _maxScoreTime;
 
-	public static System.Action OnPlayRound = null;                         // Callbacks to invoke a play round
-	public static System.Action OnScoreRound = null;                        // Callbacks to invoke a score round
-
+	private static System.Action OnPlayRound = null;                // Callbacks to invoke a play round
+	private static System.Action OnScoreRound = null;               // Callbacks to invoke a score round
 	private readonly Timer _timer = new Timer();
 	private float _maxLastShootTime = 0;
 	private RoundPhase _currentPhase = RoundPhase.PLAY;
@@ -30,6 +31,16 @@ public class RoundSystem : MonoBehaviour
 	private enum RoundPhase { PLAY, LAST_SHOOT, SCORE }
 
 	#region Unity Methods
+	private void Awake()
+	{
+		if (Instance != null)
+		{
+			Debug.LogError($"Two singletons of the same types {typeof(RoundSystem)}.");
+			Destroy(this);
+		}
+		Instance = this;
+	}
+
 	private void Start()
 	{
 		// Switch score to play round
@@ -55,10 +66,14 @@ public class RoundSystem : MonoBehaviour
 	}
 	#endregion
 
+	// Max Time in timer
 	public void CalculateMaxTime(float lastShootTime)
 	{
 		if (lastShootTime <= 0f) { return; }
 
+		// Last shoot time is the real time for a bullet to reach a target
+		// We substract the score to let bullets in a previous reach
+		// theirs targets before a new round
 		lastShootTime -= _maxScoreTime;
 
 		if (_maxPlayTime <= lastShootTime)
@@ -68,12 +83,22 @@ public class RoundSystem : MonoBehaviour
 			lastShootTime = 0f;
 
 		_maxLastShootTime = lastShootTime;
-		_maxPlayTime = _maxPlayTime - _maxLastShootTime;
+		// Real time where enemy shoot fires some bullet
+		_maxPlayTime -= _maxLastShootTime;
 	}
 
-	// Launch a new wave or Display Scores
+	#region Callbacks
+	public static void RegisterOnPlay(System.Action toAdd) => OnPlayRound += toAdd;
+	public static void RegisterOnScore(System.Action toAdd) => OnScoreRound += toAdd;
+	public static void UnregisterOnPlay(System.Action toRemove) => OnPlayRound -= toRemove;
+	public static void UnregisterOnScore(System.Action toRemove) => OnScoreRound -= toRemove;
+	#endregion
+
+	// Launch a new wave / display scores or block bullets incoming
 	private void SwitchPhase()
 	{
+		// Life cycle
+		// Play => Last Shoot => Score => Play
 		switch (_currentPhase)
 		{
 			case RoundPhase.PLAY:
@@ -86,7 +111,7 @@ public class RoundSystem : MonoBehaviour
 				break;
 
 			case RoundPhase.SCORE:
-				if (_maxRoundNumber < _currentRound)
+				if (_maxRoundNumber <= _currentRound)
 				{
 					GameState.Win();
 					break;
@@ -98,6 +123,7 @@ public class RoundSystem : MonoBehaviour
 				break;
 
 			default:
+				Debug.LogError($"Unknow phase {_currentPhase}");
 				break;
 		}
 

@@ -3,12 +3,12 @@
 public struct ScoreBuilding
 {
 	[UnityEngine.SerializeField] private CollidableBuilding _collidableBuilding;
-	[UnityEngine.SerializeField] private int _score;
+	[UnityEngine.SerializeField] private ushort _score;
 
 	public CollidableBuilding Building => _collidableBuilding;
-	public int Score => _score;
+	public ushort Score => _score;
 
-	public ScoreBuilding(CollidableBuilding collidableBuilding, int score)
+	public ScoreBuilding(CollidableBuilding collidableBuilding, ushort score)
 	{
 		_collidableBuilding = collidableBuilding;
 		_score = score;

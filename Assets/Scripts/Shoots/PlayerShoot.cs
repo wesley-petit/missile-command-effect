@@ -3,10 +3,10 @@
 [RequireComponent(typeof(InputHandler))]
 public class PlayerShoot : CharacterShoot
 {
-	[SerializeField] private Transform _cursor = null;
+	[SerializeField] private Transform _cursor = null;              // Target position
 	[SerializeField]
 	private PlayerCanon[] _playerCanons = new PlayerCanon[2];
-	[SerializeField] private int _maxAmmo = 4;
+	[SerializeField] private uint _maxAmmo = 4;
 
 	private InputHandler _inputs = null;
 
@@ -15,15 +15,14 @@ public class PlayerShoot : CharacterShoot
 	protected override void Start()
 	{
 		base.Start();
-		ResetCanon();
 		_inputs = GetComponent<InputHandler>();
 	}
 
-	private void OnEnable() => RoundSystem.OnPlayRound += ResetCanon;
-	private void OnDisable() => RoundSystem.OnPlayRound -= ResetCanon;
+	private void OnEnable() => RoundSystem.RegisterOnPlay(ResetCanon);
+	private void OnDisable() => RoundSystem.UnregisterOnPlay(ResetCanon);
 
 	// Take last inputs
-	private void Update() => TakeInputs();
+	private void Update() => ReadLastInputs();
 
 	// Use of a rigidbody
 	private void FixedUpdate() => ShootTurret();
@@ -39,7 +38,7 @@ public class PlayerShoot : CharacterShoot
 		}
 	}
 
-	private void TakeInputs()
+	private void ReadLastInputs()
 	{
 		_playerCanons[0].Input = VerifyInput(_playerCanons[0].Input, _inputs.LeftShoot);
 		_playerCanons[1].Input = VerifyInput(_playerCanons[1].Input, _inputs.RightShoot);
@@ -51,10 +50,8 @@ public class PlayerShoot : CharacterShoot
 
 	protected override void ShootTurret()
 	{
-		for (int i = 0; i < _playerCanons.Length; i++)
+		foreach (var currentCanon in _playerCanons)
 		{
-			PlayerCanon currentCanon = _playerCanons[i];
-
 			if (currentCanon.CanShoot)
 			{
 				_turret.Shoot(currentCanon.GetPosition, _cursor.position, currentCanon);

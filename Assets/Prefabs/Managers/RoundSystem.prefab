@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxPlayTime: 20
-  _maxScoreTime: 7
+  _maxScoreTime: 5
+  _maxRoundNumber: 2

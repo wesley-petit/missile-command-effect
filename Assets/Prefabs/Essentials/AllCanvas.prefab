@@ -65,7 +65,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _game: 1
-  _settings: 3
   _mainMenu: 0
   _containerPauseMenu: {fileID: 2565475111334099575}
   _playerInputs: {fileID: 0}

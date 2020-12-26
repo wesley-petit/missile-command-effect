@@ -7,7 +7,7 @@ public class TurretController : MonoBehaviour
 {
 	[SerializeField, Range(0f, 50f)] private float _speed = 10f;
 	[SerializeField] private Bullet _canonBall = null;
-	[SerializeField] private Transform _bulletContainer = null;                             // Stock all bullet shoot by this turret
+	[SerializeField] private Transform _bulletContainer = null;     // Stock all bullet shoot by this turret
 	[SerializeField] private ForceMode2D _forceMode2D = ForceMode2D.Impulse;
 
 	public float Speed
@@ -20,10 +20,10 @@ public class TurretController : MonoBehaviour
 		}
 	}
 
-	private readonly Queue<Bullet> _availableProjectile = new Queue<Bullet>();                       // Pool system
+	private readonly Queue<Bullet> _availableProjectile             // Pool system
+		= new Queue<Bullet>();
 
-	/// Shoot a new bullet
-	/// or take a one in the pool system
+	// Clone a bullet or take it in the pool system
 	public void Shoot(Vector3 canonPosition, Vector3 targetPosition, PlayerCanon canon = null)
 	{
 		if (!_bulletContainer)
@@ -31,14 +31,17 @@ public class TurretController : MonoBehaviour
 
 		Bullet bullet = GetBullet();
 
+		// Distance, angle ...
 		CalculateShoot(canonPosition, targetPosition, out Vector2 direction, out float shootAngle, out Quaternion rotation);
 
+		// Turret rotation
 		if (canon)
 			canon.RotateTurret(shootAngle);
 
+		// Position bullet
 		InitializeBullet(canonPosition, bullet, rotation);
 
-		FinalShoot(bullet, direction);
+		LaunchBullet(bullet, direction);
 	}
 
 	// Add bullet in the pool system
@@ -59,6 +62,7 @@ public class TurretController : MonoBehaviour
 		if (0 < _availableProjectile.Count)
 		{
 			bullet = _availableProjectile.Dequeue();
+			bullet.ResetPhysics();
 		}
 		// Create a new bullet
 		else
@@ -85,7 +89,7 @@ public class TurretController : MonoBehaviour
 		bullet.gameObject.SetActive(true);
 	}
 
-	private void FinalShoot(Bullet bullet, Vector2 direction)
+	private void LaunchBullet(Bullet bullet, Vector2 direction)
 	{
 		// Reset physics
 		bullet.ResetPhysics();

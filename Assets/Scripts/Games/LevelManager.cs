@@ -11,7 +11,8 @@ public class LevelManager : MonoBehaviour
 	private ScoreManager Score => ScoreManager.Instance;
 
 	#region Unity Methods
-	// Register and unregister to callbacks
+
+	#region Callbacks
 	private void OnEnable()
 	{
 		foreach (var oneScoreBuilding in _scoreBuildings)
@@ -29,6 +30,7 @@ public class LevelManager : MonoBehaviour
 			oneScoreBuilding.Building.OnDestroyBuilding -= RefreshManager;
 		}
 	}
+	#endregion
 
 	private void Start()
 	{
@@ -44,8 +46,8 @@ public class LevelManager : MonoBehaviour
 
 	private void StartManagers()
 	{
-		int intactBuilding = 0;
-		int currentScore = 0;
+		ushort intactBuilding = 0;
+		ushort currentScore = 0;
 
 		// Set Building Score an intact building
 		foreach (var oneScoreBuilding in _scoreBuildings)
@@ -71,7 +73,7 @@ public class LevelManager : MonoBehaviour
 		GameState.ReduceNumberBuilding();
 
 		// Refresh Score
-		int currentScore = 0;
+		ushort currentScore = 0;
 		foreach (var oneScoreBuilding in _scoreBuildings)
 		{
 			if (!oneScoreBuilding.Building.IsIntact) { continue; }

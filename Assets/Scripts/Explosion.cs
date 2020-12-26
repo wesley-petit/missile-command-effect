@@ -13,6 +13,7 @@ public class Explosion : MonoBehaviour
 		if (!_selfDestruct)
 			return;
 
+		// Set destroy time with clip length
 		_selfDestruct.DestroyTime = _animator.GetCurrentAnimatorClipInfo(0).Length;
 	}
 }

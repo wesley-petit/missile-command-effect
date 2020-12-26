@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 using TMPro;
 
+// Display the rebinding
 public class RebindingDisplay : MonoBehaviour
 {
-	[SerializeField] private TMP_Text _actionDisplayNameText = null;        // Action Display
-	[SerializeField] private TMP_Text _bindingDisplayNameText = null;       // Binding Display
-	[SerializeField] private GameObject _startRebindObject = null;          // Button show the current input
-	[SerializeField] private GameObject _waitingForInputObject = null;      // UI Waiting input
+	[SerializeField]
+	private TMP_Text _actionDisplayNameText = null;                 // Action Display
+	[SerializeField]
+	private TMP_Text _bindingDisplayNameText = null;                // Binding Display
+	[SerializeField]
+	private GameObject _startRebindObject = null;                   // Button show the current input
+	[SerializeField]
+	private GameObject _waitingForInputObject = null;               // UI Waiting input
 
 	public void SetActionDisplay(string actionDisplay) => _actionDisplayNameText.text = actionDisplay;
 

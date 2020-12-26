@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
+// Player or Enemy bullet
 public class Bullet : MonoBehaviour, ICollidable
 {
 	[SerializeField] private Rigidbody2D _rb2D = null;
-	[SerializeField] private float _offScreen = 30f;                    // Add to pool in a certain offset
-	[SerializeField] private Transform _heading = null;                 // GFX to change rotation
-	[SerializeField] private Explosion _explosionPrefab = null;         // Explosion
+	[SerializeField] private float _offScreen = 30f;                // Add to pool in a certain offset
+	[SerializeField] private Transform _heading = null;             // GFX to change rotation
+	[SerializeField] private Explosion _explosionPrefab = null;     // Explosion
 
 	public TurretController Turret { get; set; }
 	public Rigidbody2D Rigidbody2D => _rb2D;

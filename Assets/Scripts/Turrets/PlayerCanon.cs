@@ -5,13 +5,13 @@ public class PlayerCanon : MonoBehaviour
 	[SerializeField] private CollidableBuilding _building = null;
 	[SerializeField] private Transform _canon = null;               // Canon origin
 	[SerializeField] private Transform _turretHeading = null;       // Change turret heading in the bullet direction
-	[SerializeField] private float _addToYAngle = 90f;              // Rotation to angle
+	[SerializeField] private float _offsetAngleY = 90f;             // Rotation to angle
 
 	private Vector3 _startRotation = new Vector3(-22f, 0f, 90f);
 
 	#region Public fields
 	public bool Input { get; set; }                                 // Fill with inputs
-	public int Ammos { get; set; }
+	public uint Ammos { get; set; }
 
 	public CollidableBuilding GetBuilding => _building;
 	public Vector3 GetPosition => _canon.position;
@@ -22,5 +22,5 @@ public class PlayerCanon : MonoBehaviour
 
 	public void ReduceAmmos() => Ammos--;
 
-	public void RotateTurret(float angle) => _turretHeading.rotation = Quaternion.Euler(_startRotation.x, _addToYAngle - angle, _startRotation.z);
+	public void RotateTurret(float angle) => _turretHeading.rotation = Quaternion.Euler(_startRotation.x, _offsetAngleY - angle, _startRotation.z);
 }
