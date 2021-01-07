@@ -11,6 +11,7 @@ public class InvokeCollidable : MonoBehaviour
 
 	private void LaunchCollidable(GameObject colGo)
 	{
+		Debug.Log($"{name} {colGo.name}");
 		var collidables = colGo.GetComponents<ICollidable>();
 		if (collidables == null || collidables.Length <= 0) return;
 
