@@ -96,22 +96,22 @@ MonoBehaviour:
     value: 0
   colorFilter:
     overrideState: 1
-    value: {r: 1.5267718, g: 1.530551, b: 2.143547, a: 1}
+    value: {r: 2.5918226, g: 1.8705134, b: 1.9061705, a: 1}
   hueShift:
     overrideState: 0
     value: 1.93
   saturation:
     overrideState: 1
-    value: 71.04
+    value: 48.42
   brightness:
     overrideState: 1
-    value: -47.5
+    value: -45.7
   postExposure:
     overrideState: 1
     value: 1
   contrast:
     overrideState: 1
-    value: 20.15
+    value: 21.7
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -131,14 +131,14 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   mixerBlueOutRedIn:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 6.89
   mixerBlueOutGreenIn:
     overrideState: 0
     value: 0
   mixerBlueOutBlueIn:
-    overrideState: 1
-    value: 101.58
+    overrideState: 0
+    value: 0
   lift:
     overrideState: 0
     value: {x: 0.8206137, y: 0.9063343, z: 1, w: -0.016366737}
@@ -1440,26 +1440,3 @@ MonoBehaviour:
   - {fileID: -8521127721180818097}
   - {fileID: -6737585750903969279}
   - {fileID: -3502350680901513397}
-  - {fileID: 7829281645814463508}
---- !u!114 &7829281645814463508
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  shutterAngle:
-    overrideState: 1
-    value: 247.9
-  sampleCount:
-    overrideState: 1
-    value: 18
