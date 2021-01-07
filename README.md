@@ -1,2 +1,0 @@
-# Missile Command Effect
-
