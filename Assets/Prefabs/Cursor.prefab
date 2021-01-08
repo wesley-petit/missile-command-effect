@@ -97,9 +97,11 @@ MonoBehaviour:
   _typeSelected: 2
   _reticles:
   - _movementType: 1
-    _reticle: {fileID: 7503162682051242406}
+    _reticles:
+    - {fileID: 7503162682051242406}
   - _movementType: 2
-    _reticle: {fileID: 1456268519}
+    _reticles:
+    - {fileID: 1456268519}
 --- !u!114 &8408210725148580475
 MonoBehaviour:
   m_ObjectHideFlags: 0

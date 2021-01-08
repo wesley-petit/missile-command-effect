@@ -298,14 +298,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6893852263511691468, guid: ff78e083fbe06c749adb380d0fa00ca5,
         type: 3}
+      propertyPath: _reticles.Array.data[1]._reticles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893852263511691468, guid: ff78e083fbe06c749adb380d0fa00ca5,
+        type: 3}
       propertyPath: _typeSelected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6893852263511691468, guid: ff78e083fbe06c749adb380d0fa00ca5,
+        type: 3}
+      propertyPath: _reticles.Array.data[1]._reticles.Array.data[1]
+      value: 
+      objectReference: {fileID: 4363954311496337962}
+    - target: {fileID: 6893852263511691468, guid: ff78e083fbe06c749adb380d0fa00ca5,
+        type: 3}
+      propertyPath: _reticles.Array.data[1]._reticles.Array.data[2]
+      value: 
+      objectReference: {fileID: 4363954312619135491}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff78e083fbe06c749adb380d0fa00ca5, type: 3}
 --- !u!4 &4363954311572963362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6199111483826322944, guid: ff78e083fbe06c749adb380d0fa00ca5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7676467340524158498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4363954311496337962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6199111483768599560, guid: ff78e083fbe06c749adb380d0fa00ca5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7676467340524158498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4363954312619135491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6199111482717170721, guid: ff78e083fbe06c749adb380d0fa00ca5,
     type: 3}
   m_PrefabInstance: {fileID: 7676467340524158498}
   m_PrefabAsset: {fileID: 0}

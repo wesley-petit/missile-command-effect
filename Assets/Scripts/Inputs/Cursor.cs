@@ -15,10 +15,16 @@ public class Cursor : MonoBehaviour
 	private struct ReticleType                                      // Each movement type has his own reticle
 	{
 		[SerializeField] private MovementType _movementType;
-		[SerializeField] private GameObject _reticle;
+		[SerializeField] private GameObject[] _reticles;
 
 		public MovementType GetMovementType => _movementType;
-		public void Hide() => _reticle.SetActive(false);
+		public void Hide()
+		{
+			foreach (var reticle in _reticles)
+			{
+				reticle.SetActive(false);
+			}
+		}
 	}
 
 	private void Start()
