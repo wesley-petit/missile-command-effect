@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour, ICollidable
 
 	private bool IsOffScreen => _offScreen < transform.position.magnitude;
 
+	private bool _alreadyHit = false;								// Launch explosion only on the first collision
+
 	private void Update()
 	{
 		if (IsOffScreen)
@@ -23,6 +25,10 @@ public class Bullet : MonoBehaviour, ICollidable
 
 	public void Hit()
 	{
+		// Explose only one time
+		if (_alreadyHit) { return; }
+		_alreadyHit = true;
+
 		AddToPool();
 		Instantiate(_explosionPrefab, transform.position, transform.rotation);
 	}
@@ -32,6 +38,8 @@ public class Bullet : MonoBehaviour, ICollidable
 		_heading.parent = parent;
 		_heading.position = canonPosition;
 		_heading.rotation = rotationToDirection;
+		// Reset Hit
+		_alreadyHit = false;
 	}
 
 	public void ResetPhysics()

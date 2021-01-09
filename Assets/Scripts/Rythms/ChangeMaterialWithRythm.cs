@@ -58,7 +58,8 @@ public class ChangeMaterialWithRythm : MonoBehaviour
 		// Give an emissive color in a strong time
 		if (strongTime)
 		{
-			Debug.Log("Emissive");
+			// TODO Remove
+			//Debug.Log("Emissive");
 		}
 	}
 }
