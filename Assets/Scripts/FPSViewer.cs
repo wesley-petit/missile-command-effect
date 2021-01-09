@@ -8,26 +8,15 @@ public class FPSViewer : MonoBehaviour
 
 	[SerializeField] private TMP_Text _fpsText = null;
 
-	private int CurrentFPS => (int)(1f / Time.deltaTime);
-
-
 	System.Collections.IEnumerator Start()
 	{
-		float timer = WAIT_TIME;
-
 		while (true)
 		{
-			timer -= Time.deltaTime;
+			if (!_fpsText) { yield return null; }
 
-			// Relance le test
-			if (timer < 0)
-			{
-				timer = WAIT_TIME;
+			_fpsText.text = $"{1 / Time.unscaledDeltaTime}";
 
-				if (!_fpsText) { yield return null; }
-				_fpsText.text = $"{CurrentFPS}";
-			}
-			yield return null;
+			yield return new WaitForSeconds(WAIT_TIME);
 		}
 	}
 }
