@@ -6,8 +6,10 @@ public class AudioSync : MonoBehaviour
 {
 	public static AudioSync Instance { get; private set; }
 
-	[SerializeField] private ushort _BPM = 80;
+	[SerializeField] private ushort _BPM = 20;
 	[SerializeField] private ushort _strongTime = 4;                // Time 4 is a strong time
+	[SerializeField]
+	private SettingsHandler _settingsHandler = null;                // Adjust difficulty with frequency multiplier
 
 	#region Fields
 	public float ShootTime { get; private set; }                    // BPM in seconds
@@ -33,6 +35,15 @@ public class AudioSync : MonoBehaviour
 			Destroy(this);
 		}
 		Instance = this;
+
+		if (!_settingsHandler)
+		{
+			Debug.LogError($"Settings Handler is undefined in {name}");
+			return;
+		}
+
+		// Adjust difficulty
+		_BPM *= _settingsHandler.Current.FrequencyMultiplier;
 
 		ResetTimeToShoot();
 		_audios = GetComponent<AudioSource>();

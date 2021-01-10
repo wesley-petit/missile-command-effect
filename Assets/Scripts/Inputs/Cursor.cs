@@ -5,14 +5,15 @@
 public class Cursor : MonoBehaviour
 {
 	[SerializeField]
-	private MovementType _typeSelected = MovementType.XR;           // Movement type by default
+	private SettingsHandler _settingsHandler = null;        // Give Type Selected
 	[SerializeField]
-	private ReticleType[] _reticles = new ReticleType[0];           // Reticles by type to hide other reticles
+	private ReticleType[] _reticles = new ReticleType[0];   // Reticles by type to hide other reticles
 
+	private MovementType _typeSelected = MovementType.XR;   // Movement type by default
 	private CursorMovement _movementSelected = null;
 
 	[System.Serializable]
-	private struct ReticleType                                      // Each movement type has his own reticle
+	private struct ReticleType                              // Each movement type has his own reticle
 	{
 		[SerializeField] private MovementType _movementType;
 		[SerializeField] private GameObject[] _reticles;
@@ -29,6 +30,13 @@ public class Cursor : MonoBehaviour
 
 	private void Start()
 	{
+		if (!_settingsHandler)
+		{
+			Debug.LogError($"Settings handler in undefined in {name}");
+			return;
+		}
+
+		_typeSelected = _settingsHandler.Current.MovementType;
 		SelectMovement();
 		HideOtherReticles();
 	}
@@ -66,5 +74,9 @@ public class Cursor : MonoBehaviour
 		}
 	}
 
-	private void Update() => _movementSelected.UpdateMovement();
+	private void Update()
+	{
+		if (_movementSelected)
+			_movementSelected.UpdateMovement();
+	}
 }

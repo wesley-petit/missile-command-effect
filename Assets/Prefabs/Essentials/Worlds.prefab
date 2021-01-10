@@ -317,7 +317,8 @@ MonoBehaviour:
   - {fileID: 8055523403763179444}
   - {fileID: 8055523404111040721}
   - {fileID: 8055523404398153259}
-  _musicTimeToReachTarget: 6
+  _musicTimeToReachTarget: 2
+  _settingsHandler: {fileID: 11400000, guid: 1ef53f535443d4144b31755142f90c0c, type: 2}
 --- !u!114 &919915682027315793
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce2a930aa189194b886877798b6d681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _typeSelected: 2
+  _settingsHandler: {fileID: 11400000, guid: 1ef53f535443d4144b31755142f90c0c, type: 2}
   _reticles:
   - _movementType: 1
     _reticles:
