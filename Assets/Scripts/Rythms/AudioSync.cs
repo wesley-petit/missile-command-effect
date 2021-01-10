@@ -8,6 +8,7 @@ public class AudioSync : MonoBehaviour
 
 	[SerializeField] private ushort _BPM = 20;
 	[SerializeField] private ushort _strongTime = 4;                // Time 4 is a strong time
+	[SerializeField] private AudioHighPassFilter _highFilter = null;// Pass filter in end game
 	[SerializeField]
 	private SettingsHandler _settingsHandler = null;                // Adjust difficulty with frequency multiplier
 
@@ -43,11 +44,30 @@ public class AudioSync : MonoBehaviour
 		}
 
 		// Adjust difficulty
-		_BPM *= _settingsHandler.Current.FrequencyMultiplier;
+		_BPM *= (ushort)Mathf.Pow(2, _settingsHandler.Current.FrequencyMultiplier);
 
 		ResetTimeToShoot();
 		_audios = GetComponent<AudioSource>();
+
+		if (!_highFilter)
+		{
+			Debug.LogError($"High Filter is undefined.");
+			return;
+		}
 	}
+
+	#region Register to Callbacks
+	private void OnEnable()
+	{
+		GameState.OnLoseEvent += ActiveFilter;
+		GameState.OnWinEvent += ActiveFilter;
+	}
+	private void OnDisable()
+	{
+		GameState.OnLoseEvent += ActiveFilter;
+		GameState.OnWinEvent += ActiveFilter;
+	}
+	#endregion
 
 	private void Update()
 	{
@@ -71,9 +91,17 @@ public class AudioSync : MonoBehaviour
 	}
 	#endregion
 
+	#region Audio
 	public void Play() => _audios.Play();
 	public void Pause() => _audios.Pause();
+	public void ActiveFilter()
+	{
+		if (_highFilter)
+			_highFilter.enabled = true;
+	}
+	#endregion
 
+	#region Time
 	// BPM dependant, BPM changes => ShootTime changes
 	private void ResetTimeToShoot() => ShootTime = 60f / _BPM;
 
@@ -92,4 +120,5 @@ public class AudioSync : MonoBehaviour
 			_musicTime -= _strongTime;
 		}
 	}
+	#endregion
 }

@@ -6,11 +6,11 @@ public class ProfilSettings
 {
 	[SerializeField] private MovementType _movementType = MovementType.XR;
 	[SerializeField] private bool _showParticule = true;
-	[Range(-80f, 20f)]
-	[SerializeField] private float _fxVolume = 0f;
-	[Range(-80f, 20f)]
-	[SerializeField] private float _musicVolume = 0f;
-	[Range(1, 3)]
+	[Range(0.0001f, 1)]
+	[SerializeField] private float _fxVolume = 1f;
+	[Range(0.0001f, 1)]
+	[SerializeField] private float _musicVolume = 1f;
+	[Range(1, 2)]
 	[SerializeField] private ushort _frequencyMultiplier = 2;   // Impact missile frequency / Higher => More missile
 	[Range(2, 5)]
 	[SerializeField] private ushort _speedMultiplier = 3;       // Impact missile speed / Higher => Slow Missile

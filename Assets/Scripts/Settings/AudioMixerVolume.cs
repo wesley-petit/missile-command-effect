@@ -21,6 +21,7 @@ public class AudioMixerVolume : MonoBehaviour
 			return;
 		}
 
+		_settingsHandler.Save();
 		_settingsHandler.Load();
 
 		if (!_audioMixer)
@@ -30,9 +31,7 @@ public class AudioMixerVolume : MonoBehaviour
 		}
 
 		BalanceAudios();
-
-		// TODO Play music
-		//GetComponent<AudioSource>().Play();
+		GetComponent<AudioSource>().Play();
 	}
 
 	private void OnEnable()
@@ -61,7 +60,14 @@ public class AudioMixerVolume : MonoBehaviour
 
 	private void BalanceAudios()
 	{
-		_audioMixer.SetFloat(FX_VOLUME, _settingsHandler.Current.FXVolume);
-		_audioMixer.SetFloat(MUSIC_VOLUME, _settingsHandler.Current.MusicVolume);
+		if (_settingsHandler.Current.FXVolume == 0 || _settingsHandler.Current.MusicVolume == 0)
+		{
+			Debug.LogError($"0 create infinity in Log10");
+			return;
+		}
+
+		// Cast 0 to 1 in a DB value with Log10 and * 20
+		_audioMixer.SetFloat(FX_VOLUME, Mathf.Log10(_settingsHandler.Current.FXVolume) * 20);
+		_audioMixer.SetFloat(MUSIC_VOLUME, Mathf.Log10(_settingsHandler.Current.MusicVolume) * 20);
 	}
 }

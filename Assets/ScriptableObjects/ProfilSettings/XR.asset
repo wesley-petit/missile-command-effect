@@ -15,7 +15,7 @@ MonoBehaviour:
   _profil:
     _movementType: 2
     _showParticule: 1
-    _fxVolume: 0
-    _musicVolume: 0
+    _fxVolume: 1
+    _musicVolume: 1
     _frequencyMultiplier: 2
     _speedMultiplier: 3

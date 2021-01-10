@@ -7,6 +7,7 @@ public class PlayerShoot : CharacterShoot
 	[SerializeField]
 	private PlayerCanon[] _playerCanons = new PlayerCanon[2];
 	[SerializeField] private uint _maxAmmo = 4;
+	[SerializeField] private AudioSource _blockSound = null;        // Audio when a turret has no ammo
 
 	private InputHandler _inputs = null;
 
@@ -16,6 +17,18 @@ public class PlayerShoot : CharacterShoot
 	{
 		base.Start();
 		_inputs = GetComponent<InputHandler>();
+
+		if (!_cursor)
+		{
+			Debug.LogError("Cursor is undefined.");
+			return;
+		}
+
+		if (!_blockSound)
+		{
+			Debug.LogError("Block Sound is undefined.");
+			return;
+		}
 	}
 
 	private void OnEnable() => RoundSystem.RegisterOnPlay(ResetCanon);
@@ -56,6 +69,11 @@ public class PlayerShoot : CharacterShoot
 			{
 				_turret.Shoot(currentCanon.GetPosition, _cursor.position, currentCanon);
 				currentCanon.ReduceAmmos();
+			}
+			// Play block sound when a turret doesn't have ammos
+			else if (currentCanon.Input && currentCanon.Ammos <= 0 && _blockSound)
+			{
+				_blockSound.Play();
 			}
 
 			currentCanon.Input = false;
