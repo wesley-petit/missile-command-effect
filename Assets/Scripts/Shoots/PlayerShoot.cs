@@ -47,6 +47,7 @@ public class PlayerShoot : CharacterShoot
 		for (int i = 0; i < _playerCanons.Length; i++)
 		{
 			_playerCanons[i].Ammos = _maxAmmo;
+			_playerCanons[i].RefreshUI();
 			_playerCanons[i].GetBuilding.Show();
 		}
 	}

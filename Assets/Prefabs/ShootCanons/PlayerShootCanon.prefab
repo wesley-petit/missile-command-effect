@@ -41,6 +41,10 @@ MonoBehaviour:
   _building: {fileID: 8333348034449529196}
   _canon: {fileID: 2275364399223622241}
   _turretHeading: {fileID: 4353597437227537927}
+  _offsetAngleY: 90
+  _ammoCounter: {fileID: 0}
+  _ammoBye: {fileID: 8189623529635446597, guid: b46b644ccaadd34438b342eb1d00b8b0,
+    type: 3}
 --- !u!114 &7398558536454229424
 MonoBehaviour:
   m_ObjectHideFlags: 0
