@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
 // Interface between player input and script that use it
@@ -14,39 +13,36 @@ public class InputHandler : MonoBehaviour
 	public bool LeftShoot { get; private set; }
 	public bool RightShoot { get; private set; }
 	public Vector2 Movement { get; private set; }
-	public Vector2 XRMovement { get => _hit.point; }
+	public Vector2 XRMovement { get; private set; }
 
+	private Controls _controls = null;
 	private RaycastHit _hit = new RaycastHit();                     // RaycastHit use by the XRRay
 
+	private void Awake() => _controls = new Controls();
+
+	private void Start()
+	{
+		_controls.Player.LeftShoot.performed += cxt => LeftShoot = true;
+		_controls.Player.RightShoot.performed += cxt => RightShoot = true;
+
+		_controls.Player.Movement.performed += cxt => Movement = cxt.ReadValue<Vector2>();
+		_controls.Player.Movement.canceled += cxt => Movement = Vector2.zero;
+
+		_controls.Player.LeftHand.performed += cxt => XRMovement = XRPoint(_leftRay);
+		_controls.Player.RightHand.performed += cxt => XRMovement = XRPoint(_rightRay);
+	}
+
+	private Vector3 XRPoint(XRRayInteractor ray)
+	{
+		ray.GetCurrentRaycastHit(out _hit);
+		return _hit.point;
+	}
+
+	private void OnEnable() => _controls?.Enable();
+
+	private void OnDisable() => _controls?.Disable();
+
 	private void FixedUpdate() => ResetInputs();
-
-	#region Read Inputs
-	public void SetLeftShoot(InputAction.CallbackContext cxt)
-	{
-		if (!cxt.started) { return; }
-
-		LeftShoot = cxt.started;
-	}
-	public void SetRightShoot(InputAction.CallbackContext cxt)
-	{
-		if (!cxt.started) { return; }
-
-		RightShoot = cxt.started;
-	}
-	public void SetMovement(InputAction.CallbackContext cxt) => Movement = cxt.ReadValue<Vector2>();
-
-	// Set XR Movement with left or right hand (button pressed in left or right hand)
-	public void SetLeftHand()
-	{
-		if (!_leftRay) { return; }
-		_leftRay.GetCurrentRaycastHit(out _hit);
-	}
-	public void SetRightHand()
-	{
-		if (!_rightRay) { return; }
-		_rightRay.GetCurrentRaycastHit(out _hit);
-	}
-	#endregion
 
 	// Reset inputs for the next read input => it's easier for player input
 	private void ResetInputs()

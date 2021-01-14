@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 
 // Inherit of main menu to have the same methodes (change scene, ...)
 public class PauseMenu : MainMenu
 {
 	[SerializeField] private GameObject _containerPauseMenu = null; // Pause menu to display or hide
-	[SerializeField] private PlayerInput _playerInputs = null;      // Block inputs
+	[SerializeField]
+	private InputHandler[] _inputs = new InputHandler[0];           // Block inputs
 
 	public bool IsPause { get; private set; }                       // If we are on play or not
 
@@ -28,9 +28,9 @@ public class PauseMenu : MainMenu
 			return;
 		}
 
-		if (!_playerInputs)
+		if (_inputs.Length <= 0)
 		{
-			Debug.LogError("Player Inputs is undefined. I can switch between UI and Player maps.");
+			Debug.LogError("Inputs are undefined. I can switch between UI and Player maps.");
 		}
 
 		_controls.Player.Menu.performed += cxt => TogglePause();
@@ -69,7 +69,7 @@ public class PauseMenu : MainMenu
 	{
 		AudioSync.Instance.Pause();
 		DisplayOrHideMenu(true, 0.0f);
-		ChangeInputMaps(InputMaps.UI);
+		ChangeInputMaps(false);
 	}
 
 	// Use by ui to resume the game
@@ -77,7 +77,7 @@ public class PauseMenu : MainMenu
 	{
 		AudioSync.Instance.Play();
 		DisplayOrHideMenu(false, _normalTime);
-		ChangeInputMaps(InputMaps.PLAYER);
+		ChangeInputMaps(true);
 	}
 
 	public override void ReturnToMainMenu()
@@ -98,7 +98,13 @@ public class PauseMenu : MainMenu
 	}
 
 	// Callbacks in OnWinEvent / OnLoseEvent
-	private void ChangeToUIMaps() => ChangeInputMaps(InputMaps.UI);
+	private void ChangeToUIMaps() => ChangeInputMaps(false);
 	// Change between player and ui maps
-	private void ChangeInputMaps(string inputMaps) => _playerInputs.SwitchCurrentActionMap(inputMaps);
+	private void ChangeInputMaps(bool state)
+	{
+		foreach (var input in _inputs)
+		{
+			input.enabled = state;
+		}
+	}
 }

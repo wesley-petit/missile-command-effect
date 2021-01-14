@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using DG.Tweening;
 
+// Object and turret rotate
 public class PlayerCanon : MonoBehaviour
 {
 	[SerializeField] private CollidableBuilding _building = null;
@@ -16,7 +17,7 @@ public class PlayerCanon : MonoBehaviour
 
 	#region Public fields
 	public bool Input { get; set; }                                 // Fill with inputs
-	public uint Ammos { get; set; }
+	public uint Ammos { get; private set; }
 
 	public CollidableBuilding GetBuilding => _building;
 	public Vector3 GetPosition => _canon.position;
@@ -29,30 +30,41 @@ public class PlayerCanon : MonoBehaviour
 		_startRotation = _turretHeading.rotation.eulerAngles;
 	}
 
+	public void MaxAmmos(uint maxAmmos)
+	{
+		Ammos = maxAmmos;
+		if (_ammoCounter)
+		{
+			_ammoCounter.maxValue = maxAmmos;
+			_ammoCounter.value = maxAmmos;
+		}
+	}
+
 	public void ReduceAmmos()
 	{
 		Ammos--;
 		RefreshUI();
 	}
 
-	public void RefreshUI()
+	public void RotateTurret(float angle) => _turretHeading.rotation = Quaternion.Euler(_startRotation.x, _offsetAngleY - angle, _startRotation.z);
+
+	private void RefreshUI()
 	{
 		if (!_ammoBye) { return; }
+		if (!_ammoCounter) { return; }
 		if (!_ammoCounter) { return; }
 
 		GameObject ammoTemp = Instantiate(_ammoBye, new Vector3(_ammoCounter.transform.position.x / 1.8f, -3.5f, 0), Quaternion.identity);
 		ammoTemp.transform.DOMove(new Vector3(ammoTemp.transform.position.x, 1.5f, 0), 0.5f);
-		ammoTemp.transform.DOScale(new Vector3(ammoTemp.transform.localScale.x, 0, 0), 1);
+		ammoTemp.transform.DOScale(new Vector3(ammoTemp.transform.localScale.x, 0.1f, 0.1f), 1);
 		StartCoroutine(DestroyAmmoBye(ammoTemp));
-		RefreshUI();
 		_ammoCounter.value = Ammos;
 	}
 
-	IEnumerator DestroyAmmoBye(GameObject TempAmmo)
+	private IEnumerator DestroyAmmoBye(GameObject TempAmmo)
 	{
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(1f);
 		Destroy(TempAmmo);
 	}
 
-	public void RotateTurret(float angle) => _turretHeading.rotation = Quaternion.Euler(_startRotation.x, _offsetAngleY - angle, _startRotation.z);
 }
