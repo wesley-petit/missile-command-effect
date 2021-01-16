@@ -15,6 +15,18 @@ public class ProfilSettings
 	[Range(2, 5)]
 	[SerializeField] private ushort _speedMultiplier = 3;       // Impact missile speed / Higher => Slow Missile
 
+	public ProfilSettings(ProfilSettings cloneSettings)
+	{
+		if (cloneSettings == null) { return; }
+
+		_movementType = cloneSettings.MovementType;
+		_showParticule = cloneSettings.ShowParticule;
+		_fxVolume = cloneSettings.FXVolume;
+		_musicVolume = cloneSettings.MusicVolume;
+		_frequencyMultiplier = cloneSettings.FrequencyMultiplier;
+		_speedMultiplier = cloneSettings.SpeedMultiplier;
+	}
+
 	#region Fields
 	public MovementType MovementType
 	{
@@ -45,24 +57,6 @@ public class ProfilSettings
 	{
 		get => _speedMultiplier;
 		set => _speedMultiplier = value;
-	}
-	#endregion
-
-	#region Callbacks
-	private System.Action OnProfilChange = null;
-
-	public void ProfilChange() => OnProfilChange?.Invoke();
-
-	public void Register(System.Action toAdd)
-	{
-		if (toAdd == null) { return; }
-		OnProfilChange += toAdd;
-	}
-
-	public void Unregister(System.Action toRemove)
-	{
-		if (toRemove == null) { return; }
-		OnProfilChange -= toRemove;
 	}
 	#endregion
 }

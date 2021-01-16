@@ -11,15 +11,8 @@ public class SettingsHandler : ScriptableObject
 	private ProfilSettings Default => _default.Profil;
 
 	// Reset with default value
-	public void Reset()
-	{
-		Current.MovementType = Default.MovementType;
-		Current.ShowParticule = Default.ShowParticule;
-		Current.FXVolume = Default.FXVolume;
-		Current.MusicVolume = Default.MusicVolume;
-
-		Current.ProfilChange();
-	}
+	public void Reset() => _current.Profil = new ProfilSettings(Default);
+	public void Reset(ProfilSettings copy) => _current.Profil = new ProfilSettings(copy);
 
 	#region Save Load
 	[ContextMenu("Save")]
@@ -36,7 +29,6 @@ public class SettingsHandler : ScriptableObject
 		if (json == "") { return; }
 
 		_current.Profil = JsonUtility.FromJson<ProfilSettings>(json);
-		Current.ProfilChange();
 	}
 	#endregion
 }
