@@ -384,7 +384,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 17d9d991e6134624f9ed14d0c2113a64, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -478,7 +478,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 64d89a1132459fc4d9c04099ffe70520, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -634,17 +634,17 @@ PrefabInstance:
     - target: {fileID: 7789684948692180006, guid: fb8210e7da45ae7448a3429fb2980345,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.625
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7789684948692180006, guid: fb8210e7da45ae7448a3429fb2980345,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7789684948692180006, guid: fb8210e7da45ae7448a3429fb2980345,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -11.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7789684948692180006, guid: fb8210e7da45ae7448a3429fb2980345,
         type: 3}
