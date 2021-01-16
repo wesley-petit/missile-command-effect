@@ -11,6 +11,7 @@ public class PlayerCanon : MonoBehaviour
 	[SerializeField] private Transform _turretHeading = null;       // Change turret heading in the bullet direction
 	[SerializeField] private float _offsetAngleY = 90f;             // Rotation to angle
 	[SerializeField] private Slider _ammoCounter = null;
+	[SerializeField] private GameObject _SpawnerFill = null;
 	[SerializeField] private GameObject _ammoBye = null;
 
 	private Vector3 _startRotation = new Vector3(-22f, 0f, 90f);
@@ -54,16 +55,16 @@ public class PlayerCanon : MonoBehaviour
 		if (!_ammoCounter) { return; }
 		if (!_ammoCounter) { return; }
 
-		GameObject ammoTemp = Instantiate(_ammoBye, new Vector3(_ammoCounter.transform.position.x / 1.8f, -3.5f, 0), Quaternion.identity);
-		ammoTemp.transform.DOMove(new Vector3(ammoTemp.transform.position.x, 1.5f, 0), 0.5f);
-		ammoTemp.transform.DOScale(new Vector3(ammoTemp.transform.localScale.x, 0.1f, 0.1f), 1);
+		GameObject ammoTemp = Instantiate(_ammoBye, new Vector3(_SpawnerFill.transform.position.x, _SpawnerFill.transform.position.y, 0), Quaternion.identity);
+		ammoTemp.transform.DOMove(new Vector3(ammoTemp.transform.position.x, -3f, 0), 0.4f);
+		ammoTemp.transform.DOScale(new Vector3(ammoTemp.transform.localScale.x, 0.1f, 0.1f), 0.5f);
 		StartCoroutine(DestroyAmmoBye(ammoTemp));
 		_ammoCounter.value = Ammos;
 	}
 
 	private IEnumerator DestroyAmmoBye(GameObject TempAmmo)
 	{
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.4f);
 		Destroy(TempAmmo);
 	}
 

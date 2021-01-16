@@ -393,11 +393,21 @@ PrefabInstance:
       propertyPath: _ammoCounter
       value: 
       objectReference: {fileID: 7870555612638644071}
+    - target: {fileID: 1682933972707893012, guid: b565aa43c2e10924893d8559e8857c47,
+        type: 3}
+      propertyPath: _SpawnerFill
+      value: 
+      objectReference: {fileID: 7870555612638644073}
     - target: {fileID: 3779521731375970927, guid: b565aa43c2e10924893d8559e8857c47,
         type: 3}
       propertyPath: _ammoCounter
       value: 
       objectReference: {fileID: 7870555612638644072}
+    - target: {fileID: 3779521731375970927, guid: b565aa43c2e10924893d8559e8857c47,
+        type: 3}
+      propertyPath: _SpawnerFill
+      value: 
+      objectReference: {fileID: 7870555612638644074}
     - target: {fileID: 5000738316971751556, guid: b565aa43c2e10924893d8559e8857c47,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -576,6 +586,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5398962375381590094, guid: 663bd1706b52e1142adc7bd1148a323b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704903010643424078, guid: 663bd1706b52e1142adc7bd1148a323b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7870555612820901233, guid: 663bd1706b52e1142adc7bd1148a323b,
         type: 3}
       propertyPath: _inputs.Array.data[0]
@@ -722,3 +742,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7870555612638644073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8474809016041409304, guid: 663bd1706b52e1142adc7bd1148a323b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7870555612638644070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7870555612638644074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4109027601987838308, guid: 663bd1706b52e1142adc7bd1148a323b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7870555612638644070}
+  m_PrefabAsset: {fileID: 0}
