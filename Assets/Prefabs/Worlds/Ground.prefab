@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 6659632649284042107}
   - component: {fileID: 7765365783108268766}
   - component: {fileID: 5485639710249633300}
-  - component: {fileID: 6620711332845382313}
-  - component: {fileID: 6620711332845382312}
   m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
@@ -27,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278040079656773569}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -0.0000045416, y: -6.38, z: -25.57}
   m_LocalScale: {x: 40.472, y: 40.472, z: 40.472}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &7765365783108268766
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -60,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2965924957230656781, guid: ddfd5545a09fc3c4d9b1217a8eab33a1, type: 3}
+  - {fileID: 2100000, guid: 2795977744663dc439941b057efb86ac, type: 2}
   - {fileID: 1102010231420264182, guid: ddfd5545a09fc3c4d9b1217a8eab33a1, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -82,41 +80,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!61 &6620711332845382313
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6278040079656773569}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &6620711332845382312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6278040079656773569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2610774d6efd6a648b48523424b6dd06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
