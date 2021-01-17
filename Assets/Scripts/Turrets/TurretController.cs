@@ -23,8 +23,17 @@ public class TurretController : MonoBehaviour
 	private readonly Queue<Bullet> _availableProjectile             // Pool system
 		= new Queue<Bullet>();
 
+	// Contains shoot datas such as direction or angle
+	private struct ShootDatas
+	{
+		public Vector3 Direction { get; set; }
+		public float ShootAngle { get; set; }
+		public Quaternion Rotation { get; set; }
+	}
+
+	#region Shoot Variants
 	// Clone a bullet or take it in the pool system
-	public void Shoot(Vector3 canonPosition, Vector3 targetPosition, PlayerCanon canon = null)
+	public void Shoot(Vector3 canonPosition, Vector3 targetPosition)
 	{
 		if (!_bulletContainer)
 			return;
@@ -32,17 +41,52 @@ public class TurretController : MonoBehaviour
 		Bullet bullet = GetBullet();
 
 		// Distance, angle ...
-		CalculateShoot(canonPosition, targetPosition, out Vector2 direction, out float shootAngle, out Quaternion rotation);
-
-		// Turret rotation
-		if (canon)
-			canon.RotateTurret(shootAngle);
-
+		ShootDatas shootDatas = CalculateShoot(canonPosition, targetPosition);
 		// Position bullet
-		InitializeBullet(canonPosition, bullet, rotation);
-
-		LaunchBullet(bullet, direction);
+		InitializeBullet(canonPosition, bullet, shootDatas.Rotation);
+		LaunchBullet(bullet, shootDatas.Direction);
 	}
+
+	public void Shoot(Vector3 canonPosition, Vector3 targetPosition, PlayerCanon canon)
+	{
+		if (!_bulletContainer)
+			return;
+
+		Bullet bullet = GetBullet();
+
+		// Distance, angle ...
+		ShootDatas shootDatas = CalculateShoot(canonPosition, targetPosition);
+		// Turret rotation
+		canon.RotateTurret(shootDatas.ShootAngle);
+		// Position bullet
+		InitializeBullet(canonPosition, bullet, shootDatas.Rotation);
+		LaunchBullet(bullet, shootDatas.Direction);
+	}
+
+	public void Shoot(Vector3 canonPosition, Vector3 targetPosition, ChangeMaterialWithRythm changeMaterial)
+	{
+		if (!_bulletContainer)
+			return;
+
+		Bullet bullet = GetBullet();
+
+		// Set change material in first shoot
+		MaterialProperties materialProperties = bullet.GetComponent<MaterialProperties>();
+		if (materialProperties || !materialProperties.ChangeMaterialWithRythm)
+		{
+			materialProperties.enabled = false;
+			materialProperties.ChangeMaterialWithRythm = changeMaterial;
+			materialProperties.enabled = true;
+		}
+
+		// Distance, angle ...
+		ShootDatas shootDatas = CalculateShoot(canonPosition, targetPosition);
+		// Position bullet
+		InitializeBullet(canonPosition, bullet, shootDatas.Rotation);
+		LaunchBullet(bullet, shootDatas.Direction);
+	}
+
+	#endregion
 
 	// Add bullet in the pool system
 	public void AddBullet(Bullet bullet)
@@ -75,12 +119,15 @@ public class TurretController : MonoBehaviour
 	}
 
 	// Return direction, shoot angle and rotation between a canon and his target
-	private void CalculateShoot(Vector3 canonPosition, Vector3 targetPosition, out Vector2 direction, out float shootAngle, out Quaternion rotation)
+	private ShootDatas CalculateShoot(Vector3 canonPosition, Vector3 targetPosition)
 	{
+		ShootDatas shootDatas = new ShootDatas();
 		// Look at the bullet at the cursor, rotation on Z only
-		direction = (targetPosition - canonPosition).normalized;
-		shootAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		rotation = Quaternion.Euler(0f, 0f, shootAngle - 90);
+		shootDatas.Direction = (targetPosition - canonPosition).normalized;
+		shootDatas.ShootAngle = Mathf.Atan2(shootDatas.Direction.y, shootDatas.Direction.x) * Mathf.Rad2Deg;
+		shootDatas.Rotation = Quaternion.Euler(0f, 0f, shootDatas.ShootAngle - 90);
+
+		return shootDatas;
 	}
 
 	private void InitializeBullet(Vector3 canonPosition, Bullet bullet, Quaternion rotation)

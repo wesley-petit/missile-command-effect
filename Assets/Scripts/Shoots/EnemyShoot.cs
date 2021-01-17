@@ -10,6 +10,7 @@ public class EnemyShoot : CharacterShoot
 	[SerializeField]
 	private Transform[] _canons = new Transform[0];                 // Canon / Origin, in the same order (left to right)
 	[SerializeField] private ushort _musicTimeToReachTarget = 4;    // Music time for a missile to reach his target
+	[SerializeField] private ChangeMaterialWithRythm _changeMaterial;// Change bullet material
 	[SerializeField]
 	private SettingsHandler _settingsHandler = null;                // Adjust difficulty with speed multiplier
 
@@ -42,7 +43,13 @@ public class EnemyShoot : CharacterShoot
 
 		if (!_settingsHandler)
 		{
-			Debug.LogError($"Settings Handler is undefined in {name}");
+			Debug.LogError($"Settings Handler is undefined in {name}.");
+			return;
+		}
+
+		if (!_changeMaterial)
+		{
+			Debug.LogError($"Change Material is undefined in {name}.");
 			return;
 		}
 
@@ -110,7 +117,7 @@ public class EnemyShoot : CharacterShoot
 	protected override void ShootTurret()
 	{
 		if (_currentCanon && _currentTarget)
-			_turret.Shoot(_currentCanon.position, _currentTarget.position);
+			_turret.Shoot(_currentCanon.position, _currentTarget.position, _changeMaterial);
 	}
 	#endregion
 }

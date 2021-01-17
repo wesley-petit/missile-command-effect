@@ -9,6 +9,8 @@ public class ChangeBulletMaterialWithRythm : ChangeMaterialWithRythm
 
 	private bool _alreadyChange = false;
 
+	protected override void Start() { }
+
 	private void Update()
 	{
 		if (AudioManager.IsInPace)
