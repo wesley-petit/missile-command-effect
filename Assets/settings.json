@@ -1,8 +1,8 @@
 {
-    "_movementType": 1,
-    "_showParticule": false,
+    "_movementType": 2,
+    "_showParticule": true,
     "_fxVolume": 1.0,
-    "_musicVolume": 1.0,
+    "_musicVolume": 0.6732025742530823,
     "_frequencyMultiplier": 1,
-    "_speedMultiplier": 3
+    "_speedMultiplier": 5
 }
