@@ -388,6 +388,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _matMotifs.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _mats.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _matMotifs.Array.data[3]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _matMotifs.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _matMotifs.Array.data[5]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _matMotifs.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _matMotifs.Array.data[7]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _matMotifs.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _matMotifs.Array.data[9]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _mats.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4700c5b8e8559b84e84cda767a2dfc3a, type: 2}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _mats.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: c9e68bb40f1422e42a9e77d4a3000fbb, type: 2}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _mats.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: ff8f1ca2336cbab429783992ce5b966d, type: 2}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _mats.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5dabd8d1e53ae764581e8d05174b623d, type: 2}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _mats.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 11d196b6892c4034f8143c53cec0d4d9, type: 2}
+    - target: {fileID: 1583434781, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
+      propertyPath: _matMotifs.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1682933972707893012, guid: b565aa43c2e10924893d8559e8857c47,
         type: 3}
       propertyPath: _ammoCounter

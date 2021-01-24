@@ -141,8 +141,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Particle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2eded1f04fcf4c2429d42b5376c830c5, type: 2}
+  m_sharedMaterial: {fileID: 2039983409673834267, guid: 2eded1f04fcf4c2429d42b5376c830c5,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
+  m_fontSize: 0.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -219,7 +220,7 @@ GameObject:
   - component: {fileID: 3389463547445810184}
   - component: {fileID: 3389463547445810185}
   m_Layer: 5
-  m_Name: Particle_Toggle
+  m_Name: Toggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,7 +244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5.008, y: -4.3333335}
+  m_AnchoredPosition: {x: 5.0079956, y: -4.3333282}
   m_SizeDelta: {x: 6.2141705, y: 0.9333334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3389463547445810185
