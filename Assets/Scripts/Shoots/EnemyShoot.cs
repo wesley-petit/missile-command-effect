@@ -8,7 +8,7 @@ public class EnemyShoot : CharacterShoot
 	private List<CollidableBuilding> _targets =                     // Target can be a player turret or a building
 		new List<CollidableBuilding>();
 	[SerializeField]
-	private Transform[] _canons = new Transform[0];                 // Canon / Origin, in the same order (left to right)
+	public Transform[] _canons = new Transform[0];                 // Canon / Origin, in the same order (left to right)
 	[SerializeField] private ushort _musicTimeToReachTarget = 4;    // Music time for a missile to reach his target
 	[SerializeField] private ChangeMaterialWithRythm _changeMaterial;// Change bullet material
 	[SerializeField]
