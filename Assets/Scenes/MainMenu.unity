@@ -150,7 +150,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 2eded1f04fcf4c2429d42b5376c830c5,
+      objectReference: {fileID: 11400000, guid: 06788b97dc877604b87b1b384868f4ce,
         type: 2}
     - target: {fileID: 1687480569818952488, guid: e7a4fa005fb576f40953dae8e0b151e7,
         type: 3}
@@ -158,6 +158,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2039983409673834267, guid: 2eded1f04fcf4c2429d42b5376c830c5,
         type: 2}
+    - target: {fileID: 1687480569818952488, guid: e7a4fa005fb576f40953dae8e0b151e7,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1687480569911832506, guid: e7a4fa005fb576f40953dae8e0b151e7,
         type: 3}
       propertyPath: m_Camera
