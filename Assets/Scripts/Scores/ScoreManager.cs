@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-
+using UnityEngine;
+using TMPro;
+using DG.Tweening;
 // Increase Score and manage bullet combos
 public class ScoreManager : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class ScoreManager : MonoBehaviour
 
 	[SerializeField] private ushort _bulletScoreToCombos = 30;      // Bullet score to add an score combos
 	[SerializeField] private IntEvent OnIncreaseScore = null;       // Callbacks for the UI
-
+	private GameObject _scoreTxt;
 	#region Fields
 	public ushort BuildingModifier
 	{
@@ -51,8 +52,10 @@ public class ScoreManager : MonoBehaviour
 
 	private void Start()
 	{
+        DOTween.Init();
 		_audioSync = AudioSync.Instance;
 		_roundSystem = RoundSystem.Instance;
+		_scoreTxt = GameObject.Find("Scored");
 	}
 
 	private void Update()
@@ -60,25 +63,25 @@ public class ScoreManager : MonoBehaviour
 		// Increase the score in a strong time and in a play round
 		if (_audioSync.IsInStrongTime && _roundSystem.IsInPlay)
 		{
-			IncreaseScore();
+            IncreaseScore();
 		}
 	}
 
 	private void IncreaseScore()
 	{
 		_currentScore += _buildingModifier;
-
+		_scoreTxt.GetComponent<TextMeshProUGUI>().text=_currentScore.ToString();
 		// Combos
 		if (HasACombos)
 		{
 			ushort combosMultiplier = (ushort)(_bulletModifier / _bulletScoreToCombos);
 			_bulletModifier *= combosMultiplier;
 		}
-
+		Debug.Log(_currentScore);
 		// Add score and reset bullet modifier for next increase
 		_currentScore += _bulletModifier;
 		_bulletModifier = 0;
-
+		_scoreTxt.transform.DOPunchScale (new Vector3 (0.15f, 0.15f, 0.15f), .20f).SetLoops(1);
 		OnIncreaseScore?.Invoke(_currentScore);
 	}
 }

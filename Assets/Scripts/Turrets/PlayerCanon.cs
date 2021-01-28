@@ -56,7 +56,7 @@ public class PlayerCanon : MonoBehaviour
 		if (!_ammoCounter) { return; }
 
 		GameObject ammoTemp = Instantiate(_ammoBye, new Vector3(_SpawnerFill.transform.position.x, _SpawnerFill.transform.position.y, 0), Quaternion.identity);
-		ammoTemp.transform.DOMove(new Vector3(ammoTemp.transform.position.x, -3f, 0), 0.4f);
+		ammoTemp.transform.DOMove(new Vector3(ammoTemp.transform.position.x, 8f, 0), 0.4f);
 		ammoTemp.transform.DOScale(new Vector3(ammoTemp.transform.localScale.x, 0.1f, 0.1f), 0.5f);
 		StartCoroutine(DestroyAmmoBye(ammoTemp));
 		_ammoCounter.value = Ammos;
