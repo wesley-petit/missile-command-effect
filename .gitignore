@@ -48,5 +48,4 @@ obj/
 Packages/
 
 Temp/
-
-ProjectSettings/
+ProjectSettings/ProjectVersion.txt
