@@ -70,7 +70,6 @@ public class ScoreManager : MonoBehaviour
 	private void IncreaseScore()
 	{
 		_currentScore += _buildingModifier;
-		_scoreTxt.GetComponent<TextMeshProUGUI>().text=_currentScore.ToString();
 		// Combos
 		if (HasACombos)
 		{
@@ -80,8 +79,10 @@ public class ScoreManager : MonoBehaviour
 		Debug.Log(_currentScore);
 		// Add score and reset bullet modifier for next increase
 		_currentScore += _bulletModifier;
+		
 		_bulletModifier = 0;
 		_scoreTxt.transform.DOPunchScale (new Vector3 (0.15f, 0.15f, 0.15f), .20f).SetLoops(1);
 		OnIncreaseScore?.Invoke(_currentScore);
+		_scoreTxt.GetComponent<TextMeshProUGUI>().text = _currentScore.ToString();
 	}
 }

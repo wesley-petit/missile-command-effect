@@ -64,7 +64,7 @@ public class EnemyShoot : CharacterShoot
 
 	private void Update()
 	{
-		if (_audioSync.IsInStrongTime && _roundSystem.IsInPlay)
+		if (_audioSync.IsInPace && _roundSystem.IsInPlay)
 		{
 			ShootTurret();
 			PrepareNextShoot();

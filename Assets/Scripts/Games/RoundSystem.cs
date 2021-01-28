@@ -69,6 +69,8 @@ public class RoundSystem : MonoBehaviour
 	// Max Time in timer
 	public void CalculateMaxTime(float lastShootTime)
 	{
+		//TODO Always fire
+		return;
 		if (lastShootTime <= 0f) { return; }
 
 		// Last shoot time is the real time for a bullet to reach a target
