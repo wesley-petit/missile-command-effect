@@ -36,29 +36,29 @@ public class RemaningTimer : MonoBehaviour
                 if(ownLine.GetPosition(2).y>3.93f)
                 {
                     Debug.Log("Walking");
-                    if(ownLine.GetPosition(3).x<-7.28f)
+                    if(ownLine.GetPosition(3).x>-7.28f)
                     {
-                       //Quatrieme trait mort
-                       ownLine.SetPosition(0, new Vector3(ownLine.GetPosition(3).x-0.01f, ownLine.GetPosition(3).y, 0f));
-                       ownLine.SetPosition(1, new Vector3(ownLine.GetPosition(3).x-0.01f, ownLine.GetPosition(3).y, 0f));
-                       ownLine.SetPosition(2, new Vector3(ownLine.GetPosition(3).x-0.01f, ownLine.GetPosition(3).y, 0f));
-                       ownLine.SetPosition(3, new Vector3(ownLine.GetPosition(3).x-0.01f, ownLine.GetPosition(3).y, 0f)); 
+                        Debug.Log("Simulator");
+                       ownLine.SetPosition(0, new Vector3(ownLine.GetPosition(3).x-0.5f, ownLine.GetPosition(3).y, 0f));
+                       ownLine.SetPosition(1, new Vector3(ownLine.GetPosition(3).x-0.5f, ownLine.GetPosition(3).y, 0f));
+                       ownLine.SetPosition(2, new Vector3(ownLine.GetPosition(3).x-0.5f, ownLine.GetPosition(3).y, 0f));
+                       ownLine.SetPosition(3, new Vector3(ownLine.GetPosition(3).x-0.5f, ownLine.GetPosition(3).y, 0f)); 
                        Debug.Log("Quatrieme trait mort");
                    }
                 }
                 else
                 {
-                    ownLine.SetPosition(0, new Vector3(ownLine.GetPosition(2).x, ownLine.GetPosition(2).y+0.1f, 0f));
-                    ownLine.SetPosition(1, new Vector3(ownLine.GetPosition(2).x, ownLine.GetPosition(2).y+0.1f, 0f));
-                    ownLine.SetPosition(2, new Vector3(ownLine.GetPosition(2).x, ownLine.GetPosition(2).y+0.1f, 0f)); 
+                    ownLine.SetPosition(0, new Vector3(ownLine.GetPosition(2).x, ownLine.GetPosition(2).y+0.5f, 0f));
+                    ownLine.SetPosition(1, new Vector3(ownLine.GetPosition(2).x, ownLine.GetPosition(2).y+0.5f, 0f));
+                    ownLine.SetPosition(2, new Vector3(ownLine.GetPosition(2).x, ownLine.GetPosition(2).y+0.5f, 0f)); 
                 }
             }
             else
             {
                 if(!phaseTwo)
                 {
-                    ownLine.SetPosition(0, new Vector3(ownLine.GetPosition(1).x+0.1f, ownLine.GetPosition(1).y, 0f));
-                    ownLine.SetPosition(1, new Vector3(ownLine.GetPosition(1).x+0.1f, ownLine.GetPosition(1).y, 0f));
+                    ownLine.SetPosition(0, new Vector3(ownLine.GetPosition(1).x+0.5f, ownLine.GetPosition(1).y, 0f));
+                    ownLine.SetPosition(1, new Vector3(ownLine.GetPosition(1).x+0.5f, ownLine.GetPosition(1).y, 0f));
                 }
             }
         }
@@ -66,7 +66,7 @@ public class RemaningTimer : MonoBehaviour
         {
             if(!phaseOne)
             {
-                ownLine.SetPosition(0, new Vector3(ownLine.GetPosition(0).x, ownLine.GetPosition(0).y-0.1f, 0f));
+                ownLine.SetPosition(0, new Vector3(ownLine.GetPosition(0).x, ownLine.GetPosition(0).y-0.5f, 0f));
             }
         }
     }
