@@ -71,10 +71,20 @@ public class EnemyShoot : CharacterShoot
 
 	private void Update()
 	{
-		if (_audioSync.IsInStrongTime && _roundSystem.IsInPlay)
+		if (_audioSync.IsInPace && _roundSystem.IsInPlay)
 		{
-			ShootTurret();
-			PrepareNextShoot();
+			Difficulty difficulty = _roundSystem.RoundDifficulty;
+			Debug.Log(difficulty);
+			// Shoot each time in a strong round
+			bool strongShoot = difficulty == Difficulty.STRONG;
+			// for each strong time in a weak round
+			bool weakShoot = difficulty == Difficulty.WEAK && _audioSync.IsInStrongTime;
+
+			if (strongShoot || weakShoot)
+			{
+				ShootTurret();
+				PrepareNextShoot();
+			}
 		}
 	}
 	#endregion
@@ -87,9 +97,7 @@ public class EnemyShoot : CharacterShoot
 		float distance;
 
 		// Real time to hit a target
-		float time = AudioSync.Instance.ShootTime * _musicTimeToReachTarget;
-		// Give the delay for a bullet to hit a target
-		RoundSystem.Instance.CalculateMaxTime(time);
+		float realTime = AudioSync.Instance.ShootTime * _musicTimeToReachTarget;
 
 		// Speed with each distance (canon to target)
 		for (int i = 0; i < _canons.Length; i++)
@@ -97,7 +105,7 @@ public class EnemyShoot : CharacterShoot
 			for (int y = 0; y < _targets.Count; y++)
 			{
 				distance = Vector2.Distance(_canons[i].position, _targets[y].transform.position);
-				_speedToReachTargets[i, y] = distance / time;
+				_speedToReachTargets[i, y] = distance / realTime;
 			}
 		}
 	}

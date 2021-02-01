@@ -860,7 +860,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914717291}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 575a8dc7f022f0f49b7b5e47d34f80e1, type: 3}
   m_Name: 
@@ -1262,6 +1262,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7212795600164027031, guid: 63af327ded2979b42b72e11b0d168507,
         type: 3}
+      propertyPath: _rounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212795600164027031, guid: 63af327ded2979b42b72e11b0d168507,
+        type: 3}
       propertyPath: _maxRoundNumber
       value: 4
       objectReference: {fileID: 0}
@@ -1274,6 +1279,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _maxScoreTime
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212795600164027031, guid: 63af327ded2979b42b72e11b0d168507,
+        type: 3}
+      propertyPath: _rounds.Array.data[0]._time
+      value: 1e+19
       objectReference: {fileID: 0}
     - target: {fileID: 7212795600164027240, guid: 63af327ded2979b42b72e11b0d168507,
         type: 3}

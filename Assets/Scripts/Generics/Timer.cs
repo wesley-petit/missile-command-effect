@@ -1,5 +1,4 @@
 ﻿// Create a generic timer common in most cases
-[System.Serializable]
 public class Timer
 {
 	public float MaxTime { get; set; }                              // Max Time to launch a event

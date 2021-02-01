@@ -76,7 +76,7 @@ public class ScoreManager : MonoBehaviour
 			ushort combosMultiplier = (ushort)(_bulletModifier / _bulletScoreToCombos);
 			_bulletModifier *= combosMultiplier;
 		}
-		Debug.Log(_currentScore);
+
 		// Add score and reset bullet modifier for next increase
 		_currentScore += _bulletModifier;
 		
