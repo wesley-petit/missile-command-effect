@@ -8,7 +8,19 @@ public class PlayerShoot : CharacterShoot
 	private PlayerCanon[] _playerCanons = new PlayerCanon[2];
 	[SerializeField] private uint _maxAmmo = 4;
 	[SerializeField] private AudioSource _blockSound = null;        // Audio when a turret has no ammo
-	private GameObject EnnemyShoots;
+	[SerializeField] private EnemyShoot _enemyShoot = null;
+
+	public PlayerCanon[] PlayerCanons
+	{
+		get => _playerCanons;
+		set
+		{
+			if (_playerCanons.Length != value.Length) { return; }
+
+			_playerCanons = value;
+		}
+	}
+
 	private InputHandler _inputs = null;
 
 	#region Unity Methods
@@ -16,9 +28,8 @@ public class PlayerShoot : CharacterShoot
 	protected override void Start()
 	{
 		base.Start();
-		EnnemyShoots=GameObject.Find("EnemyShootCanons");
 		_inputs = GetComponent<InputHandler>();
-		calibrateMaxAmmo();
+
 		if (!_cursor)
 		{
 			Debug.LogError("Cursor is undefined.");
@@ -30,6 +41,8 @@ public class PlayerShoot : CharacterShoot
 			Debug.LogError("Block Sound is undefined.");
 			return;
 		}
+
+		CalibrateMaxAmmo();
 	}
 
 	private void OnEnable() => RoundSystem.RegisterOnPlay(ResetCanon);
@@ -37,16 +50,15 @@ public class PlayerShoot : CharacterShoot
 
 	// Take last inputs
 	private void Update() => ReadLastInputs();
-	private void calibrateMaxAmmo()
-	{
-		_maxAmmo=(uint) (int) EnnemyShoots.GetComponent<EnemyShoot>()._canons.Length;
-	}
+
 	// Use of a rigidbody
 	private void FixedUpdate() => ShootTurret();
 	#endregion
 
-	#region Private Methods
-	private void ResetCanon()
+	#region Methods
+	private void CalibrateMaxAmmo() => _maxAmmo = (uint)_enemyShoot.CountCanons;
+
+	public void ResetCanon()
 	{
 		for (int i = 0; i < _playerCanons.Length; i++)
 		{

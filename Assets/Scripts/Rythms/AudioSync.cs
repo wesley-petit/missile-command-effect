@@ -76,6 +76,13 @@ public class AudioSync : MonoBehaviour
 		_delta = GetTime - _previousAudioTime;
 		_time += _delta;
 
+		// Reset if looping is activate
+		if (_delta < 0)
+		{
+			_time = 0;
+			_delta = 0;
+		}
+
 		if (NextPace)
 		{
 			InPace();

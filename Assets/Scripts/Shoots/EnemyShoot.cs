@@ -8,11 +8,18 @@ public class EnemyShoot : CharacterShoot
 	private List<CollidableBuilding> _targets =                     // Target can be a player turret or a building
 		new List<CollidableBuilding>();
 	[SerializeField]
-	public Transform[] _canons = new Transform[0];                 // Canon / Origin, in the same order (left to right)
+	private Transform[] _canons = new Transform[0];                 // Canon / Origin, in the same order (left to right)
 	[SerializeField] private ushort _musicTimeToReachTarget = 4;    // Music time for a missile to reach his target
 	[SerializeField] private ChangeMaterialWithRythm _changeMaterial;// Change bullet material
 	[SerializeField]
 	private SettingsHandler _settingsHandler = null;                // Adjust difficulty with speed multiplier
+
+	public List<CollidableBuilding> Targets
+	{
+		get => _targets;
+		set => _targets = value;
+	}                      // Getter / Setter targets
+	public int CountCanons => _canons.Length;
 
 	private float[,] _speedToReachTargets = new float[0, 0];        // Speed Canons to targets
 	private readonly RandomElement _randomTarget                    // Choose a random Target
@@ -64,7 +71,7 @@ public class EnemyShoot : CharacterShoot
 
 	private void Update()
 	{
-		if (_audioSync.IsInPace && _roundSystem.IsInPlay)
+		if (_audioSync.IsInStrongTime && _roundSystem.IsInPlay)
 		{
 			ShootTurret();
 			PrepareNextShoot();
@@ -74,7 +81,7 @@ public class EnemyShoot : CharacterShoot
 
 	#region Time
 	// Set speed bullet with the distance between canon and target
-	private void SetSpeedToTargets()
+	public void SetSpeedToTargets()
 	{
 		_speedToReachTargets = new float[_canons.Length, _targets.Count];
 		float distance;

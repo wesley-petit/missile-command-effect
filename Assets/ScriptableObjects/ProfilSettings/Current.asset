@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Current
   m_EditorClassIdentifier: 
   _profil:
-    _movementType: 2
+    _movementType: 1
     _showParticule: 1
     _fxVolume: 1
     _musicVolume: 1
-    _frequencyMultiplier: 1
-    _speedMultiplier: 5
+    _frequencyMultiplier: 2
+    _speedMultiplier: 3
