@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 // Give to other Manager or controllers some
 // buildings references => act as a main function
@@ -21,7 +21,6 @@ public class LevelManager : MonoBehaviour
 			oneScoreBuilding.Building.OnDestroyBuilding += RefreshManager;
 		}
 	}
-
 	private void OnDisable()
 	{
 		foreach (var oneScoreBuilding in _scoreBuildings)
