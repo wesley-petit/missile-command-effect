@@ -44,10 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _changeMaterials: []
-  _matMotifs: 
-  _mats:
-  - {fileID: 2100000, guid: 8d49c7da4b05ada4f9ec93567d3b3a9a, type: 2}
-  - {fileID: 2100000, guid: bfbea2112e1020c40990d11d85fbd2cd, type: 2}
+  _normalMaterial: {fileID: 2100000, guid: 8d49c7da4b05ada4f9ec93567d3b3a9a, type: 2}
+  _epicMaterial: {fileID: 2100000, guid: bfbea2112e1020c40990d11d85fbd2cd, type: 2}
 --- !u!1 &1443650626333137538
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,6 +449,7 @@ MonoBehaviour:
   _maxAmmo: 10
   _blockSound: {fileID: 6522051141380768420}
   _enemyShoot: {fileID: 7510889171457606677}
+  controller1: {fileID: 0}
 --- !u!114 &4351590905978905849
 MonoBehaviour:
   m_ObjectHideFlags: 0

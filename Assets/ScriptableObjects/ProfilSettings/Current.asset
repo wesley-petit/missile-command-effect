@@ -18,4 +18,4 @@ MonoBehaviour:
     _fxVolume: 1
     _musicVolume: 1
     _frequencyMultiplier: 1
-    _speedMultiplier: 4
+    _speedMultiplier: 5

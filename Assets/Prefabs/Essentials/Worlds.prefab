@@ -562,7 +562,7 @@ MonoBehaviour:
   _maxAmmo: 10
   _blockSound: {fileID: 5961830328841066859}
   _enemyShoot: {fileID: 6918195356741754842}
-  controller1: {fileID: 0}
+  _controller1: {fileID: 0}
 --- !u!114 &3773351499827461942
 MonoBehaviour:
   m_ObjectHideFlags: 0

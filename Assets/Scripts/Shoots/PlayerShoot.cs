@@ -13,8 +13,8 @@ public class PlayerShoot : CharacterShoot
 	[SerializeField] private uint _maxAmmo = 4;
 	[SerializeField] private AudioSource _blockSound = null;        // Audio when a turret has no ammo
 	[SerializeField] private EnemyShoot _enemyShoot = null;
-    [SerializeField] private XRController controller1;
- 
+	[SerializeField] private XRRayInteractor _controller1;
+
 	public PlayerCanon[] PlayerCanons
 	{
 		get => _playerCanons;
@@ -88,7 +88,10 @@ public class PlayerShoot : CharacterShoot
 		{
 			if (currentCanon.CanShoot)
 			{
-                controller1.GetComponent<XRRayInteractor>().SendHapticImpulse(0.5f, 1f);
+				if (_controller1)
+				{
+					_controller1.SendHapticImpulse(0.5f, 1f);
+				}
 				_turret.Shoot(currentCanon.GetPosition, _cursor.position, currentCanon);
 				currentCanon.ReduceAmmos();
 			}
@@ -101,6 +104,6 @@ public class PlayerShoot : CharacterShoot
 			currentCanon.Input = false;
 		}
 	}
- 
+
 	#endregion
 }
