@@ -8,19 +8,12 @@ public class CollidableBuilding : MonoBehaviour, ICollidable
 
     public System.Action OnDestroyBuilding = null;
     public bool IsIntact => gameObject.activeSelf;
-    //TODO Delete
-    public bool Test = false;
 
     private void Awake()
     {
         if (destroyedVersion)
         {
             destroyedVersion.SetActive(false);
-        }
-
-        if (Test)
-        {
-            Hide();
         }
     }
 
