@@ -26,7 +26,7 @@ public class RemaningTimer : MonoBehaviour
         ownLine.SetPosition(3, new Vector3(CameraWidth*6.45f/901, CameraHeight*4.18f/584, 0f));
         ownLine.SetPosition(4, new Vector3(CameraWidth*-6.45f/901, CameraHeight*4.18f/584, 0f));
         ownLine.sortingOrder = 1;
-        ownLine.material = new Material (Shader.Find ("Sprites/Default"));
+        ownLine.material = new Material(Shader.Find("Sprites/Default"));
         ownLine.material.color = Color.red; 
         decreaseSize();
     }
