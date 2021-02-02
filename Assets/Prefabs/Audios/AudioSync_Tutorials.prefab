@@ -65,13 +65,18 @@ PrefabInstance:
     - target: {fileID: 8815031026248746993, guid: d6a22c546ecbbc544934231289fda11d,
         type: 3}
       propertyPath: m_Name
-      value: AudioSync_Tutorials
+      value: Tutorials_AudioSync
+      objectReference: {fileID: 0}
+    - target: {fileID: 8815031026248746998, guid: d6a22c546ecbbc544934231289fda11d,
+        type: 3}
+      propertyPath: _BPM
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 8815031026248746999, guid: d6a22c546ecbbc544934231289fda11d,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 0c8e094ced5eb2e48985ffe058fd75ee, type: 3}
+      objectReference: {fileID: 8300000, guid: c5f1fe3b4dffe3647bc4cf75cccc9dda, type: 3}
     - target: {fileID: 8815031026248746999, guid: d6a22c546ecbbc544934231289fda11d,
         type: 3}
       propertyPath: Loop

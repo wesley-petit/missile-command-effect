@@ -59,7 +59,7 @@ public class CheckList : MonoBehaviour
 		// Display actual count or max to avoid overflow
 		var actualShootDisplay = actualCount < maxCount ? actualCount : maxCount;
 		TMPro.TMP_Text current = _allClones[textIndex];
-		current.text = $"{actualShootDisplay} / {maxCount} tir - Tourelle {GetCanonName(textIndex)}";
+		current.text = $"{actualShootDisplay} / {maxCount} shoot - {GetCanonName(textIndex)} Turret";
 		current.gameObject.SetActive(true);
 
 		if (validCount)
@@ -74,10 +74,10 @@ public class CheckList : MonoBehaviour
 		switch (i)
 		{
 			case 0:
-				return "Gauche";
+				return "Left";
 
 			case 1:
-				return "Droite";
+				return "Right";
 		}
 
 		return "";
