@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 // A collidable or destroyable building
 // Yes it's a funny class
