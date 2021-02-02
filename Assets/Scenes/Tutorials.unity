@@ -847,24 +847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1914717291 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7212795600164027240, guid: 63af327ded2979b42b72e11b0d168507,
-    type: 3}
-  m_PrefabInstance: {fileID: 4359348293254313185}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1914717292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914717291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575a8dc7f022f0f49b7b5e47d34f80e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1944648735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1267,28 +1249,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7212795600164027031, guid: 63af327ded2979b42b72e11b0d168507,
         type: 3}
-      propertyPath: _maxRoundNumber
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7212795600164027031, guid: 63af327ded2979b42b72e11b0d168507,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7212795600164027031, guid: 63af327ded2979b42b72e11b0d168507,
-        type: 3}
-      propertyPath: _maxScoreTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7212795600164027031, guid: 63af327ded2979b42b72e11b0d168507,
-        type: 3}
       propertyPath: _rounds.Array.data[0]._time
-      value: 1e+19
-      objectReference: {fileID: 0}
-    - target: {fileID: 7212795600164027031, guid: 63af327ded2979b42b72e11b0d168507,
-        type: 3}
-      propertyPath: _rounds.Array.data[0]._difficulty
-      value: 0
+      value: 1.1111111e+23
       objectReference: {fileID: 0}
     - target: {fileID: 7212795600164027240, guid: 63af327ded2979b42b72e11b0d168507,
         type: 3}
