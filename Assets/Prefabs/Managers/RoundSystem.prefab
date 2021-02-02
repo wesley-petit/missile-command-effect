@@ -43,6 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57fc32f58823c21409434f062aa4ad13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxPlayTime: 20
-  _maxScoreTime: 5
-  _maxRoundNumber: 2
+  _rounds:
+  - _time: 35
+    _difficulty: 0
+  - _time: 12
+    _difficulty: 1
+  - _time: 24
+    _difficulty: 0
+  - _time: 27
+    _difficulty: 1

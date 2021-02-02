@@ -45,8 +45,8 @@ public class PlayerShoot : CharacterShoot
 		CalibrateMaxAmmo();
 	}
 
-	private void OnEnable() => RoundSystem.RegisterOnPlay(ResetCanon);
-	private void OnDisable() => RoundSystem.UnregisterOnPlay(ResetCanon);
+	private void OnEnable() => RoundSystem.Register(ResetCanon);
+	private void OnDisable() => RoundSystem.Unregister(ResetCanon);
 
 	// Take last inputs
 	private void Update() => ReadLastInputs();
