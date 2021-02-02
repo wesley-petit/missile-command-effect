@@ -133,6 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6deaa2a2e3aa554a82d393686b3a173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &303404687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5302584940532680882, guid: b565aa43c2e10924893d8559e8857c47,
+    type: 3}
+  m_PrefabInstance: {fileID: 5000738318185717871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &409301249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,6 +370,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4363954311065676936}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1177950718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3765711666882009422, guid: b565aa43c2e10924893d8559e8857c47,
+    type: 3}
+  m_PrefabInstance: {fileID: 5000738318185717871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1247579517 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4363954311974494709, guid: d26955c72c208de4ba79e5a123788d5c,
@@ -529,6 +541,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4363954311974494710, guid: d26955c72c208de4ba79e5a123788d5c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.572
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363954311974494710, guid: d26955c72c208de4ba79e5a123788d5c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d26955c72c208de4ba79e5a123788d5c, type: 3}
 --- !u!4 &4363954311065676937 stripped
@@ -616,6 +638,11 @@ PrefabInstance:
       propertyPath: _matMotifs.Array.data[2]
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1579280875539692741, guid: b565aa43c2e10924893d8559e8857c47,
+        type: 3}
+      propertyPath: destroyedVersion
+      value: 
+      objectReference: {fileID: 303404687}
     - target: {fileID: 1682933972707893012, guid: b565aa43c2e10924893d8559e8857c47,
         type: 3}
       propertyPath: _ammoCounter
@@ -626,6 +653,11 @@ PrefabInstance:
       propertyPath: _SpawnerFill
       value: 
       objectReference: {fileID: 7870555612638644073}
+    - target: {fileID: 2043205149128688385, guid: b565aa43c2e10924893d8559e8857c47,
+        type: 3}
+      propertyPath: destroyedVersion
+      value: 
+      objectReference: {fileID: 1177950718}
     - target: {fileID: 3779521731375970927, guid: b565aa43c2e10924893d8559e8857c47,
         type: 3}
       propertyPath: _ammoCounter
@@ -636,6 +668,11 @@ PrefabInstance:
       propertyPath: _SpawnerFill
       value: 
       objectReference: {fileID: 7870555612638644074}
+    - target: {fileID: 3946225176066398654, guid: b565aa43c2e10924893d8559e8857c47,
+        type: 3}
+      propertyPath: destroyedVersion
+      value: 
+      objectReference: {fileID: 1758639417}
     - target: {fileID: 5000738316971751556, guid: b565aa43c2e10924893d8559e8857c47,
         type: 3}
       propertyPath: m_LocalPosition.x
