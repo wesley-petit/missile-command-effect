@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &47364424 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4392851774683029164, guid: b565aa43c2e10924893d8559e8857c47,
+    type: 3}
+  m_PrefabInstance: {fileID: 5000738318185717871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &257493201 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 38037066503609332, guid: b565aa43c2e10924893d8559e8857c47,
@@ -672,7 +678,7 @@ PrefabInstance:
         type: 3}
       propertyPath: destroyedVersion
       value: 
-      objectReference: {fileID: 1758639417}
+      objectReference: {fileID: 47364424}
     - target: {fileID: 5000738316971751556, guid: b565aa43c2e10924893d8559e8857c47,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -738,7 +744,8 @@ PrefabInstance:
       propertyPath: _cursor
       value: 
       objectReference: {fileID: 4363954311065676937}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3420357832685021015, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b565aa43c2e10924893d8559e8857c47, type: 3}
 --- !u!1001 &6370195777460254763
 PrefabInstance:
