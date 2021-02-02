@@ -3,7 +3,22 @@ guid: fc9fc3e767e12534392bd25a4e37a63d
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bleu
+    second: {fileID: 2100000, guid: da2f33c2a036f56429e6b4a5e23bba47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "b\xE9ton"
+    second: {fileID: 2100000, guid: 0a08fbc0c9fec1a4db5aff23f97b995b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fenettre
+    second: {fileID: 2100000, guid: 55962a450c178c44b8d33e062dff0094, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

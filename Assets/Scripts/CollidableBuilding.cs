@@ -4,22 +4,40 @@
 // Yes it's a funny class
 public class CollidableBuilding : MonoBehaviour, ICollidable
 {
-	public GameObject destroyedVersion;
+    public GameObject destroyedVersion;
 
-	public System.Action OnDestroyBuilding = null;
-	public bool IsIntact => gameObject.activeSelf;
+    public System.Action OnDestroyBuilding = null;
+    public bool IsIntact => gameObject.activeSelf;
+    //TODO Delete
+    public bool Test = false;
 
-	public void Hit() => Hide();
+    private void Awake()
+    {
+        if (destroyedVersion)
+        {
+            destroyedVersion.SetActive(false);
+        }
 
-	public void Show() => gameObject.SetActive(true);
+        if (Test)
+        {
+            Hide();
+        }
+    }
 
-	public void Hide()
-	{
-		gameObject.SetActive(false);
-		OnDestroyBuilding?.Invoke();
+    public void Hit() => Hide();
 
-		GameObject destruct_building = Instantiate(destroyedVersion, transform.position, transform.rotation);
-		destruct_building.transform.SetParent(null, false);
-	}
+    public void Show() => gameObject.SetActive(true);
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+        OnDestroyBuilding?.Invoke();
+
+        if (destroyedVersion)
+        {
+            destroyedVersion.SetActive(true);
+            destroyedVersion.transform.SetParent(null);
+        }
+    }
 
 }

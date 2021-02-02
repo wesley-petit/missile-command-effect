@@ -3,7 +3,17 @@ guid: 2fdfe7fd90b0df643b6767ffc047c032
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "b\xE9ton"
+    second: {fileID: 2100000, guid: 0a08fbc0c9fec1a4db5aff23f97b995b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fenettres
+    second: {fileID: 2100000, guid: 55962a450c178c44b8d33e062dff0094, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
