@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 0}
-  Test: 0
 --- !u!114 &5880231116301226496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 0}
-  Test: 0
 --- !u!114 &5834897138234549003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,7 +383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 0}
-  Test: 0
 --- !u!114 &2325184421208670251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,6 +1778,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8333348034449529196, guid: 1a042b85df2b4db43a422dcb85e4ff92,
+        type: 3}
+      propertyPath: destroyedVersion
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a042b85df2b4db43a422dcb85e4ff92, type: 3}
 --- !u!114 &7408077036608871456 stripped
@@ -1916,6 +1918,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333348034449529196, guid: 1a042b85df2b4db43a422dcb85e4ff92,
+        type: 3}
+      propertyPath: destroyedVersion
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a042b85df2b4db43a422dcb85e4ff92, type: 3}
@@ -2213,6 +2220,11 @@ PrefabInstance:
       propertyPath: _targets.Array.data[4]
       value: 
       objectReference: {fileID: 6364587585427537498}
+    - target: {fileID: 7510889171457606677, guid: c6755f47a622d6542b65891ffc3c3f08,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6755f47a622d6542b65891ffc3c3f08, type: 3}
 --- !u!4 &404223241129504974 stripped
@@ -2354,6 +2366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333348034449529196, guid: 1a042b85df2b4db43a422dcb85e4ff92,
+        type: 3}
+      propertyPath: destroyedVersion
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a042b85df2b4db43a422dcb85e4ff92, type: 3}
