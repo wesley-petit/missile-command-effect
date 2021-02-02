@@ -11,6 +11,8 @@ public class RemaningTimer : MonoBehaviour
     private bool phaseThree=false;
     private bool phaseFour=false;
     [SerializeField]
+    private GameObject MenuScript;
+    [SerializeField]
     private float timeRoundSec;
     private float timeRound;
     void Start()
@@ -28,7 +30,6 @@ public class RemaningTimer : MonoBehaviour
         ownLine.sortingOrder = 1;
         ownLine.material = new Material(Shader.Find("Sprites/Default"));
         ownLine.material.color = Color.red; 
-        decreaseSize();
     }
     void decreaseSize()
     {
@@ -76,6 +77,9 @@ public class RemaningTimer : MonoBehaviour
     }
     void Update()
     {
-        decreaseSize();
+        if(!MenuScript.GetComponent<PauseMenu>().IsPause)
+        {
+            decreaseSize();
+        }
     }
 }
