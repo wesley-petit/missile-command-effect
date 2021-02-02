@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 640408528}
   - component: {fileID: 640408527}
   - component: {fileID: 640408529}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: RemaningTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ Transform:
   m_GameObject: {fileID: 640408526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 7.28}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 858608520}
   m_RootOrder: 0
@@ -777,6 +777,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1299323927, guid: 663bd1706b52e1142adc7bd1148a323b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 442458148489010394, guid: 663bd1706b52e1142adc7bd1148a323b,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -792,6 +796,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1247579517}
+    - target: {fileID: 2672477480087514987, guid: 663bd1706b52e1142adc7bd1148a323b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3144210948216019528, guid: 663bd1706b52e1142adc7bd1148a323b,
         type: 3}
       propertyPath: m_Camera
