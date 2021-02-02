@@ -1017,6 +1017,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseContent
       objectReference: {fileID: 0}
+    - target: {fileID: 5087853253434444144, guid: 858a5741373115f4f8309f19b871ce37,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.20784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087853253434444144, guid: 858a5741373115f4f8309f19b871ce37,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.08627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087853253434444144, guid: 858a5741373115f4f8309f19b871ce37,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.08627451
+      objectReference: {fileID: 0}
     - target: {fileID: 5087853253620509867, guid: 858a5741373115f4f8309f19b871ce37,
         type: 3}
       propertyPath: m_Name
