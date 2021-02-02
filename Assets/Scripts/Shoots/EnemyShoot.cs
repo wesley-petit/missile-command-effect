@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 // Enemy shoot in music rythm
@@ -74,7 +74,6 @@ public class EnemyShoot : CharacterShoot
 		if (_audioSync.IsInPace && _roundSystem.IsInPlay)
 		{
 			Difficulty difficulty = _roundSystem.RoundDifficulty;
-			Debug.Log(difficulty);
 			// Shoot each time in a strong round
 			bool strongShoot = difficulty == Difficulty.STRONG;
 			// for each strong time in a weak round

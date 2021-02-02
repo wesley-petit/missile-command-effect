@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstCamera: {fileID: 1247579517}
+  timeRoundSec: 60
 --- !u!4 &858608520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4363954311974494710, guid: d26955c72c208de4ba79e5a123788d5c,

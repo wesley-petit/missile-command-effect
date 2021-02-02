@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 // Change round between play or score
 public class RoundSystem : MonoBehaviour
@@ -12,6 +12,14 @@ public class RoundSystem : MonoBehaviour
 
 	private static System.Action OnChangeRound = null;                          // Callbacks to invoke a play round
 	private readonly Timer _timer = new Timer();
+    public float TotalTimeRounds { get { 
+        float maxTimeTemp=0f;
+        for(int i=0;i<_rounds.Length;i++)
+        {
+            maxTimeTemp+=_rounds[i].Time;
+        }
+        return maxTimeTemp;
+    } }
 	private uint _currentRound = 0;
 
 	#region Unity Methods
