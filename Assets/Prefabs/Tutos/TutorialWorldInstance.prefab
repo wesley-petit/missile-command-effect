@@ -48,21 +48,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tutorialSteps:
-  - _tutorialText: "Votre objectif est de d\xE9fendre votre ville des missiles ennemis."
+  - _tutorialText: Your goal is to defend your city against ennemy missiles.
     _collidableBuildings:
     - {fileID: 0}
     - {fileID: 0}
     _playerCanons: []
     _stepCheck: {fileID: 0}
     _canShoot: 1
-  - _tutorialText: "Voici les contr\xF4les."
+  - _tutorialText: There is the controls.
     _collidableBuildings:
     - {fileID: 0}
     - {fileID: 0}
     _playerCanons: []
     _stepCheck: {fileID: 0}
     _canShoot: 0
-  - _tutorialText: Tuto 3
+  - _tutorialText: 
     _collidableBuildings:
     - {fileID: 0}
     - {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
     - {fileID: 0}
     _stepCheck: {fileID: 0}
     _canShoot: 1
-  - _tutorialText: Tuto 4
+  - _tutorialText: 
     _collidableBuildings:
     - {fileID: 0}
     - {fileID: 0}
@@ -81,6 +81,7 @@ MonoBehaviour:
     - {fileID: 0}
     _stepCheck: {fileID: 0}
     _canShoot: 1
+  _fadeScreens: {fileID: 0}
 --- !u!114 &4740127911490352156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   _nextButton: {fileID: 0}
   _playButton: {fileID: 0}
   _explainText: {fileID: 0}
+  _controls: {fileID: 0}
 --- !u!114 &4740127911490352157
 MonoBehaviour:
   m_ObjectHideFlags: 0
