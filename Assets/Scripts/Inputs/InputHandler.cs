@@ -28,8 +28,11 @@ public class InputHandler : MonoBehaviour
 		_controls.Player.Movement.performed += cxt => Movement = cxt.ReadValue<Vector2>();
 		_controls.Player.Movement.canceled += cxt => Movement = Vector2.zero;
 
-		_controls.Player.LeftHand.performed += cxt => XRMovement = XRPoint(_leftRay);
-		_controls.Player.RightHand.performed += cxt => XRMovement = XRPoint(_rightRay);
+		if (_leftRay && _rightRay)
+		{
+			_controls.Player.LeftHand.performed += cxt => XRMovement = XRPoint(_leftRay);
+			_controls.Player.RightHand.performed += cxt => XRMovement = XRPoint(_rightRay);
+		}
 	}
 
 	private Vector3 XRPoint(XRRayInteractor ray)

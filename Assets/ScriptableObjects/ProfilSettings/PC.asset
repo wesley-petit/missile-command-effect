@@ -17,5 +17,5 @@ MonoBehaviour:
     _showParticule: 1
     _fxVolume: 1
     _musicVolume: 1
-    _frequencyMultiplier: 2
-    _speedMultiplier: 3
+    _frequencyMultiplier: 1
+    _speedMultiplier: 5

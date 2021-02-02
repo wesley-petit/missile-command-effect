@@ -24,7 +24,10 @@ public abstract class ChangeMaterialWithRythm : MonoBehaviour
 
 		foreach (var change in _changeMaterials)
 		{
-			change.ChangeMaterial(newMat);
+			if (change && change.isActiveAndEnabled)
+			{
+				change.ChangeMaterial(newMat);
+			}
 		}
 	}
 

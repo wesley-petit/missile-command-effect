@@ -1,4 +1,4 @@
-﻿// Manage Win or Lose Event
+// Manage Win or Lose Event
 public static class GameState
 {
 	public static System.Action OnWinEvent = null;
@@ -22,7 +22,6 @@ public static class GameState
 			Lose();
 		}
 	}
-
 	public static void ReduceNumberBuilding()
 	{
 		_numberOfIntactBuilding--;

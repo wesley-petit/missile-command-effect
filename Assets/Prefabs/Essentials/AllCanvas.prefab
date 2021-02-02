@@ -4860,6 +4860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _game: 1
   _mainMenu: 0
+  _tutorials: 2
   _containerPauseMenu: {fileID: 2565475111334099575}
   _inputs:
   - {fileID: 0}

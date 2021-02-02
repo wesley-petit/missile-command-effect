@@ -3,51 +3,64 @@
 // Change building material follow a motif
 public class ChangeBuildingMaterialWithRythm : ChangeMaterialWithRythm
 {
-	[SerializeField] private int[] _matMotifs = new int[0];         // Contains index to change material
-	[SerializeField] private Material[] _mats = new Material[0];    // Contains materials motifs
+    [SerializeField] private Material _normalMaterial = null;
+    [SerializeField] private Material _epicMaterial = null;         // Epic material on each building
 
-	private int _index = 0;
+    private int _epicIndex = 0;                                     // Index in current material
+    private MaterialProperties _currentEpic = null;                 // Current material with epic material
 
-	protected override void Start()
-	{
-		base.Start();
+    protected override void Start()
+    {
+        base.Start();
 
-		if (_matMotifs.Length <= 0)
-		{
-			Debug.LogError($"Material Motifs is undefined in {name}.");
-			return;
-		}
+        if (!_normalMaterial)
+        {
+            Debug.LogError($"Normal Material is undefined in {name}.");
+            return;
+        }
 
-		if (_mats.Length <= 0)
-		{
-			Debug.LogError($"Materials are undefined in {name}.");
-			return;
-		}
-	}
+        if (!_epicMaterial)
+        {
+            Debug.LogError($"Epic Material is undefined in {name}.");
+            return;
+        }
 
-	private void Update()
-	{
-		if (AudioManager.IsInPace)
-		{
-			ApplyChange(GetMaterial());
-		}
-	}
+        ApplyChange(_normalMaterial);
+        ApplyChangeOnEpic();
+    }
 
-	// Get Material with index
-	private Material GetMaterial()
-	{
-		// Material with index
-		// Avoid empty array
-		if (_matMotifs.Length <= 0 || _mats.Length <= 0) { return null; }
+    private void Update()
+    {
+        if (AudioManager.IsInPace)
+        {
+            ApplyChangeOnEpic();
+        }
+    }
 
-		// Reset motif index
-		_index++;
-		if (_matMotifs.Length <= _index) { _index = 0; }
+    // Apply epic material
+    private void ApplyChangeOnEpic()
+    {
+        if (!_epicMaterial) { return; }
+        if (!_normalMaterial) { return; }
+        if (_changeMaterials.Count <= 0) { return; }
 
-		// Material index
-		int materialIndex = _matMotifs[_index];
-		if (_mats.Length <= materialIndex) { materialIndex = 0; }
+        if (_currentEpic && _currentEpic.isActiveAndEnabled)
+        {
+            _currentEpic.ChangeMaterial(_normalMaterial);
+        }
 
-		return _mats[materialIndex];
-	}
+        // Increase effect
+        _epicIndex++;
+        if (_changeMaterials.Count <= _epicIndex)
+        {
+            _epicIndex = 0;
+        }
+
+        // Change material
+        _currentEpic = _changeMaterials[_epicIndex];
+        if (_currentEpic && _currentEpic.isActiveAndEnabled)
+        {
+            _currentEpic.ChangeMaterial(_epicMaterial);
+        }
+    }
 }

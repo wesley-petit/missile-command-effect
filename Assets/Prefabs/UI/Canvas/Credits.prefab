@@ -68,14 +68,14 @@ MonoBehaviour:
   m_text: "R\xE9alis\xE9 par :\nBaptiste Lebrun\nLucas Chaudeau\nR\xE9mi Duple\nWesley
     Petit\r\n\r\n\r\n\n\nR\xD4LES\r\n\n\r\nChef de projet\r\nWesley Petit\r\n\r\nMod\xE9lisateur
     3D\r\nLucas Chaudeau\r\n\r\nui / ux Designer\r\nR\xE9mi Duple\r\n\r\nMusicien\r\nBaptiste
-    Lebrun\r\n\r\nD\xE9veloppeur\r\nWesley Petit\r\n\nInt\xE9grateur vR\r\nWesley
-    Petit\r\n\n\n\n\r\nRemerciements particuliers pour nous avoir assist\xE9s lors
-    du d\xE9veloppement du jeu :\r\n\r\nRapha\xEBl Marczak\r\nR\xE9mi Cayatte\r\n\"Service
-    informatique de l'iuT de Tarbes\"\r\n\n\n\r\n\r\nMerci \xE0 vous d\u2019avoir
+    Lebrun\r\n\r\nD\xE9veloppeur\r\nWesley Petit\r\n\nint\xE9grateur vR\r\nWesley
+    Petit\r\n\n\n\r\nRemerciements particuliers pour nous avoir assist\xE9s lors
+    du d\xE9veloppement du jeu :\r\n\r\nRapha\xEBl Marczak\r\nR\xE9mi Cayatte\r\nHow
+    To Destroy Angels - The Space in Between\n\r\n\r\nMerci \xE0 vous d\u2019avoir
     t\xE9l\xE9charg\xE9 notre jeu."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 06788b97dc877604b87b1b384868f4ce, type: 2}
-  m_sharedMaterial: {fileID: -1458937272339353245, guid: 06788b97dc877604b87b1b384868f4ce,
+  m_sharedMaterial: {fileID: 2039983409673834267, guid: 2eded1f04fcf4c2429d42b5376c830c5,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_margin: {x: 0.000916481, y: 0, z: 0.001871109, w: 32.263283}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1687480569818952500

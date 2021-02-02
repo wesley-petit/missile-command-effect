@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(InputHandler))]
 public class PlayerShoot : CharacterShoot
@@ -8,7 +12,20 @@ public class PlayerShoot : CharacterShoot
 	private PlayerCanon[] _playerCanons = new PlayerCanon[2];
 	[SerializeField] private uint _maxAmmo = 4;
 	[SerializeField] private AudioSource _blockSound = null;        // Audio when a turret has no ammo
-	private GameObject EnnemyShoots;
+	[SerializeField] private EnemyShoot _enemyShoot = null;
+	[SerializeField] private XRRayInteractor _controller1;
+
+	public PlayerCanon[] PlayerCanons
+	{
+		get => _playerCanons;
+		set
+		{
+			if (_playerCanons.Length != value.Length) { return; }
+
+			_playerCanons = value;
+		}
+	}
+
 	private InputHandler _inputs = null;
 
 	#region Unity Methods
@@ -16,9 +33,8 @@ public class PlayerShoot : CharacterShoot
 	protected override void Start()
 	{
 		base.Start();
-		EnnemyShoots=GameObject.Find("EnemyShootCanons");
 		_inputs = GetComponent<InputHandler>();
-		calibrateMaxAmmo();
+
 		if (!_cursor)
 		{
 			Debug.LogError("Cursor is undefined.");
@@ -30,23 +46,24 @@ public class PlayerShoot : CharacterShoot
 			Debug.LogError("Block Sound is undefined.");
 			return;
 		}
+
+		CalibrateMaxAmmo();
 	}
 
-	private void OnEnable() => RoundSystem.RegisterOnPlay(ResetCanon);
-	private void OnDisable() => RoundSystem.UnregisterOnPlay(ResetCanon);
+	private void OnEnable() => RoundSystem.Register(ResetCanon);
+	private void OnDisable() => RoundSystem.Unregister(ResetCanon);
 
 	// Take last inputs
 	private void Update() => ReadLastInputs();
-	private void calibrateMaxAmmo()
-	{
-		_maxAmmo=(uint) (int) EnnemyShoots.GetComponent<EnemyShoot>()._canons.Length;
-	}
+
 	// Use of a rigidbody
 	private void FixedUpdate() => ShootTurret();
 	#endregion
 
-	#region Private Methods
-	private void ResetCanon()
+	#region Methods
+	private void CalibrateMaxAmmo() => _maxAmmo = (uint)_enemyShoot.CountCanons;
+
+	public void ResetCanon()
 	{
 		for (int i = 0; i < _playerCanons.Length; i++)
 		{
@@ -71,6 +88,10 @@ public class PlayerShoot : CharacterShoot
 		{
 			if (currentCanon.CanShoot)
 			{
+				if (_controller1)
+				{
+					_controller1.SendHapticImpulse(0.5f, 1f);
+				}
 				_turret.Shoot(currentCanon.GetPosition, _cursor.position, currentCanon);
 				currentCanon.ReduceAmmos();
 			}
@@ -83,5 +104,6 @@ public class PlayerShoot : CharacterShoot
 			currentCanon.Input = false;
 		}
 	}
+
 	#endregion
 }
