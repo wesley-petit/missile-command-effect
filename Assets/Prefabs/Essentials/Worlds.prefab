@@ -105,14 +105,8 @@ MonoBehaviour:
   - {fileID: 536829958}
   - {fileID: 1680233734}
   - {fileID: 119197249}
-  _matMotifs: 00000000010000000400000002000000050000000100000000000000050000000000000003000000
-  _mats:
-  - {fileID: 2100000, guid: 11d196b6892c4034f8143c53cec0d4d9, type: 2}
-  - {fileID: 2100000, guid: bfbea2112e1020c40990d11d85fbd2cd, type: 2}
-  - {fileID: 2100000, guid: 4700c5b8e8559b84e84cda767a2dfc3a, type: 2}
-  - {fileID: 2100000, guid: c9e68bb40f1422e42a9e77d4a3000fbb, type: 2}
-  - {fileID: 2100000, guid: ff8f1ca2336cbab429783992ce5b966d, type: 2}
-  - {fileID: 2100000, guid: 5dabd8d1e53ae764581e8d05174b623d, type: 2}
+  _normalMaterial: {fileID: 2100000, guid: 8d49c7da4b05ada4f9ec93567d3b3a9a, type: 2}
+  _epicMaterial: {fileID: 2100000, guid: bfbea2112e1020c40990d11d85fbd2cd, type: 2}
 --- !u!1 &257618202837692479
 GameObject:
   m_ObjectHideFlags: 0
