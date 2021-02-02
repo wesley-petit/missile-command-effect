@@ -14,9 +14,6 @@ public class PlayerShoot : CharacterShoot
 	[SerializeField] private AudioSource _blockSound = null;        // Audio when a turret has no ammo
 	[SerializeField] private EnemyShoot _enemyShoot = null;
     [SerializeField] private XRController controller1;
-    [SerializeField] private XRController controller2;
-    [SerializeField] private XRRayInteractor interactor1;
-    [SerializeField] private XRRayInteractor interactor2;
  
 	public PlayerCanon[] PlayerCanons
 	{
@@ -91,7 +88,7 @@ public class PlayerShoot : CharacterShoot
 		{
 			if (currentCanon.CanShoot)
 			{
-                VibrationControls();
+                controller1.GetComponent<XRRayInteractor>().SendHapticImpulse(0.5f, 1f);
 				_turret.Shoot(currentCanon.GetPosition, _cursor.position, currentCanon);
 				currentCanon.ReduceAmmos();
 			}
@@ -104,27 +101,6 @@ public class PlayerShoot : CharacterShoot
 			currentCanon.Input = false;
 		}
 	}
-    private void GetControllers() {
-        if (controller1 == null || controller2 == null) {
-            var controllers = FindObjectsOfType<XRController>();
-            if (controllers.Length > 0) {
-                controller1 = controllers[0];
-                interactor1 = controller1.gameObject.GetComponent<XRRayInteractor>();
-            }
-            if (controllers.Length > 1) {
-                controller2 = controllers[1];
-                interactor2 = controller2.gameObject.GetComponent<XRRayInteractor>();
-            }
-        }
-    }
  
-    private void VibrationControls() {
-        GetControllers();
-        if (interactor1.enabled) {
-            controller1.inputDevice.SendHapticImpulse(0, 1f, 0.5f);
-        } else if (interactor2.enabled) {
-            controller2.inputDevice.SendHapticImpulse(0, 1f, 0.5f);
-        }
-    }
 	#endregion
 }
