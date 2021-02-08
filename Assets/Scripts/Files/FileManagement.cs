@@ -77,7 +77,10 @@ public static class FileManagement
 			string path = GetFilePath(fileName);
 			if (!File.Exists(path))
 			{
-				File.Create(path);
+				using (StreamWriter sw = File.CreateText(path))
+				{
+					sw.Close();
+				}
 				Debug.LogWarning($"File not found at {path}. Let there be a file.");
 			}
 
