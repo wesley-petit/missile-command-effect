@@ -1,6 +1,6 @@
 # Missile Command Effect
 ## About The Project
-Missile Command Effect is an Oculus Game (VR) produce in a 3 weeks game jam in them.  
+Missile Command Effect is an Oculus Game (VR) produce in a 3 weeks game jam.  
 
 The theme for our jam is "Effect", inspired by Tetris Effect. The idea is to create an experience 
 from a simple arcade game, adding impactful VR visuals and music-visual synchronization.
